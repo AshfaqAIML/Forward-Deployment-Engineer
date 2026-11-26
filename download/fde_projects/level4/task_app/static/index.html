@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task Tracker</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 640px; margin: 24px auto; padding: 0 12px; }
+  h1 { color: #2c3440; }
+  .row { display: flex; gap: 8px; margin-bottom: 16px; }
+  input[type=text] { flex: 1; padding: 8px; border: 1px solid #ccd; border-radius: 6px; }
+  button { padding: 8px 14px; border: 0; border-radius: 6px; background: #c27e4d; color: #fff; cursor: pointer; }
+  li { list-style: none; padding: 10px 8px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+  li.done span { text-decoration: line-through; color: #98a; }
+  li span.title { flex: 1; }
+  .del { background: #98a0ab; }
+  #health { color: #68727e; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<h1>Task Tracker</h1>
+<p id="health">connecting…</p>
+<div class="row">
+  <input id="title" type="text" placeholder="New task title" maxlength="200">
+  <button onclick="addTask()">Add</button>
+</div>
+<ul id="tasks"></ul>
+<script>
+const API = "";
+
+async function refresh() {
+  const health = await fetch(API + "/api/health").then(r => r.json());
+  document.getElementById("health").textContent =
+    "API status: " + health.status + " | " + health.tasks + " task(s) stored";
+  const tasks = await fetch(API + "/api/tasks").then(r => r.json());
+  const ul = document.getElementById("tasks");
+  ul.innerHTML = "";
+  for (const t of tasks) {
+    const li = document.createElement("li");
+    li.className = t.done ? "done" : "";
+    const box = document.createElement("input");
+    box.type = "checkbox"; box.checked = t.done;
+    box.onchange = () => toggle(t.id, box.checked);
+    const span = document.createElement("span");
+    span.className = "title"; span.textContent = t.title;
+    const del = document.createElement("button");
+    del.className = "del"; del.textContent = "Delete";
+    del.onclick = () => remove(t.id);
+    li.append(box, span, del);
+    ul.append(li);
+  }
+}
+
+async function addTask() {
+  const input = document.getElementById("title");
+  if (!input.value.trim()) return;
+  await fetch(API + "/api/tasks", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({title: input.value.trim()})
+  });
+  input.value = "";
+  refresh();
+}
+
+async function toggle(id, done) {
+  await fetch(API + "/api/tasks/" + id, {
+    method: "PATCH",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({done: done})
+  });
+  refresh();
+}
+
+async function remove(id) {
+  await fetch(API + "/api/tasks/" + id, {method: "DELETE"});
+  refresh();
+}
+
+refresh();
+</script>
+</body>
+</html>

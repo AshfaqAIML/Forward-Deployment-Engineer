@@ -1,0 +1,9 @@
+MEMO 001 - Standard NDA Template Notes
+Halewood & Partners, internal guidance (training material, invented).
+
+The firm's mutual non-disclosure agreement template is NDA-2024-M. It covers
+confidential information definitions, a five-year term, and carve-outs for
+information that is public, independently developed, or lawfully received.
+The signature block requires one authorised partner signature per party.
+Client matters involving employee data use the NDA-2024-E variant instead,
+which adds a data-processing schedule.

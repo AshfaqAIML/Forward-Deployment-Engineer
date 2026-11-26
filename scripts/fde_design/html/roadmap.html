@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #1A2330; --text-sub: #46566B; --text-muted: #68727E;
+    --bg: #FFFFFF; --surface: #F8FAFC; --border: #E5E7EB; --connector: #94A3B8;
+    --amber: #F59E0B;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  #root { width: fit-content; min-width: 980px; max-width: 1100px; margin: 0 auto; padding: 48px 44px; }
+  .flow-title { font-size: 24px; font-weight: 700; color: var(--text); text-align: center; }
+  .flow-subtitle { font-size: 14px; color: var(--text-sub); text-align: center; margin-top: 8px; margin-bottom: 36px; }
+  .phase-group { background: var(--surface); border-radius: 12px; padding: 20px 24px; }
+  .phase-title { font-size: 16px; font-weight: 700; padding: 10px 16px; border-radius: 8px; margin-bottom: 14px; }
+  .phase-steps { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; }
+  .phase-step { font-size: 14px; font-weight: 400; color: var(--text); padding: 9px 14px; background: white;
+    border-radius: 6px; border: 1px solid var(--border); line-height: 1.5; }
+  .phase-step b { font-weight: 600; }
+  .step-num { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center;
+    border-radius: 50%; font-size: 12px; font-weight: 600; margin-right: 10px; }
+  .step-note { display: block; font-size: 12.5px; color: #92400E; margin-top: 5px; padding: 4px 10px;
+    background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 4px; }
+  .arrow { text-align: center; color: var(--connector); font-size: 22px; margin: 10px 0; }
+  .p1 .phase-title { background: #F0F4F8; color: #334155; border-left: 4px solid #64748B; }
+  .p1 .step-num { background: #E2E8F0; color: #475569; }
+  .p2 .phase-title { background: #E8EDF2; color: #1E3A5F; border-left: 4px solid #5B7A99; }
+  .p2 .step-num { background: #DBEAFE; color: #1E3A5F; }
+  .p3 .phase-title { background: #E0E7EF; color: #1E3050; border-left: 4px solid #4A6B8A; }
+  .p3 .step-num { background: #D0D9E4; color: #1E3050; }
+  .p4 .phase-title { background: #D8E0EA; color: #172540; border-left: 4px solid #3A5C7A; }
+  .p4 .step-num { background: #C7D2E0; color: #172540; }
+  .p5 .phase-title { background: #DAE1EB; color: #23364D; border-left: 4px solid #4B6A87; }
+  .p5 .step-num { background: #C7D2E0; color: #23364D; }
+  .p6 .phase-title { background: #D2DAE5; color: #1E3048; border-left: 4px solid #3B5F7D; }
+  .p6 .step-num { background: #BFC9D8; color: #1E3048; }
+  .p7 .phase-title { background: #CAD3E0; color: #192A3E; border-left: 4px solid #2B5473; }
+  .p7 .step-num { background: #B7C2D2; color: #192A3E; }
+  .legend { display: flex; gap: 24px; justify-content: center; margin-top: 28px; padding: 12px 20px;
+    background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px; color: #4B5563; }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px;
+    vertical-align: -1px; border: 2px solid #F59E0B; background: #FFF7ED; }
+  
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="flow-title">The 18-Stage Learning Roadmap &mdash; Mathematics Is Stage 2, Behind Only Orientation</div>
+  <div class="flow-subtitle">Seven phases carry a complete beginner from first arithmetic to simulated customer deployments and a career portfolio</div>
+  <div class="phase-group p1"><div class="phase-title">Phase A — Foundations (mathematics first)</div><div class="phase-steps"><div class="phase-step"><span class="step-num">1</span><b>Start Here & Study Skills</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Orientation · no prerequisites</span></div><div class="phase-step"><span class="step-num">2</span><b>Mathematical Foundations</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Book: Foundation Mathematics · Project P1.1</span></div><div class="phase-step"><span class="step-num">3</span><b>Algebra Essentials</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Book: Algebra · Topic test</span></div><div class="phase-step"><span class="step-num">4</span><b>Logic & Proof</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Book: Logic & Proof · Project P1.2</span></div><div class="phase-step"><span class="step-num">5</span><b>Graphs & Networks</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Book: Graphs & Networks · Topic test</span></div><div class="phase-step"><span class="step-num">6</span><b>Problem Solving</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Book: Problem Solving · Mock exam A</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p2"><div class="phase-title">Phase B — Programming</div><div class="phase-steps"><div class="phase-step"><span class="step-num">7</span><b>Programming Foundations I: Python</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: coding basics · Project P2.1</span></div><div class="phase-step"><span class="step-num">8</span><b>Programming Foundations II: Files & Automation</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: file handling · Project P2.2</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p3"><div class="phase-title">Phase C — Data & Databases</div><div class="phase-steps"><div class="phase-step"><span class="step-num">9</span><b>Data & Databases I: Cleaning</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Dataset: market sales · Project P3.1</span></div><div class="phase-step"><span class="step-num">10</span><b>Data & Databases II: SQL</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: SQL practice · Project P3.2</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p4"><div class="phase-title">Phase D — Application Development</div><div class="phase-steps"><div class="phase-step"><span class="step-num">11</span><b>Application Development I: APIs</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: API exercises · Project P4.1</span></div><div class="phase-step"><span class="step-num">12</span><b>Application Development II: Frontends</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: UI basics · Project P4.2</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p5"><div class="phase-title">Phase E — Cloud & Operations</div><div class="phase-steps"><div class="phase-step"><span class="step-num">13</span><b>Cloud & Deployment</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: containers · Project P5.1</span></div><div class="phase-step"><span class="step-num">14</span><b>Operations & Monitoring</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: ops drills · Project P5.2</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p6"><div class="phase-title">Phase F — AI Engineering</div><div class="phase-steps"><div class="phase-step"><span class="step-num">15</span><b>AI Engineering I: Assistants</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: AI laboratory · Project P6.1</span></div><div class="phase-step"><span class="step-num">16</span><b>AI Engineering II: Search & Evaluation</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Labs: AI laboratory · Project P6.2</span></div></div></div><div class="arrow">&#8595;</div><div class="phase-group p7"><div class="phase-title">Phase G — Deployment & Career</div><div class="phase-steps"><div class="phase-step"><span class="step-num">17</span><b>Complete FDE Deployments</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Projects P7.1–P7.3 · simulated engagements</span></div><div class="phase-step"><span class="step-num">18</span><b>Career Launch</b><span style="display:block;font-size:12.5px;color:#68727E;margin-top:3px;margin-left:32px;">Career Centre · portfolio & interviews</span></div></div></div>
+  <div class="legend"><span>Every stage lists its prerequisites, recommended lessons, related books, and linked projects on its detail page</span></div>
+</div>
+</body>
+</html>

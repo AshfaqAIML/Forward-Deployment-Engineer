@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', system-ui, sans-serif; }
+  #mindmap { padding: 60px; display: inline-block; min-width: 100%; position: relative; }
+  #mindmap > svg.lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+  .map-title { font-size: 24px; font-weight: 700; color: #1E293B; text-align: center; margin-bottom: 6px; }
+  .map-subtitle { font-size: 14px; color: #64748B; text-align: center; margin-bottom: 36px; }
+
+  #mindmap[data-intent="technical"] .root-node { background: linear-gradient(135deg, #1A2330, #2D4A6F); box-shadow: 0 4px 12px rgba(26,35,48,0.3); }
+  .root-node { color: white; font-size: 20px; font-weight: 700; padding: 18px 28px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; align-self: center; }
+  .root-node .root-sub { display: block; font-size: 12px; font-weight: 400; color: #C9D4E2; margin-top: 4px; }
+
+  .lr-tree { display: flex; align-items: center; gap: 0; position: relative; }
+  .lr-tree .root-node { padding: 20px 32px; border-radius: 14px; margin: 0 60px; text-align: center; }
+  .sub-branch { display: flex; align-items: flex-start; gap: 0; }
+
+  .left-branches { display: flex; flex-direction: column; gap: 22px; }
+  .left-branch { display: flex; align-items: flex-start; flex-direction: row-reverse; gap: 0; }
+  .left-branch .children { display: flex; flex-direction: column; gap: 6px; margin-right: 48px; align-items: flex-end; }
+  .left-branch .children:has(.sub-branch) { gap: 10px; }
+  .left-branch .sub-branch .children { gap: 5px; margin-right: 40px; margin-left: 0; align-items: flex-end; }
+  .left-branch .sub-branch { flex-direction: row-reverse; }
+
+  .right-branches { display: flex; flex-direction: column; gap: 22px; }
+  .right-branch { display: flex; align-items: flex-start; gap: 0; }
+  .right-branch .children { display: flex; flex-direction: column; gap: 6px; margin-left: 48px; align-items: flex-start; }
+  .right-branch .children:has(.sub-branch) { gap: 10px; }
+  .right-branch .sub-branch .children { gap: 5px; margin-left: 40px; align-items: flex-start; }
+
+  .branch-node { font-size: 15px; font-weight: 600; padding: 10px 20px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; border: 2px solid; }
+  .sub-node { font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; border: 1.5px solid; background: #F8FAFC; }
+  .leaf { font-size: 13px; font-weight: 400; color: #475569; padding: 4px 10px; background: #FAFAFA; border-radius: 12px; border: 1px solid #E5E7EB; white-space: nowrap; line-height: 1.5; width: fit-content; }
+  .leaf.tagged { border-style: dashed; }
+  .leaf-desc { font-size: 12px; color: #94A3B8; font-weight: 400; margin-left: 8px; }
+  .leaf-desc::before { content: '\2014  '; color: #CBD5E1; }
+
+  .c-blue { background: #EFF6FF; border-color: #3B82F6; color: #1E40AF; }
+  .c-green { background: #F0FDF4; border-color: #10B981; color: #065F46; }
+  .c-amber { background: #FFF7ED; border-color: #F59E0B; color: #92400E; }
+  .c-purple { background: #F5F3FF; border-color: #8B5CF6; color: #5B21B6; }
+  .c-red { background: #FEF2F2; border-color: #EF4444; color: #991B1B; }
+  .c-cyan { background: #ECFEFF; border-color: #06B6D4; color: #155E75; }
+  .c-teal { background: #F0FDFA; border-color: #14B8A6; color: #134E4A; }
+  .c-blue .sub-node { background: #F0F7FF; border-color: #93C5FD; color: #1E40AF; }
+  .c-green .sub-node { background: #F2FDF6; border-color: #6EE7B7; color: #065F46; }
+  .c-amber .sub-node { background: #FFF9F0; border-color: #FCD34D; color: #92400E; }
+  .c-red .sub-node { background: #FFF5F5; border-color: #FCA5A5; color: #991B1B; }
+  .c-cyan .sub-node { background: #F0FEFF; border-color: #67E8F9; color: #155E75; }
+  .c-teal .sub-node { background: #F2FDFA; border-color: #5EEAD4; color: #134E4A; }
+</style>
+</head>
+<body>
+<div id="mindmap" data-intent="technical">
+  <div class="map-title">FDE Academy &mdash; Complete Website Sitemap</div>
+  <div class="map-subtitle">Public discovery on the left, signed-in learning on the right, administration gated by role</div>
+  <div class="lr-tree">
+
+    <div class="left-branches">
+      <div class="left-branch">
+        <div class="branch-node c-blue">Public Site</div>
+        <div class="children">
+          <div class="leaf">Home <span class="leaf-desc">hero, intro, audience, featured</span></div>
+          <div class="leaf">Who is a Forward Deployed Engineer?</div>
+          <div class="leaf">Learning Roadmap preview <span class="leaf-desc">stages 1&ndash;3 visible</span></div>
+          <div class="leaf">FAQ &amp; About</div>
+          <div class="leaf">Sign in / Create free account</div>
+        </div>
+      </div>
+      <div class="left-branch">
+        <div class="branch-node c-teal">Library &amp; Reference</div>
+        <div class="children">
+          <div class="sub-branch">
+            <div class="sub-node c-teal">Digital Book Library</div>
+            <div class="children">
+              <div class="leaf">Search &amp; filters <span class="leaf-desc">subject, topic, difficulty</span></div>
+              <div class="leaf">Book page <span class="leaf-desc">cover, TOC, objectives</span></div>
+              <div class="leaf">DOCX / PDF download</div>
+              <div class="leaf">Reading progress</div>
+            </div>
+          </div>
+          <div class="sub-branch">
+            <div class="sub-node c-teal">Glossary</div>
+            <div class="children">
+              <div class="leaf">Searchable technical dictionary</div>
+              <div class="leaf">Category browse</div>
+              <div class="leaf">Term detail <span class="leaf-desc">simple, detailed, example</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="left-branch">
+        <div class="branch-node c-red">Administration <span class="leaf-desc">admin role</span></div>
+        <div class="children">
+          <div class="sub-branch">
+            <div class="sub-node c-red">Content management</div>
+            <div class="children">
+              <div class="leaf">Courses, modules, chapters, lessons</div>
+              <div class="leaf">Books &amp; downloads</div>
+              <div class="leaf">Quizzes &amp; questions</div>
+              <div class="leaf">Projects &amp; rubrics</div>
+            </div>
+          </div>
+          <div class="sub-branch">
+            <div class="sub-node c-red">Platform</div>
+            <div class="children">
+              <div class="leaf">Users &amp; roles</div>
+              <div class="leaf">Learning analytics</div>
+              <div class="leaf">Download catalogue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="root-node">FDE Academy<span class="root-sub">From Zero Knowledge to Real-World Engineering</span></div>
+
+    <div class="right-branches">
+      <div class="right-branch">
+        <div class="branch-node c-green">Learning Journey</div>
+        <div class="children">
+          <div class="sub-branch">
+            <div class="sub-node c-green">Learning Roadmap</div>
+            <div class="children">
+              <div class="leaf">18 stages, mathematics first</div>
+              <div class="leaf">Stage states <span class="leaf-desc">done / current / upcoming</span></div>
+              <div class="leaf">Stage detail <span class="leaf-desc">prerequisites, books, projects</span></div>
+            </div>
+          </div>
+          <div class="sub-branch">
+            <div class="sub-node c-green">Course Library</div>
+            <div class="children">
+              <div class="leaf">Subject &amp; difficulty filters</div>
+              <div class="leaf">Course page <span class="leaf-desc">modules &rarr; chapters &rarr; lessons</span></div>
+              <div class="leaf">Completion status</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-branch">
+        <div class="branch-node c-amber">Practice &amp; Assessment</div>
+        <div class="children">
+          <div class="sub-branch">
+            <div class="sub-node c-amber">Practical Labs</div>
+            <div class="children">
+              <div class="leaf">Coding exercises</div>
+              <div class="leaf">Mathematics drills</div>
+              <div class="leaf">Problem-solving activities</div>
+              <div class="leaf">Database &amp; API labs</div>
+              <div class="leaf">AI laboratories</div>
+            </div>
+          </div>
+          <div class="sub-branch">
+            <div class="sub-node c-amber">Project Centre</div>
+            <div class="children">
+              <div class="leaf">Guided projects &amp; challenges</div>
+              <div class="leaf">Instructions &amp; starter code</div>
+              <div class="leaf">Submission &amp; rubric</div>
+            </div>
+          </div>
+          <div class="sub-branch">
+            <div class="sub-node c-amber">Assessment Centre</div>
+            <div class="children">
+              <div class="leaf">Quizzes &amp; topic tests</div>
+              <div class="leaf">Subject tests &amp; mock exams</div>
+              <div class="leaf">Progress reports</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-branch">
+        <div class="branch-node c-cyan">Student Dashboard</div>
+        <div class="children">
+          <div class="leaf">Overall progress &amp; current stage</div>
+          <div class="leaf">Study streak &amp; quiz results</div>
+          <div class="leaf">Book reading progress</div>
+          <div class="leaf">Recommended next activity</div>
+        </div>
+      </div>
+      <div class="right-branch">
+        <div class="branch-node c-purple">Career Centre</div>
+        <div class="children">
+          <div class="leaf">FDE career guide</div>
+          <div class="leaf">Interview preparation <span class="leaf-desc">technical, coding, system design</span></div>
+          <div class="leaf">Portfolio &amp; CV guidance</div>
+          <div class="leaf">Customer communication practice</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+function drawAllLines() {
+  const map = document.getElementById('mindmap');
+  if (!map) { return; }
+  const cRect = map.getBoundingClientRect();
+  const old = map.querySelector('svg.lines');
+  if (old) old.remove();
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.classList.add('lines');
+  svg.setAttribute('width', cRect.width);
+  svg.setAttribute('height', cRect.height);
+  svg.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;z-index:1;';
+  const lineStyles = [
+    { color: '#64748B', width: 2.5 },
+    { color: '#94A3B8', width: 2 },
+    { color: '#A8B4C2', width: 1.5 },
+    { color: '#B8C2CC', width: 1.2 },
+    { color: '#CBD5E1', width: 1 },
+  ];
+  function getLineStyle(bc, depth) { const s = lineStyles[Math.min(depth, lineStyles.length - 1)]; return { color: s.color, width: s.width }; }
+  function rel(el) { const r = el.getBoundingClientRect(); return { cx: r.left - cRect.left + r.width/2, cy: r.top - cRect.top + r.height/2, left: r.left - cRect.left, right: r.right - cRect.left }; }
+  function drawLine(x1, y1, x2, y2, color, width) {
+    const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    l.setAttribute('x1', Math.round(x1)); l.setAttribute('y1', Math.round(y1));
+    l.setAttribute('x2', Math.round(x2)); l.setAttribute('y2', Math.round(y2));
+    l.setAttribute('stroke', color); l.setAttribute('stroke-width', width);
+    l.setAttribute('stroke-linecap', 'round'); svg.appendChild(l);
+  }
+  function connect(parentEl, childEls, color, width, dir) {
+    if (!childEls.length) return;
+    const p = rel(parentEl);
+    const startX = dir === 'left' ? p.left : p.right;
+    const startY = p.cy;
+    if (childEls.length === 1) {
+      const c = rel(childEls[0]);
+      const endX = dir === 'left' ? c.right : c.left;
+      const midY = Math.round((startY + c.cy) / 2);
+      drawLine(startX, midY, endX, midY, color, width);
+      return;
+    }
+    let closestEdge;
+    if (dir === 'left') closestEdge = Math.max(...childEls.map(ch => rel(ch).right));
+    else closestEdge = Math.min(...childEls.map(ch => rel(ch).left));
+    const childClearance = 16;
+    const midpoint = startX + (closestEdge - startX) / 2;
+    const midFromChild = dir === 'left' ? closestEdge + childClearance : closestEdge - childClearance;
+    const midX = dir === 'left' ? Math.min(midpoint, midFromChild) : Math.max(midpoint, midFromChild);
+    drawLine(startX, startY, midX, startY, color, width);
+    const allCYs = childEls.map(ch => rel(ch).cy);
+    const minY = Math.min(startY, ...allCYs);
+    const maxY = Math.max(startY, ...allCYs);
+    drawLine(midX, minY, midX, maxY, color, width);
+    childEls.forEach(ch => {
+      const c = rel(ch);
+      const endX = dir === 'left' ? c.right : c.left;
+      drawLine(midX, c.cy, endX, c.cy, color, width);
+    });
+  }
+  const NODE_SEL = '.branch-node, .sub-node, .leaf, .deep-node';
+  const CONTAINER_SEL = ':scope > .children, :scope > .leaf-group, :scope > .deep-group';
+  function processChildren(parentNodeEl, containerEl, branchColor, depth, dir) {
+    if (!containerEl) return;
+    const childNodeEls = [];
+    for (const wrapper of containerEl.children) {
+      const nodeEl = wrapper.matches?.(NODE_SEL) ? wrapper : wrapper.querySelector(NODE_SEL);
+      if (nodeEl) childNodeEls.push(nodeEl);
+    }
+    if (!childNodeEls.length) return;
+    const style = getLineStyle(branchColor, depth);
+    connect(parentNodeEl, childNodeEls, style.color, style.width, dir);
+    for (const wrapper of containerEl.children) {
+      const nodeEl = wrapper.matches?.(NODE_SEL) ? wrapper : wrapper.querySelector(NODE_SEL);
+      if (!nodeEl) continue;
+      wrapper.querySelectorAll(CONTAINER_SEL).forEach(nc => processChildren(nodeEl, nc, branchColor, depth + 1, dir));
+    }
+  }
+  const rootNode = map.querySelector('.root-node');
+  if (!rootNode) return;
+  const leftBranches = map.querySelectorAll('.left-branches > .left-branch');
+  const leftBranchNodes = [];
+  leftBranches.forEach(branch => { const b = branch.querySelector('.branch-node'); if (b) leftBranchNodes.push(b); });
+  if (leftBranchNodes.length) connect(rootNode, leftBranchNodes, lineStyles[0].color, lineStyles[0].width, 'left');
+  leftBranches.forEach(branch => {
+    const b = branch.querySelector('.branch-node'); if (!b) return;
+    processChildren(b, branch.querySelector(':scope > .children'), null, 1, 'left');
+  });
+  const rightBranches = map.querySelectorAll('.right-branches > .right-branch');
+  const rightBranchNodes = [];
+  rightBranches.forEach(branch => { const b = branch.querySelector('.branch-node'); if (b) rightBranchNodes.push(b); });
+  if (rightBranchNodes.length) connect(rootNode, rightBranchNodes, lineStyles[0].color, lineStyles[0].width, 'right');
+  rightBranches.forEach(branch => {
+    const b = branch.querySelector('.branch-node'); if (!b) return;
+    processChildren(b, branch.querySelector(':scope > .children'), null, 1, 'right');
+  });
+  map.insertBefore(svg, map.firstChild);
+}
+window.addEventListener('load', () => setTimeout(drawAllLines, 300));
+</script>
+</body>
+</html>

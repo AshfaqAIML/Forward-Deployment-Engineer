@@ -1,0 +1,353 @@
+{
+ "sitemap": {
+  "kind": "diagram",
+  "orig": [
+   3257,
+   1704
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/sitemap.png",
+    "w": 586,
+    "h": 306
+   }
+  ]
+ },
+ "roadmap_18_stages": {
+  "kind": "diagram",
+  "orig": [
+   2200,
+   4876
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/roadmap_18_stages_p1.png",
+    "w": 586,
+    "h": 649
+   },
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/roadmap_18_stages_p2.png",
+    "w": 586,
+    "h": 649
+   }
+  ]
+ },
+ "journey_beginner": {
+  "kind": "diagram",
+  "orig": [
+   1960,
+   2954
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/journey_beginner_p1.png",
+    "w": 586,
+    "h": 441
+   },
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/journey_beginner_p2.png",
+    "w": 586,
+    "h": 441
+   }
+  ]
+ },
+ "journey_daily": {
+  "kind": "diagram",
+  "orig": [
+   1960,
+   2558
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/journey_daily.png",
+    "w": 586,
+    "h": 764
+   }
+  ]
+ },
+ "journey_book": {
+  "kind": "diagram",
+  "orig": [
+   1960,
+   2458
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/journey_book.png",
+    "w": 586,
+    "h": 734
+   }
+  ]
+ },
+ "journey_project": {
+  "kind": "diagram",
+  "orig": [
+   1960,
+   2558
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/journey_project.png",
+    "w": 586,
+    "h": 764
+   }
+  ]
+ },
+ "journey_admin": {
+  "kind": "diagram",
+  "orig": [
+   1872,
+   2520
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/journey_admin.png",
+    "w": 586,
+    "h": 788
+   }
+  ]
+ },
+ "architecture": {
+  "kind": "diagram",
+  "orig": [
+   2640,
+   2270
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/architecture.png",
+    "w": 586,
+    "h": 503
+   }
+  ]
+ },
+ "erd": {
+  "kind": "diagram",
+  "orig": [
+   2800,
+   2892
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/diagrams/erd.png",
+    "w": 586,
+    "h": 605
+   }
+  ]
+ },
+ "wf_home": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   3169
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/wf_home_p1.png",
+    "w": 586,
+    "h": 645
+   },
+   {
+    "path": "/home/z/my-project/download/fde_design/embed/wf_home_p2.png",
+    "w": 586,
+    "h": 644
+   }
+  ]
+ },
+ "wf_roadmap": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1693
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_roadmap.png",
+    "w": 586,
+    "h": 688
+   }
+  ]
+ },
+ "wf_courses": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1161
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_courses.png",
+    "w": 586,
+    "h": 472
+   }
+  ]
+ },
+ "wf_course_detail": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1346
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_course_detail.png",
+    "w": 586,
+    "h": 547
+   }
+  ]
+ },
+ "wf_books": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1020
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_books.png",
+    "w": 586,
+    "h": 415
+   }
+  ]
+ },
+ "wf_book_detail": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1319
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_book_detail.png",
+    "w": 586,
+    "h": 536
+   }
+  ]
+ },
+ "wf_lab": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   966
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_lab.png",
+    "w": 586,
+    "h": 393
+   }
+  ]
+ },
+ "wf_project": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1245
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_project.png",
+    "w": 586,
+    "h": 506
+   }
+  ]
+ },
+ "wf_assessment": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1102
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_assessment.png",
+    "w": 586,
+    "h": 448
+   }
+  ]
+ },
+ "wf_glossary": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   917
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_glossary.png",
+    "w": 586,
+    "h": 373
+   }
+  ]
+ },
+ "wf_dashboard": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1089
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_dashboard.png",
+    "w": 586,
+    "h": 443
+   }
+  ]
+ },
+ "wf_career": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1071
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_career.png",
+    "w": 586,
+    "h": 435
+   }
+  ]
+ },
+ "wf_admin": {
+  "kind": "desktop",
+  "orig": [
+   1440,
+   1051
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_admin.png",
+    "w": 586,
+    "h": 427
+   }
+  ]
+ },
+ "wf_mobile_home": {
+  "kind": "mobile",
+  "orig": [
+   780,
+   2122
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_mobile_home.png",
+    "w": 323,
+    "h": 880
+   }
+  ]
+ },
+ "wf_mobile_dashboard": {
+  "kind": "mobile",
+  "orig": [
+   780,
+   2038
+  ],
+  "slices": [
+   {
+    "path": "/home/z/my-project/download/fde_design/wireframes/wf_mobile_dashboard.png",
+    "w": 336,
+    "h": 880
+   }
+  ]
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "identifier": "FDE-BK-001",
+ "slug": "fm",
+ "title": "Foundation Mathematics",
+ "subtitle": "The arithmetic behind every business decision",
+ "subject": "Mathematics",
+ "difficulty": "Beginner",
+ "stageNumber": 2,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "The mathematics an FDE actually uses: the four operations as business questions, fractions and decimals as money, percentages, ratios and best buys, break-even as the first business model — every idea met inside market stalls and wages before it is written as a formula.",
+ "objectives": [
+  "Choose the right operation for any business question",
+  "Compute money sums, differences, products and shares with honest checks",
+  "Read break-even as a model, not a formula",
+  "Turn tables and charts into answers"
+ ],
+ "chapters": [
+  {
+   "lessons": [
+    "fm-1"
+   ]
+  },
+  {
+   "lessons": [
+    "fm-2"
+   ]
+  },
+  {
+   "lessons": [
+    "fm-3"
+   ]
+  },
+  {
+   "lessons": [
+    "fm-4"
+   ]
+  },
+  {
+   "lessons": [
+    "fm-5"
+   ]
+  },
+  {
+   "lessons": [
+    "fm-6"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Mathematics"
+ ],
+ "references": [
+  {
+   "text": "OpenStax, Prealgebra 2e (open textbook).",
+   "url": "https://openstax.org/details/books/prealgebra-2e"
+  },
+  {
+   "text": "Khan Academy, Arithmetic and Pre-algebra course.",
+   "url": "https://www.khanacademy.org/math/arithmetic"
+  },
+  {
+   "text": "ISO 80000-2:2019, Quantities and units — Part 2: Mathematical signs and symbols to be used in the natural sciences and technology. International Organization for Standardization."
+  }
+ ]
+}

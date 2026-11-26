@@ -1,0 +1,76 @@
+{
+ "identifier": "FDE-BK-006",
+ "slug": "hb",
+ "title": "FDE Project Handbook",
+ "subtitle": "Your working handbook for projects and practice",
+ "subject": "Projects",
+ "difficulty": "Beginner",
+ "stageNumber": 7,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "How the Foundation Degree runs in practice: the study system, programming practice labs, real customer projects at three levels, and the AI engineering practice that ties it together — assembled from the platform's approved teaching.",
+ "objectives": [
+  "Run the study system that keeps progress honest",
+  "Work through programming practice labs with confidence",
+  "Deliver Level 1–3 customer projects end to end",
+  "Practise AI engineering with assistants"
+ ],
+ "chapters": [
+  {
+   "title": "Working like an FDE: the study system",
+   "lessons": [
+    "st-1",
+    "st-2",
+    "st-3"
+   ]
+  },
+  {
+   "title": "Programming practice labs",
+   "lessons": [
+    "pg-1",
+    "pg-2",
+    "pg-3",
+    "pg-4",
+    "pg-5"
+   ]
+  },
+  {
+   "title": "Level 1 projects — first customer work",
+   "lessons": [
+    "project:1-1"
+   ]
+  },
+  {
+   "title": "Level 2–3 projects — growing responsibility",
+   "lessons": [
+    "project:2-3"
+   ]
+  },
+  {
+   "title": "AI engineering practice",
+   "lessons": [
+    "ai-1",
+    "ai-2",
+    "ai-3",
+    "ai-4"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Programming",
+  "AI",
+  "Careers",
+  "Study skills"
+ ],
+ "references": [
+  {
+   "text": "MDN Web Docs — JavaScript reference and guides.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+   "text": "Pro Git (2nd edition), the official Git book.",
+   "url": "https://git-scm.com/book"
+  }
+ ]
+}

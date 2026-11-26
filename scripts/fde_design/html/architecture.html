@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #1A2330; --text-sub: #46566B; --text-muted: #68727E;
+    --bg: #FFFFFF; --surface: #F8FAFC; --border: #E5E7EB; --connector: #94A3B8;
+    --amber: #F59E0B;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  #root { width: fit-content; min-width: 1180px; max-width: 1320px; margin: 0 auto; padding: 48px 44px; }
+  .flow-title { font-size: 24px; font-weight: 700; color: var(--text); text-align: center; }
+  .flow-subtitle { font-size: 14px; color: var(--text-sub); text-align: center; margin-top: 8px; margin-bottom: 36px; }
+  .phase-group { background: var(--surface); border-radius: 12px; padding: 20px 24px; }
+  .phase-title { font-size: 16px; font-weight: 700; padding: 10px 16px; border-radius: 8px; margin-bottom: 14px; }
+  .phase-steps { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; }
+  .phase-step { font-size: 14px; font-weight: 400; color: var(--text); padding: 9px 14px; background: white;
+    border-radius: 6px; border: 1px solid var(--border); line-height: 1.5; }
+  .phase-step b { font-weight: 600; }
+  .step-num { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center;
+    border-radius: 50%; font-size: 12px; font-weight: 600; margin-right: 10px; }
+  .step-note { display: block; font-size: 12.5px; color: #92400E; margin-top: 5px; padding: 4px 10px;
+    background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 4px; }
+  .arrow { text-align: center; color: var(--connector); font-size: 22px; margin: 10px 0; }
+  .p1 .phase-title { background: #F0F4F8; color: #334155; border-left: 4px solid #64748B; }
+  .p1 .step-num { background: #E2E8F0; color: #475569; }
+  .p2 .phase-title { background: #E8EDF2; color: #1E3A5F; border-left: 4px solid #5B7A99; }
+  .p2 .step-num { background: #DBEAFE; color: #1E3A5F; }
+  .p3 .phase-title { background: #E0E7EF; color: #1E3050; border-left: 4px solid #4A6B8A; }
+  .p3 .step-num { background: #D0D9E4; color: #1E3050; }
+  .p4 .phase-title { background: #D8E0EA; color: #172540; border-left: 4px solid #3A5C7A; }
+  .p4 .step-num { background: #C7D2E0; color: #172540; }
+  .p5 .phase-title { background: #DAE1EB; color: #23364D; border-left: 4px solid #4B6A87; }
+  .p5 .step-num { background: #C7D2E0; color: #23364D; }
+  .p6 .phase-title { background: #D2DAE5; color: #1E3048; border-left: 4px solid #3B5F7D; }
+  .p6 .step-num { background: #BFC9D8; color: #1E3048; }
+  .p7 .phase-title { background: #CAD3E0; color: #192A3E; border-left: 4px solid #2B5473; }
+  .p7 .step-num { background: #B7C2D2; color: #192A3E; }
+  .legend { display: flex; gap: 24px; justify-content: center; margin-top: 28px; padding: 12px 20px;
+    background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px; color: #4B5563; }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px;
+    vertical-align: -1px; border: 2px solid #F59E0B; background: #FFF7ED; }
+  
+    .arc-band { border-radius: 12px; padding: 16px 20px; display: flex; gap: 20px; align-items: stretch; }
+    .arc-band-label { flex: 0 0 190px; border-left: 4px solid; padding-left: 14px; align-self: center; }
+    .arc-band-name { font-size: 16px; font-weight: 700; color: #1E3050; }
+    .arc-band-note { font-size: 12px; color: #566270; margin-top: 3px; line-height: 1.4; }
+    .arc-cards { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-content: center; }
+    .arc-cards-wide { grid-template-columns: repeat(4, 1fr); }
+    .arc-card { background: #FFFFFF; border: 1px solid #D7DFE8; border-radius: 8px; padding: 10px 12px; }
+    .arc-card-name { font-size: 13.5px; font-weight: 600; color: #1E3050; }
+    .arc-card-note { font-size: 11.5px; color: #68727E; margin-top: 3px; line-height: 1.45; }
+    
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="flow-title">FDE Academy &mdash; Technical Architecture</div>
+  <div class="flow-subtitle">A modular monolith behind one gateway: simple to operate at launch, clean to split into services later</div>
+  <div class="arc-band" style="background:#F0F4F8;"><div class="arc-band-label" style="border-left-color:#64748B;"><div class="arc-band-name">Client Layer</div><div class="arc-band-note">What learners and admins touch</div></div><div class="arc-cards "><div class="arc-card"><div class="arc-card-name">Student Web App</div><div class="arc-card-note">Responsive browser app; the whole learning experience</div></div><div class="arc-card"><div class="arc-card-name">Admin Console</div><div class="arc-card-note">Content, users, analytics — role-gated</div></div><div class="arc-card"><div class="arc-card-name">Email Digests</div><div class="arc-card-note">Weekly progress summary; readable as plain text</div></div></div></div><div class="arrow">&#8595;</div><div class="arc-band" style="background:#E8EDF2;"><div class="arc-band-label" style="border-left-color:#5B7A99;"><div class="arc-band-name">Edge & Delivery</div><div class="arc-band-note">Fast and safe entry points</div></div><div class="arc-cards "><div class="arc-card"><div class="arc-card-name">CDN + Caching</div><div class="arc-card-note">Static assets and downloaded books</div></div><div class="arc-card"><div class="arc-card-name">TLS & WAF</div><div class="arc-card-note">Encryption in transit; common attacks filtered</div></div><div class="arc-card"><div class="arc-card-name">Rate Limiting</div><div class="arc-card-note">Protects quizzes, search and the AI assistant</div></div></div></div><div class="arrow">&#8595;</div><div class="arc-band" style="background:#E0E7EF;"><div class="arc-band-label" style="border-left-color:#4A6B8A;"><div class="arc-band-name">Application Layer</div><div class="arc-band-note">One API gateway over modular services</div></div><div class="arc-cards arc-cards-wide"><div class="arc-card"><div class="arc-card-name">Auth & Roles</div><div class="arc-card-note">Accounts, sessions, student/admin roles</div></div><div class="arc-card"><div class="arc-card-name">Content Service</div><div class="arc-card-note">Courses, modules, chapters, lessons, glossary</div></div><div class="arc-card"><div class="arc-card-name">Progress Service</div><div class="arc-card-note">Enrollment, completion, streaks, events</div></div><div class="arc-card"><div class="arc-card-name">Assessment Service</div><div class="arc-card-note">Quizzes, attempts, grading, reports</div></div><div class="arc-card"><div class="arc-card-name">Projects Service</div><div class="arc-card-note">Briefs, submissions, rubric checks</div></div><div class="arc-card"><div class="arc-card-name">Search Service</div><div class="arc-card-note">Courses, books, glossary full-text search</div></div><div class="arc-card"><div class="arc-card-name">Notifications</div><div class="arc-card-note">In-app and email, digest-first</div></div><div class="arc-card"><div class="arc-card-name">AI Study Assistant</div><div class="arc-card-note">Optional; grounded on academy content only</div></div></div></div><div class="arrow">&#8595;</div><div class="arc-band" style="background:#D8E0EA;"><div class="arc-band-label" style="border-left-color:#3A5C7A;"><div class="arc-band-name">Data Layer</div><div class="arc-band-note">One source of truth, fast caches</div></div><div class="arc-cards "><div class="arc-card"><div class="arc-card-name">PostgreSQL</div><div class="arc-card-note">Content, progress, attempts, submissions</div></div><div class="arc-card"><div class="arc-card-name">Redis</div><div class="arc-card-note">Sessions, cache, rate-limit counters</div></div><div class="arc-card"><div class="arc-card-name">Object Storage</div><div class="arc-card-note">Book DOCX/PDF files, images, media</div></div><div class="arc-card"><div class="arc-card-name">Search Index</div><div class="arc-card-note">Postgres full-text or Meilisearch</div></div></div></div><div class="arrow">&#8595;</div><div class="arc-band" style="background:#D2DAE5;"><div class="arc-band-label" style="border-left-color:#3B5F7D;"><div class="arc-band-name">Platform & Operations</div><div class="arc-band-note">How it stays healthy</div></div><div class="arc-cards "><div class="arc-card"><div class="arc-card-name">CI/CD</div><div class="arc-card-note">Automated tests and deployment pipeline</div></div><div class="arc-card"><div class="arc-card-name">Observability</div><div class="arc-card-note">Logs, metrics, traces; alerting on health</div></div><div class="arc-card"><div class="arc-card-name">Backups & DR</div><div class="arc-card-note">Nightly backups; rehearsed restore</div></div><div class="arc-card"><div class="arc-card-name">Privacy-first Analytics</div><div class="arc-card-note">Aggregate learning metrics; no tracking ads</div></div></div></div>
+  <div class="legend"><span>Cross-cutting concerns (apply to every layer): Security (OWASP, least privilege) &nbsp;·&nbsp; Accessibility (WCAG 2.1 AA) &nbsp;·&nbsp; Performance budgets &nbsp;·&nbsp; Content versioning &nbsp;·&nbsp; GDPR-style data care</span></div>
+</div>
+</body>
+</html>

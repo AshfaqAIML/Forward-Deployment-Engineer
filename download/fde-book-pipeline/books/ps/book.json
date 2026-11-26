@@ -1,0 +1,54 @@
+{
+ "identifier": "FDE-BK-005",
+ "slug": "ps",
+ "title": "Problem Solving",
+ "subtitle": "Understand, plan, solve, check",
+ "subject": "Mathematics",
+ "difficulty": "Intermediate",
+ "stageNumber": 6,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "A repeatable method for messy problems: understand before solving, plan before computing, check before claiming — trained on estimation, ratios and the classic traps.",
+ "objectives": [
+  "Apply the four-step method to unfamiliar problems",
+  "Estimate before computing",
+  "Choose and justify an approach",
+  "Check results like a professional"
+ ],
+ "chapters": [
+  {
+   "lessons": [
+    "ps-1"
+   ]
+  },
+  {
+   "lessons": [
+    "ps-2"
+   ]
+  },
+  {
+   "lessons": [
+    "ps-3"
+   ]
+  },
+  {
+   "lessons": [
+    "ps-4"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Mathematics",
+  "Problem solving"
+ ],
+ "references": [
+  {
+   "text": "Pólya, G., How to Solve It: A New Aspect of Mathematical Method. Princeton University Press."
+  },
+  {
+   "text": "OpenStax, Prealgebra 2e (open textbook).",
+   "url": "https://openstax.org/details/books/prealgebra-2e"
+  }
+ ]
+}

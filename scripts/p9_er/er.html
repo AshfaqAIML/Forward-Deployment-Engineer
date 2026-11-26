@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #111827; --text-sub: #6B7280; --text-muted: #9CA3AF;
+    --bg: #FFFFFF; --border: #E5E7EB; --connector: #94A3B8;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  #root { width: fit-content; min-width: 1380px; margin: 0 auto; padding: 48px 44px; background: #FFFFFF; }
+
+  .flow-title { font-size: 24px; font-weight: 700; text-align: center; }
+  .flow-subtitle { font-size: 13.5px; color: var(--text-sub); text-align: center; margin-top: 8px; margin-bottom: 34px; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+
+  .core-strip { display: flex; flex-wrap: wrap; gap: 10px 14px; justify-content: center; padding: 16px 18px;
+    background: #F8FAFC; border: 1.5px dashed #E2E8F0; border-radius: 12px; margin-bottom: 30px; }
+  .core-strip .cs-title { flex-basis: 100%; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .8px; color: var(--text-sub); text-transform: uppercase; margin-bottom: 2px; }
+  .rel-chip { font-size: 12px; color: #334155; background: #FFFFFF; border: 1px solid #D6DEE8; border-radius: 7px; padding: 5px 10px; }
+  .rel-chip b { font-weight: 600; }
+  .rel-chip .card { color: var(--text-muted); }
+
+  .phase-group { background: #F8FAFC; border-radius: 12px; padding: 18px 22px 20px; }
+  .phase-title { font-size: 16px; font-weight: 700; padding: 9px 14px; border-radius: 8px; margin-bottom: 14px;
+    display: flex; justify-content: space-between; align-items: baseline; }
+  .phase-title .dom-meta { font-size: 11.5px; font-weight: 500; opacity: .75; }
+  .arrow-down { text-align: center; color: #94A3B8; font-size: 22px; margin: 6px 0; line-height: 1; }
+
+  /* same-hue blue-gray progression, 7 domains (Scheme B) */
+  .phase-1 .phase-title { background: #F1F5F9; color: #334155; border-left: 4px solid #94A3B8; }
+  .phase-2 .phase-title { background: #EAEFF5; color: #2D4156; border-left: 4px solid #7B8FA3; }
+  .phase-3 .phase-title { background: #E4EBF1; color: #29394B; border-left: 4px solid #6B809A; }
+  .phase-4 .phase-title { background: #DDE6EE; color: #26364A; border-left: 4px solid #5B7590; }
+  .phase-5 .phase-title { background: #D6E1EA; color: #23364D; border-left: 4px solid #4B6A87; }
+  .phase-6 .phase-title { background: #CFDCE7; color: #1E3048; border-left: 4px solid #3B5F7D; }
+  .phase-7 .phase-title { background: #C8D7E3; color: #192A3E; border-left: 4px solid #2B5473; }
+
+  .entity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .entity-grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+  .entity { background: #FFFFFF; border: 1.5px solid #C9D4E0; border-radius: 9px; padding: 10px 12px; box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+  .entity.wide { grid-column: span 2; }
+  .entity-name { font-size: 13px; font-weight: 700; color: #1E3A5F; padding-bottom: 6px; border-bottom: 1px solid #EDF1F6; margin-bottom: 6px; }
+  .entity-name .card-badge { float: right; font-size: 10.5px; font-weight: 600; color: #64748B; background: #F1F5F9; border-radius: 4px; padding: 1px 6px; }
+  .field { font-size: 11.5px; color: #374151; line-height: 1.55; display: flex; gap: 6px; align-items: baseline; }
+  .field .fname { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .field .pk { font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+  .field .tag { flex: 0 0 auto; font-size: 9.5px; font-weight: 700; border-radius: 3px; padding: 0 4px; line-height: 1.5; letter-spacing: .3px; }
+  .tag.pk-t { background: #EEF2FF; color: #4338CA; }
+  .tag.fk-t { background: #FFF7ED; color: #B45309; }
+  .tag.uq-t { background: #F0FDF4; color: #047857; }
+  .field .note { color: var(--text-muted); font-size: 10.5px; margin-left: auto; }
+
+  .flow-legend { display: flex; gap: 22px; justify-content: center; margin-top: 30px; padding: 14px 22px;
+    background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: #4B5563; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="flow-title">FDE Academy — PostgreSQL Entity-Relationship Model</div>
+  <div class="flow-subtitle">41 tables · 5 views · 7 domains · UUID keys throughout · v2 adds the knowledge-check feedback tables (Domain 4) and mastery views</div>
+
+  <div class="core-strip">
+    <div class="cs-title">Core relationships</div>
+    <span class="rel-chip mono"><b>users</b> 1─1 <b>user_profiles</b></span>
+    <span class="rel-chip mono"><b>courses</b> 1─N <b>modules</b> 1─N <b>chapters</b> 1─N <b>lessons</b></span>
+    <span class="rel-chip mono"><b>lessons</b> 1─1 <b>quizzes</b> 1─N <b>questions</b> 1─N <b>question_options</b></span>
+    <span class="rel-chip mono"><b>users</b> 1─N <b>quiz_attempts</b> N─1 <b>quizzes</b></span>
+    <span class="rel-chip mono"><b>quiz_attempts</b> 1─N <b>attempt_answers</b> N─1 <b>question_options</b></span>
+    <span class="rel-chip mono"><b>books</b> 1─N <b>book_chapters</b></span>
+    <span class="rel-chip mono"><b>book_editions</b> 1─1 <b>files</b> 1─N <b>file_versions</b></span>
+    <span class="rel-chip mono"><b>files</b> 1─N <b>download_tokens</b> / <b>download_records</b></span>
+    <span class="rel-chip mono"><b>projects</b> 1─1 <b>project_submissions</b> 1─1 <b>evaluation_results</b></span>
+    <span class="rel-chip mono"><b>users</b> N─M <b>lessons</b> <span class="card">via lesson_completions</span></span>
+    <span class="rel-chip mono"><b>content_drafts</b> N─1 <b>users</b> <span class="card">author</span> · 1─N <b>content_reviews</b></span>
+    <span class="rel-chip mono"><b>questions</b> 1─1 <b>question_feedback</b> · <b>question_options</b> 1─1 <b>option_feedback</b> <span class="card">v2</span></span>
+  </div>
+
+  <div class="phase-group phase-1">
+    <div class="phase-title"><span>Domain 1 · Users &amp; Access</span><span class="dom-meta">migration 0001 · scrypt hashes · rotating refresh tokens</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">users<span class="card-badge">core</span></div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span><span class="note">uuid</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">email</span><span class="note">lowercase</span></div>
+        <div class="field"><span></span><span class="fname">password_hash</span><span class="note">scrypt$salt$hash</span></div>
+        <div class="field"><span></span><span class="fname">role</span><span class="note">student | author | admin</span></div>
+        <div class="field"><span></span><span class="fname">status · last_login_at</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">user_profiles</div>
+        <div class="field"><span class="tag pk-t">PK·FK</span><span class="fname pk">user_id</span><span class="note">→ users</span></div>
+        <div class="field"><span></span><span class="fname">full_name · country · timezone</span></div>
+        <div class="field"><span></span><span class="fname">bio · career_goal</span><span class="note">owner-only reads</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">learning_preferences</div>
+        <div class="field"><span class="tag pk-t">PK·FK</span><span class="fname pk">user_id</span><span class="note">→ users</span></div>
+        <div class="field"><span></span><span class="fname">weekly_goal_sessions</span><span class="note">1–7</span></div>
+        <div class="field"><span></span><span class="fname">preferred_subjects · a11y flags</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">refresh_tokens</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">user_id</span><span class="note">→ users</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">token_hash</span><span class="note">sha256, rotated</span></div>
+        <div class="field"><span></span><span class="fname">expires_at · revoked_at</span></div>
+      </div>
+      <div class="entity wide"><div class="entity-name mono">password_reset_tokens</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">user_id</span><span class="note">→ users</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">token_hash</span><span class="note">single-use, 60 min TTL</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-2">
+    <div class="phase-title"><span>Domain 2 · Learning Content</span><span class="dom-meta">migration 0002 · status gates visibility · JSONB block content</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">subjects</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">key</span><span class="note">mathematics…</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">learning_stages</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">stage_number</span><span class="note">1–18</span></div>
+        <div class="field"><span></span><span class="fname">phase</span><span class="note">A–G</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">courses</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span><span class="note">fm, algebra…</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">subject_id · stage_id</span></div>
+        <div class="field"><span></span><span class="fname">objectives jsonb · status</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">course_prerequisites</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">course_id + prereq_id</span></div>
+        <div class="field"><span></span><span class="fname">self-relation, no cycles</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">modules</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">course_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(course, position)</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">chapters</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">module_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(module, position)</span></div>
+      </div>
+      <div class="entity wide"><div class="entity-name mono">lessons<span class="card-badge">core</span></div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span><span class="note">fm-1…ai-4</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">course_id · chapter_id · stage_id</span></div>
+        <div class="field"><span></span><span class="fname">content jsonb</span><span class="note">teaching blocks</span></div>
+        <div class="field"><span></span><span class="fname">version · status · published_at</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">lesson_prerequisites</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">lesson_id + prereq_id</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">learning_resources</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">lesson_id · book_id</span><span class="note">nullable</span></div>
+        <div class="field"><span></span><span class="fname">kind · url</span><span class="note">http(s) only</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-3">
+    <div class="phase-title"><span>Domain 3 · Book Library &amp; Secure Downloads</span><span class="dom-meta">migration 0003 · private storage · single-use tokens</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">books</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">slug</span><span class="note">fm, alg…</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">stage_id</span></div>
+        <div class="field"><span></span><span class="fname">objectives jsonb · status</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">book_editions</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">book_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(book, version, format)</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">book_chapters</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">book_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(book, position)</span></div>
+        <div class="field"><span></span><span class="fname">content jsonb · full_web</span></div>
+      </div>
+      <div class="entity wide"><div class="entity-name mono">files<span class="card-badge">private</span></div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">book_id · edition_id · chapter_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">storage_key</span><span class="note">never serialized</span></div>
+        <div class="field"><span></span><span class="fname">checksum_sha256 · bytes · mime_type</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">file_versions</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">file_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(file, version)</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">download_tokens</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">file_id · requested_by</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">token_hash</span><span class="note">single use, 10 min</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">download_records</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">file_id · user_id</span></div>
+        <div class="field"><span></span><span class="fname">at</span><span class="note">audit, no IPs</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">book_reading_progress</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(user_id, chapter_id)</span></div>
+        <div class="field"><span></span><span class="fname">read · last_read_at</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-4">
+    <div class="phase-title"><span>Domain 4 · Assessment</span><span class="dom-meta">migration 0004 · server-side scoring · exactly-one-correct trigger</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">quizzes</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span><span class="note">quiz-fm-1, tt-fm…</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">lesson_id · course_id</span><span class="note">by kind</span></div>
+        <div class="field"><span></span><span class="fname">pass_pct · time_limit_minutes</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">questions</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">quiz_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(quiz, position)</span></div>
+        <div class="field"><span></span><span class="fname">explanation</span><span class="note">after grading</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">question_options</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">question_id</span></div>
+        <div class="field"><span></span><span class="fname">is_correct</span><span class="note">server-only flag</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">quiz_attempts<span class="card-badge">core</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">quiz_id · user_id</span></div>
+        <div class="field"><span></span><span class="fname">score · passed</span><span class="note">written by submit only</span></div>
+        <div class="field"><span></span><span class="fname">status</span><span class="note">in_progress→submitted</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">attempt_answers</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">attempt_id · question_id · option_id</span></div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(attempt, question)</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">question_feedback<span class="card-badge">v2</span></div>
+        <div class="field"><span class="tag pk-t">PK·FK</span><span class="fname pk">question_id</span></div>
+        <div class="field"><span></span><span class="fname">simpler_example · next_challenge</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">option_feedback</div>
+        <div class="field"><span class="tag pk-t">PK·FK</span><span class="fname pk">option_id</span></div>
+        <div class="field"><span></span><span class="fname">misconception_note</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-5">
+    <div class="phase-title"><span>Domain 5 · Practical Learning</span><span class="dom-meta">migration 0005 · gated hints &amp; solutions · rubric evaluations</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">coding_exercises</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">id</span><span class="tag uq-t">UQ</span><span class="fname">code</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">linked_lesson_id</span></div>
+        <div class="field"><span></span><span class="fname">language · starter_code</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">math_exercises</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span></div>
+        <div class="field"><span></span><span class="fname">prompt · config jsonb</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">exercise_hints / solutions</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(owner_type, owner_id)</span></div>
+        <div class="field"><span></span><span class="fname">gated by attempts</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">lab_submissions</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">user_id · exercise_id</span></div>
+        <div class="field"><span></span><span class="fname">code</span><span class="note">sandbox record</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">projects</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span><span class="note">p1-1…p7-3</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">stage_id</span></div>
+        <div class="field"><span></span><span class="fname">steps · demo_checklist jsonb</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">project_submissions</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(project, user)</span></div>
+        <div class="field"><span></span><span class="fname">evidence ≥ 20 chars · checklist</span></div>
+      </div>
+      <div class="entity wide"><div class="entity-name mono">evaluation_results</div>
+        <div class="field"><span class="tag pk-t">PK·FK</span><span class="fname pk">submission_id</span><span class="note">1–1</span></div>
+        <div class="field"><span></span><span class="fname">rubric jsonb · total 0–24 · passed</span><span class="note">pass ≥ 16, min 2/dimension</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-6">
+    <div class="phase-title"><span>Domain 6 · Student Activities</span><span class="dom-meta">migration 0006 · quiz-gated completions · append-only audit trail</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">lesson_completions</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(user_id, lesson_id)</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">quiz_attempt_id</span><span class="note">passing attempt</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">bookmarks</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">user_id + lesson_id</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">notes</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(user_id, lesson_id)</span></div>
+        <div class="field"><span></span><span class="fname">body 1–2000 chars</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">activity_events<span class="card-badge">audit</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">user_id</span></div>
+        <div class="field"><span></span><span class="fname">kind · subject_type/id · meta</span></div>
+        <div class="field"><span></span><span class="fname">at</span><span class="note">streaks &amp; analytics source</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">study_progress</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(user_id, course_id)</span></div>
+        <div class="field"><span></span><span class="fname">lessons_done · pct</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">achievements</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">code</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">user_achievements</div>
+        <div class="field"><span class="tag pk-t">PK</span><span class="fname pk">user_id + achievement_id</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">glossary_terms</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">key</span></div>
+        <div class="field"><span></span><span class="fname">simple · detailed · example</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down">↓</div>
+
+  <div class="phase-group phase-7">
+    <div class="phase-title"><span>Domain 7 · Administration</span><span class="dom-meta">migration 0007 · draft → review → publish · revision snapshots</span></div>
+    <div class="entity-grid">
+      <div class="entity"><div class="entity-name mono">content_authors</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">user_id</span><span class="note">author role</span></div>
+      </div>
+      <div class="entity wide"><div class="entity-name mono">content_drafts<span class="card-badge">core</span></div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">author_id · entity_id?</span></div>
+        <div class="field"><span></span><span class="fname">payload jsonb · change_note</span></div>
+        <div class="field"><span></span><span class="fname">status</span><span class="note">draft → in_review → approved → published</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">content_reviews</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">draft_id · reviewer_id</span></div>
+        <div class="field"><span></span><span class="fname">verdict · comments</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">content_revisions</div>
+        <div class="field"><span class="tag uq-t">UQ</span><span class="fname">(entity, id, version)</span></div>
+        <div class="field"><span></span><span class="fname">snapshot jsonb</span><span class="note">rollback-capable</span></div>
+      </div>
+      <div class="entity"><div class="entity-name mono">publish_events</div>
+        <div class="field"><span class="tag fk-t">FK</span><span class="fname">actor_id · entity_id</span></div>
+        <div class="field"><span></span><span class="fname">action · at</span><span class="note">audit trail</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-legend">
+    <div class="legend-item"><span class="tag pk-t">PK</span>primary key</div>
+    <div class="legend-item"><span class="tag fk-t">FK</span>foreign key → target table</div>
+    <div class="legend-item"><span class="tag uq-t">UQ</span>unique constraint</div>
+    <div class="legend-item"><span class="mono" style="font-size:11.5px;color:#374151">1─N / 1─1 / N─M</span>cardinality</div>
+    <div class="legend-item">Views: v_content_health · v_book_progress · v_download_log · v_subject_mastery · v_course_mastery</div>
+  </div>
+</div>
+</body>
+</html>

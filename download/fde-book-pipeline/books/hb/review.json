@@ -1,0 +1,64 @@
+{
+ "chapters": {
+  "1": {
+   "approved": true,
+   "title": "Working like an FDE: the study system",
+   "atoms": 25,
+   "figures": 1,
+   "tables": 2,
+   "examples": 0,
+   "exercises": 0,
+   "reviewQuestions": 9
+  },
+  "2": {
+   "approved": true,
+   "title": "Programming practice labs",
+   "atoms": 38,
+   "figures": 1,
+   "tables": 0,
+   "examples": 5,
+   "exercises": 5,
+   "reviewQuestions": 15
+  },
+  "3": {
+   "approved": true,
+   "title": "Level 1 projects \u2014 first customer work",
+   "atoms": 3,
+   "figures": 1,
+   "tables": 0,
+   "examples": 0,
+   "exercises": 0,
+   "reviewQuestions": 0
+  },
+  "4": {
+   "approved": true,
+   "title": "Level 2\u20133 projects \u2014 growing responsibility",
+   "atoms": 5,
+   "figures": 1,
+   "tables": 0,
+   "examples": 0,
+   "exercises": 0,
+   "reviewQuestions": 0
+  },
+  "5": {
+   "approved": true,
+   "title": "AI engineering practice",
+   "atoms": 38,
+   "figures": 1,
+   "tables": 2,
+   "examples": 4,
+   "exercises": 4,
+   "reviewQuestions": 12
+  }
+ },
+ "book": {
+  "slug": "hb",
+  "identifier": "FDE-BK-006",
+  "version": "1.0.0",
+  "edition": "1st",
+  "docx": "FDE_Projects_FDE_Project_Handbook_v1.docx",
+  "pdf": "FDE_Projects_FDE_Project_Handbook_v1.pdf",
+  "qcPassed": true,
+  "pages": 26
+ }
+}

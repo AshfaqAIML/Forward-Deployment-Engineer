@@ -1,0 +1,54 @@
+{
+ "identifier": "FDE-BK-003",
+ "slug": "log",
+ "title": "Logic & Proof",
+ "subtitle": "Reasoning you can check",
+ "subject": "Mathematics",
+ "difficulty": "Intermediate",
+ "stageNumber": 4,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "Statements, connectives, truth tables, and the shape of a proof — the discipline behind clean conditionals, database constraints and trustworthy arguments.",
+ "objectives": [
+  "Translate business rules into precise statements",
+  "Build and read truth tables",
+  "Recognise valid and invalid arguments",
+  "Write short proofs in a checklist style"
+ ],
+ "chapters": [
+  {
+   "lessons": [
+    "lo-1"
+   ]
+  },
+  {
+   "lessons": [
+    "lo-2"
+   ]
+  },
+  {
+   "lessons": [
+    "lo-3"
+   ]
+  },
+  {
+   "lessons": [
+    "lo-4"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Logic",
+  "Mathematics"
+ ],
+ "references": [
+  {
+   "text": " forall x: Calgary — An Open Logic Text.",
+   "url": "https://forallx.openlogicproject.org/"
+  },
+  {
+   "text": "ISO 80000-2:2019, Quantities and units — Part 2: Mathematical signs and symbols to be used in the natural sciences and technology. International Organization for Standardization."
+  }
+ ]
+}

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDE Academy — Admin CMS</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --ink:#111827; --sub:#6B7280; --line:#E5E7EB; --bg:#F8FAFC; --accent:#1E3A5F; --ok:#047857; --warn:#B45309; --bad:#B91C1C; }
+  body { font: 14px/1.55 -apple-system, "Segoe UI", system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: #fff; border-radius: 7px; padding: 6px 12px; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.danger { color: var(--bad); border-color: #fecaca; }
+  button.small { padding: 3px 9px; font-size: 12.5px; }
+  input, select, textarea { font: inherit; border: 1px solid var(--line); border-radius: 7px; padding: 6px 9px; width: 100%; background: #fff; }
+  textarea { min-height: 70px; resize: vertical; }
+  label { font-size: 12px; font-weight: 600; color: var(--sub); display: block; margin: 10px 0 3px; }
+  .hidden { display: none !important; }
+
+  header { background: #fff; border-bottom: 1px solid var(--line); padding: 10px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  header h1 { font-size: 16px; color: var(--accent); margin-right: auto; }
+  header .tag { font-size: 11px; color: var(--sub); border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; }
+  nav { display: flex; gap: 4px; padding: 8px 18px 0; flex-wrap: wrap; }
+  nav button { border: none; background: none; padding: 7px 13px; border-radius: 8px 8px 0 0; color: var(--sub); font-weight: 600; }
+  nav button.active { background: #fff; color: var(--accent); border: 1px solid var(--line); border-bottom-color: #fff; }
+  main { padding: 16px 18px 40px; max-width: 1200px; }
+  section.panel { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 18px; }
+  section.panel > h2 { font-size: 15px; margin-bottom: 10px; color: var(--accent); }
+
+  #login { max-width: 380px; margin: 60px auto; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .kpi { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: 10px 12px; }
+  .kpi b { display: block; font-size: 22px; color: var(--accent); }
+  .kpi span { font-size: 11.5px; color: var(--sub); }
+
+  .tree { list-style: none; }
+  .tree li { margin: 3px 0; }
+  .tree .node { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 3px 6px; border-radius: 6px; }
+  .tree .node:hover { background: var(--bg); }
+  .tree .caret { cursor: pointer; width: 14px; color: var(--sub); user-select: none; }
+  .tree .kids { list-style: none; margin-left: 20px; border-left: 1px dashed var(--line); padding-left: 8px; }
+  .badge { font-size: 10.5px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+  .badge.published { background: #ECFDF5; color: var(--ok); }
+  .badge.draft { background: #FFFBEB; color: var(--warn); }
+  .badge.archived { background: #FEF2F2; color: var(--bad); }
+  .muted { color: var(--sub); font-size: 12px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+  .toast { position: fixed; bottom: 14px; right: 14px; background: var(--ink); color: #fff; padding: 9px 14px; border-radius: 8px; font-size: 13px; opacity: .95; max-width: 420px; }
+  .toast.err { background: var(--bad); }
+  table.mini { border-collapse: collapse; width: 100%; }
+  table.mini th, table.mini td { text-align: left; border-bottom: 1px solid var(--line); padding: 5px 8px; font-size: 13px; vertical-align: top; }
+  pre { background: #0F172A; color: #E2E8F0; padding: 10px; border-radius: 8px; overflow-x: auto; font-size: 12.5px; }
+  .block { border: 1px solid var(--line); border-radius: 8px; padding: 8px; margin: 6px 0; background: var(--bg); }
+  .block .row { margin: 4px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>FDE Academy · Admin CMS</h1>
+  <span class="tag" id="whoami"></span>
+  <button id="logout" class="small hidden">Log out</button>
+</header>
+<nav id="nav" class="hidden">
+  <button data-tab="tree" class="active">Curriculum</button>
+  <button data-tab="lesson">Lesson editor</button>
+  <button data-tab="quiz">Quiz editor</button>
+  <button data-tab="create">Create content</button>
+  <button data-tab="exercises">Exercises</button>
+  <button data-tab="books">Books &amp; uploads</button>
+  <button data-tab="glossary">Glossary</button>
+  <button data-tab="analytics">Analytics</button>
+  <button data-tab="users">Users</button>
+</nav>
+<main>
+  <section id="login" class="panel">
+    <h2>Administrator sign-in</h2>
+    <p class="muted">Content management requires the admin role. Sessions use short-lived tokens from the backend.</p>
+    <label>Email</label><input id="li-email" value="admin@fde.local">
+    <label>Password</label><input id="li-pass" type="password" placeholder="demo: DemoPass-2026">
+    <div class="row"><button class="primary" id="li-go">Sign in</button></div>
+  </section>
+
+  <div id="app" class="hidden">
+    <section class="panel" id="tab-tree">
+      <h2>Curriculum tree</h2>
+      <p class="muted">Stages → courses → modules → chapters → lessons. Mathematics is ordered first for new learners.</p>
+      <div class="row"><button id="tree-load" class="primary">Load / refresh</button></div>
+      <ul class="tree" id="tree-root"></ul>
+    </section>
+
+    <section class="panel hidden" id="tab-lesson">
+      <h2>Lesson editor</h2>
+      <div class="row"><input id="le-code" placeholder="lesson code, e.g. fm-7" style="max-width:220px"><button class="primary" id="le-load">Load lesson</button><span class="muted" id="le-meta"></span></div>
+      <div class="grid2">
+        <div><label>Title</label><input id="le-title"></div>
+        <div><label>Minutes</label><input id="le-minutes" type="number" min="1" max="600"></div>
+      </div>
+      <label>Objectives (one per line)</label><textarea id="le-objectives"></textarea>
+      <label>Content blocks</label>
+      <div id="le-blocks"></div>
+      <div class="row">
+        <select id="le-addkind" style="width:auto">
+          <option value="p">paragraph</option><option value="ul">bullet list</option>
+          <option value="table">table</option><option value="code">code</option>
+          <option value="callout">callout</option><option value="math">math</option>
+          <option value="diagram">diagram (uploaded asset)</option>
+          <option value="exercise">exercise</option>
+        </select>
+        <button id="le-addblock">Add block</button>
+        <button class="primary" id="le-save">Save (revision snapshotted)</button>
+      </div>
+      <div class="row">
+        <button id="le-publish">Publish</button><button id="le-unpublish">Unpublish</button>
+        <button id="le-revisions">Revision history</button>
+      </div>
+      <div id="le-revbox"></div>
+    </section>
+
+    <section class="panel hidden" id="tab-quiz">
+      <h2>Knowledge-check editor</h2>
+      <p class="muted">Every question needs: prompt, ≥ 2 options, the correct index, an explanation, and (recommended) per-option misconception notes plus a simpler example — the feedback engine serves them to learners.</p>
+      <div class="row"><input id="qz-lesson" placeholder="lesson code, e.g. fm-7" style="max-width:220px"><button class="primary" id="qz-load">Load existing check</button></div>
+      <label>Quiz title</label><input id="qz-title">
+      <label>Pass percentage</label><input id="qz-pass" type="number" min="1" max="100" value="70">
+      <div id="qz-questions"></div>
+      <div class="row"><button id="qz-addq">Add question</button><button class="primary" id="qz-save">Save quiz</button><span id="qz-out" class="muted"></span></div>
+    </section>
+
+    <section class="panel hidden" id="tab-create">
+      <h2>Create content</h2>
+      <div class="grid2">
+        <div>
+          <h2 style="font-size:13px;margin-top:4px">New subject</h2>
+          <label>Key</label><input id="cr-sub-key" placeholder="statistics">
+          <label>Name</label><input id="cr-sub-name" placeholder="Statistics">
+          <div class="row"><button class="primary" id="cr-sub">Create subject</button></div>
+          <h2 style="font-size:13px;margin-top:14px">New course</h2>
+          <label>Code</label><input id="cr-co-code" placeholder="stats-1">
+          <label>Title</label><input id="cr-co-title" placeholder="Statistics for Business">
+          <label>Subject UUID</label><input id="cr-co-subject" placeholder="from tree (click copy)">
+          <label>Stage number</label><input id="cr-co-stage" type="number" min="1" max="18" value="2">
+          <label>Difficulty</label><select id="cr-co-diff"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+          <label>Blurb</label><textarea id="cr-co-blurb"></textarea>
+          <div class="row"><button class="primary" id="cr-co">Create course (draft)</button></div>
+        </div>
+        <div>
+          <h2 style="font-size:13px;margin-top:4px">New module / chapter / lesson</h2>
+          <label>Course UUID</label><input id="cr-x-course" placeholder="click “copy id” in the tree">
+          <label>Module title</label><input id="cr-mod-title" placeholder="1. Descriptive statistics">
+          <div class="row"><button class="primary" id="cr-mod">Add module</button></div>
+          <label>Module UUID</label><input id="cr-ch-module" placeholder="created above">
+          <label>Chapter title</label><input id="cr-ch-title" placeholder="Averages">
+          <div class="row"><button class="primary" id="cr-ch">Add chapter</button></div>
+          <label>Chapter UUID</label><input id="cr-ls-chapter" placeholder="created above">
+          <label>Lesson code</label><input id="cr-ls-code" placeholder="stats-1">
+          <label>Lesson title</label><input id="cr-ls-title">
+          <label>Minutes</label><input id="cr-ls-minutes" type="number" value="20" min="1" max="600">
+          <label>Status</label><select id="cr-ls-status"><option>draft</option><option>published</option></select>
+          <div class="row"><button class="primary" id="cr-ls">Add lesson</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="tab-exercises">
+      <h2>Exercises</h2>
+      <div class="grid2">
+        <div>
+          <h2 style="font-size:13px">Coding exercise</h2>
+          <label>Code</label><input id="ex-code" placeholder="code-c4">
+          <label>Title</label><input id="ex-title">
+          <label>Language</label><select id="ex-lang"><option>JavaScript</option><option>SQL</option><option>HTTP</option><option>Python-guided</option></select>
+          <label>Instructions</label><textarea id="ex-instructions"></textarea>
+          <label>Starter code</label><textarea id="ex-starter" style="font-family:ui-monospace,Menlo,monospace"></textarea>
+          <label>Hints (one per line)</label><textarea id="ex-hints"></textarea>
+          <label>Solution</label><textarea id="ex-solution"></textarea>
+          <div class="row"><button class="primary" id="ex-save">Create</button></div>
+        </div>
+        <div>
+          <h2 style="font-size:13px">Mathematical exercise</h2>
+          <label>Code</label><input id="mx-code" placeholder="maths-ratio">
+          <label>Title</label><input id="mx-title">
+          <label>Prompt</label><textarea id="mx-prompt"></textarea>
+          <label>Solution note</label><textarea id="mx-solution"></textarea>
+          <div class="row"><button class="primary" id="mx-save">Create</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="tab-books">
+      <h2>Books &amp; uploads</h2>
+      <div class="grid2">
+        <div>
+          <h2 style="font-size:13px">Upload a diagram (PNG / JPEG / SVG)</h2>
+          <label>Lesson UUID</label><input id="up-lesson" placeholder="click “copy id” on a lesson">
+          <label>File</label><input id="up-diagram" type="file" accept=".png,.jpg,.jpeg,.webp,.svg">
+          <div class="row"><button class="primary" id="up-diagram-go">Upload</button><span class="muted">returns a public asset URL for the diagram block</span></div>
+          <div id="up-diagram-out" class="muted"></div>
+        </div>
+        <div>
+          <h2 style="font-size:13px">Upload a book file (DOC / DOCX / PDF) + register the book</h2>
+          <label>File</label><input id="up-book" type="file" accept=".doc,.docx,.pdf">
+          <div class="row"><button class="primary" id="up-book-go">Upload file</button><span class="muted" id="up-book-out"></span></div>
+          <label>Slug</label><input id="bk-slug" placeholder="stats">
+          <label>Title</label><input id="bk-title" placeholder="Statistics Handbook">
+          <label>Subject</label><input id="bk-subject" placeholder="Mathematics">
+          <label>Difficulty</label><input id="bk-diff" value="Beginner">
+          <label>Description</label><textarea id="bk-desc"></textarea>
+          <input type="hidden" id="bk-file-id">
+          <div class="row"><button class="primary" id="bk-go">Register book (draft, file attached)</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="tab-glossary">
+      <h2>Glossary</h2>
+      <div class="row"><input id="gl-search" placeholder="search terms"><button id="gl-load">Search</button><button class="primary" id="gl-new">+ New term</button></div>
+      <table class="mini"><thead><tr><th>Term</th><th>Simple meaning</th><th>Category</th><th></th></tr></thead><tbody id="gl-body"></tbody></table>
+      <div id="gl-edit" class="hidden">
+        <label>Term</label><input id="gl-term">
+        <label>Simple meaning</label><input id="gl-simple">
+        <label>Detailed meaning</label><textarea id="gl-detailed"></textarea>
+        <label>Example</label><input id="gl-example">
+        <label>Category</label><input id="gl-category" value="General">
+        <div class="row"><button class="primary" id="gl-save">Save</button></div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="tab-analytics">
+      <h2>Analytics overview</h2>
+      <div class="kpis" id="an-kpis"></div>
+      <h2 style="font-size:13px;margin-top:16px">Content health (weak quizzes &lt; 70%)</h2>
+      <table class="mini"><thead><tr><th>Quiz</th><th>Attempts</th><th>Avg</th><th>Pass rate</th></tr></thead><tbody id="an-health"></tbody></table>
+      <h2 style="font-size:13px;margin-top:16px">Download log</h2>
+      <table class="mini"><thead><tr><th>At</th><th>File</th><th>User</th></tr></thead><tbody id="an-downloads"></tbody></table>
+    </section>
+
+    <section class="panel hidden" id="tab-users">
+      <h2>Users</h2>
+      <div class="row"><select id="us-role" style="width:auto"><option value="">all roles</option><option>student</option><option>author</option><option>admin</option></select><button id="us-load">Load</button></div>
+      <table class="mini"><thead><tr><th>Email</th><th>Role</th><th>Status</th><th>Lessons</th><th>Attempts</th><th></th></tr></thead><tbody id="us-body"></tbody></table>
+    </section>
+  </div>
+</main>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+let TOKEN = localStorage.getItem("fde.cms.token") || "";
+let ADMIN = null;
+
+async function api(method, path, body, raw) {
+  const headers = {};
+  if (TOKEN) headers.authorization = "Bearer " + TOKEN;
+  if (body && !raw) headers["content-type"] = "application/json";
+  const res = await fetch(path, { method, headers, body: body ? (raw ? body : JSON.stringify(body)) : undefined });
+  const ct = res.headers.get("content-type") || "";
+  const json = ct.includes("json") ? await res.json() : await res.text();
+  if (res.status === 401) { toast("Session expired — sign in again", true); showLogin(); throw new Error("401"); }
+  if (!res.ok) { toast((json && json.error && json.error.message) || ("HTTP " + res.status), true); throw new Error(String(res.status)); }
+  return json;
+}
+function toast(msg, err) {
+  const t = document.createElement("div");
+  t.className = "toast" + (err ? " err" : "");
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4200);
+}
+
+/* ---------- auth ---------- */
+function showLogin() { $("login").classList.remove("hidden"); $("app").classList.add("hidden"); $("nav").classList.add("hidden"); $("logout").classList.add("hidden"); }
+async function afterLogin() {
+  const me = await api("GET", "/api/v1/auth/me");
+  if (me.role !== "admin") { toast("This console requires the admin role", true); return; }
+  ADMIN = me; TOKEN = TOKEN;
+  localStorage.setItem("fde.cms.token", TOKEN);
+  $("whoami").textContent = me.email + " · admin";
+  $("login").classList.add("hidden"); $("app").classList.remove("hidden"); $("nav").classList.remove("hidden"); $("logout").classList.remove("hidden");
+  loadTree(); loadAnalytics();
+}
+$("li-go").onclick = async () => {
+  const r = await fetch("/api/v1/auth/login", { method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ email: $("li-email").value.trim(), password: $("li-pass").value }) });
+  const j = await r.json();
+  if (!r.ok) { toast(j.error?.message || "Login failed", true); return; }
+  TOKEN = j.accessToken;
+  localStorage.setItem("fde.cms.refresh", j.refreshToken);
+  await afterLogin();
+};
+$("logout").onclick = () => { api("POST", "/api/v1/auth/logout", { refreshToken: localStorage.getItem("fde.cms.refresh") || "" }).catch(() => {}); TOKEN = ""; localStorage.removeItem("fde.cms.token"); showLogin(); };
+
+/* ---------- tabs ---------- */
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.classList.toggle("active", x === b));
+  for (const p of document.querySelectorAll("main section.panel")) p.classList.add("hidden");
+  $("tab-" + b.dataset.tab).classList.remove("hidden");
+});
+if (TOKEN) afterLogin().catch(() => showLogin());
+
+/* ---------- curriculum tree ---------- */
+async function loadTree() {
+  const t = await api("GET", "/api/v1/curriculum/tree");
+  const root = $("tree-root"); root.innerHTML = "";
+  for (const stage of t.tree) {
+    const li = document.createElement("li");
+    const node = document.createElement("div"); node.className = "node";
+    node.innerHTML = `<span class="caret">▾</span><b>Stage ${stage.stageNumber} · ${phaseName(stage.phase)}</b><span>${stage.title}</span>
+      <span class="muted">${stage.courses.length} course(s)${stage.books.length ? " · books: " + stage.books.join(", ") : ""}${stage.projects.length ? " · projects: " + stage.projects.join(", ") : ""}</span>`;
+    const kids = document.createElement("ul"); kids.className = "kids";
+    for (const course of stage.courses) {
+      const cli = document.createElement("li");
+      const cnode = document.createElement("div"); cnode.className = "node";
+      cnode.innerHTML = `<span class="caret">▾</span><b>${course.code}</b><span>${course.title}</span>
+        <span class="badge ${course.status}">${course.status}</span><span class="muted">${course.subject}</span>
+        <button class="small" data-copy="${course.id}">copy id</button>`;
+      cnode.querySelector("[data-copy]").onclick = e => { navigator.clipboard?.writeText(e.target.dataset.copy); toast("Course UUID copied — paste it into Create content"); };
+      const ckids = document.createElement("ul"); ckids.className = "kids";
+      for (const mod of course.modules) {
+        const mli = document.createElement("li");
+        mli.innerHTML = `<div class="node"><span class="caret">▾</span><b>${mod.title}</b></div>`;
+        const mkids = document.createElement("ul"); mkids.className = "kids";
+        for (const ch of mod.chapters) {
+          const chli = document.createElement("li");
+          chli.innerHTML = `<div class="node"><span class="caret">▾</span>${ch.title}</div>`;
+          const chkids = document.createElement("ul"); chkids.className = "kids";
+          for (const l of ch.lessons) {
+            const lli = document.createElement("li");
+            lli.innerHTML = `<div class="node"><b>${l.code}</b><span>${l.title}</span><span class="muted">${l.minutes}m</span>
+              <span class="badge ${l.state?.completed ? "published" : "draft"}">${l.state?.completed ? "completed by you" : ""}</span>
+              <button class="small" data-copy="${l.id}">copy id</button>
+              <button class="small primary" data-edit="${l.code}">edit</button>
+              <button class="small" data-quiz="${l.code}">quiz</button></div>`;
+            chkids.appendChild(lli);
+          }
+          chli.appendChild(chkids);
+          chkids.querySelectorAll("[data-copy]").forEach(b => b.onclick = e => { navigator.clipboard?.writeText(e.target.dataset.copy); toast("Lesson UUID copied"); });
+          chkids.querySelectorAll("[data-edit]").forEach(b => b.onclick = () => { $("le-code").value = b.dataset.edit; switchTab("lesson"); loadLesson(); });
+          chkids.querySelectorAll("[data-quiz]").forEach(b => b.onclick = () => { $("qz-lesson").value = b.dataset.quiz; switchTab("quiz"); loadQuiz(); });
+          mli.appendChild(chli);
+        }
+        mli.appendChild(mkids);
+        ckids.appendChild(mli);
+      }
+      cli.appendChild(cnode); cli.appendChild(ckids);
+      kids.appendChild(cli);
+    }
+    li.appendChild(node); li.appendChild(kids);
+    root.appendChild(li);
+    node.querySelector(".caret").onclick = () => kids.classList.toggle("hidden");
+  }
+  // collapse deep levels by default
+  root.querySelectorAll(".kids .kids .kids").forEach(k => k.classList.add("hidden"));
+  root.querySelectorAll(".caret").forEach(c => { if (c.nextElementSibling?.nextElementSibling && c.parentElement.querySelector(".kids.hidden")) c.textContent = "▸"; });
+  root.querySelectorAll(".caret").forEach(c => c.onclick = () => {
+    const kids = c.parentElement.parentElement.querySelector(":scope > .kids");
+    if (kids) { kids.classList.toggle("hidden"); c.textContent = kids.classList.contains("hidden") ? "▸" : "▾"; }
+  });
+}
+$("tree-load").onclick = loadTree;
+function phaseName(p) { return { A:"Foundations", B:"Mathematics", C:"Engineering core", D:"Practice", E:"Foundation degree", F:"Employability", G:"Career" }[p] || p; }
+function switchTab(name) { document.querySelector(`nav button[data-tab="${name}"]`).click(); }
+
+/* ---------- lesson editor ---------- */
+$("le-load").onclick = loadLesson;
+async function loadLesson() {
+  const code = $("le-code").value.trim();
+  if (!code) return;
+  const r = await api("GET", "/api/v1/catalog/lessons/" + code);
+  const l = r.lesson;
+  $("le-meta").textContent = `${l.id} · version ${l.version} · ${l.status} · course ${l.courseCode}`;
+  $("le-title").value = l.title; $("le-minutes").value = l.minutes;
+  $("le-objectives").value = (l.objectives || []).join("\n");
+  renderBlocks(l.content || []);
+  CURRENT_LESSON = l;
+}
+let CURRENT_LESSON = null;
+function renderBlocks(blocks) {
+  const box = $("le-blocks"); box.innerHTML = "";
+  blocks.forEach((b, i) => {
+    const div = document.createElement("div"); div.className = "block";
+    div.innerHTML = `<div class="row"><b>${b.t}</b><button class="small danger" data-del="${i}">remove</button></div>`;
+    const del = div.querySelector("[data-del]");
+    del.onclick = () => { LESSON_BLOCKS.splice(i, 1); renderBlocks(LESSON_BLOCKS); };
+    const mk = (label, key, val, area) => {
+      const lab = document.createElement("label"); lab.textContent = label; div.appendChild(lab);
+      const inp = document.createElement(area ? "textarea" : "input"); if (area) inp.style.minHeight = "48px";
+      inp.value = val == null ? "" : (typeof val === "string" ? val : JSON.stringify(val, null, 1));
+      inp.oninput = () => {
+        let v = inp.value;
+        if (b.t === "table" || b.t === "ul" || key.startsWith("__json")) { try { v = JSON.parse(inp.value); } catch { return; } }
+        if (key.startsWith("__json.")) { const [, k2] = key.split("."); b[k2] = v; } else b[key] = v;
+      };
+      div.appendChild(inp);
+    };
+    if (b.t === "p" || b.t === "callout" || b.t === "math") mk("text", "x", b.x);
+    if (b.t === "ul") mk("items (JSON array)", "__json.items", b.items, true);
+    if (b.t === "code") { mk("language", "lang", b.lang); mk("code", "code", b.code, true); }
+    if (b.t === "table") { mk("caption", "caption", b.caption); mk("rows (JSON array of arrays)", "__json.rows", b.rows, true); }
+    if (b.t === "diagram") { mk("asset URL (/api/v1/content/assets/…)", "src", b.src); mk("caption", "caption", b.caption); }
+    if (b.t === "exercise") { mk("prompt", "prompt", b.prompt); mk("solution", "solution", b.solution); }
+    if (b.t === "steps") mk("steps (JSON array {expr,note})", "__json.steps", b.steps, true);
+    box.appendChild(div);
+  });
+  LESSON_BLOCKS = blocks;
+}
+let LESSON_BLOCKS = [];
+$("le-addblock").onclick = () => {
+  const kind = $("le-addkind").value;
+  const proto = { p: { t: "p", x: "New paragraph." }, ul: { t: "ul", items: ["first point", "second point"] },
+    table: { t: "table", caption: "New table", rows: [["a", "b"], ["1", "2"]] },
+    code: { t: "code", lang: "javascript", code: "console.log('hello');" },
+    callout: { t: "callout", x: "Key idea." }, math: { t: "math", x: "profit = income − costs" },
+    diagram: { t: "diagram", src: "", caption: "Diagram" }, exercise: { t: "exercise", prompt: "Try it:", solution: "…" } }[kind];
+  LESSON_BLOCKS.push({ ...proto });
+  renderBlocks(LESSON_BLOCKS);
+};
+$("le-save").onclick = async () => {
+  if (!CURRENT_LESSON) return;
+  await api("PUT", "/api/v1/admin/cms/lessons/" + CURRENT_LESSON.id, {
+    title: $("le-title").value, minutes: +$("le-minutes").value,
+    objectives: $("le-objectives").value.split("\n").map(s => s.trim()).filter(Boolean),
+    content: LESSON_BLOCKS, status: CURRENT_LESSON.status,
+  });
+  toast("Lesson saved — previous version snapshotted");
+  loadLesson();
+};
+$("le-publish").onclick = () => lessonStatus("published");
+$("le-unpublish").onclick = () => lessonStatus("draft");
+async function lessonStatus(status) {
+  if (!CURRENT_LESSON) return;
+  const r = await api("POST", `/api/v1/admin/cms/lessons/${CURRENT_LESSON.id}/${status === "published" ? "publish" : "unpublish"}`);
+  toast("Lesson is now " + r.status);
+  loadLesson();
+}
+$("le-revisions").onclick = async () => {
+  if (!CURRENT_LESSON) return;
+  const r = await api("GET", `/api/v1/admin/cms/revisions/lesson/${CURRENT_LESSON.id}`);
+  const box = $("le-revbox"); box.innerHTML = "";
+  const tbl = document.createElement("table"); tbl.className = "mini";
+  tbl.innerHTML = "<thead><tr><th>Version</th><th>At</th><th>Note</th><th></th></tr></thead>";
+  for (const rev of r.revisions.slice(0, 10)) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${rev.version}</td><td>${new Date(rev.at).toLocaleString()}</td><td>${rev.changeNote || ""}</td><td></td>`;
+    const btn = document.createElement("button"); btn.className = "small"; btn.textContent = "restore";
+    btn.onclick = async () => { await api("POST", `/api/v1/admin/cms/lessons/${CURRENT_LESSON.id}/restore/${rev.version}`); toast("Restored version " + rev.version); loadLesson(); };
+    tr.lastChild.appendChild(btn);
+    tbl.appendChild(tr);
+  }
+  box.appendChild(tbl);
+};
+
+/* ---------- quiz editor ---------- */
+$("qz-load").onclick = loadQuiz;
+let QUIZ_LESSON = null;
+async function loadQuiz() {
+  const code = $("qz-lesson").value.trim();
+  if (!code) return;
+  try {
+    const r = await api("GET", "/api/v1/lessons/" + code + "/check");
+    const qs = await api("GET", "/api/v1/assessments/quizzes/" + r.quiz.id);
+    $("qz-title").value = qs.quiz.title; $("qz-pass").value = qs.quiz.passPct;
+    renderQuestions(qs.questions.map(q => ({ prompt: q.prompt, options: q.options.map(o => o.text), answerIdx: 0, explanation: "", optionNotes: [], simplerExample: "", nextChallenge: "" })));
+  } catch { renderQuestions([{ prompt: "", options: ["", ""], answerIdx: 0, explanation: "", optionNotes: [], simplerExample: "", nextChallenge: "" }]); }
+  QUIZ_LESSON = code;
+}
+function renderQuestions(questions) {
+  QUIZ_QUESTIONS = questions;
+  const box = $("qz-questions"); box.innerHTML = "";
+  questions.forEach((q, i) => {
+    const div = document.createElement("div"); div.className = "block";
+    div.innerHTML = `<div class="row"><b>Question ${i + 1}</b><button class="small danger" data-del="${i}">remove</button></div>`;
+    div.querySelector("[data-del]").onclick = () => { QUIZ_QUESTIONS.splice(i, 1); renderQuestions(QUIZ_QUESTIONS); };
+    const fields = [["prompt", "Prompt", false], ["explanation", "Explanation (why the correct answer is correct)", false],
+      ["simplerExample", "Simpler example (shown after a wrong answer)", false], ["nextChallenge", "Next challenge (shown after a correct answer)", false]];
+    for (const [key, label] of fields) {
+      const lab = document.createElement("label"); lab.textContent = label; div.appendChild(lab);
+      const inp = document.createElement(key === "prompt" ? "input" : "textarea"); inp.style.minHeight = "40px";
+      inp.value = q[key] || ""; inp.oninput = () => q[key] = inp.value; div.appendChild(inp);
+    }
+    const olabel = document.createElement("label"); olabel.textContent = "Options (one per line; mark the correct index below)"; div.appendChild(olabel);
+    const obox = document.createElement("textarea"); obox.style.minHeight = "52px";
+    obox.value = (q.options || []).join("\n"); obox.oninput = () => q.options = obox.value.split("\n").map(s => s.trim()).filter(Boolean); div.appendChild(obox);
+    const r1 = document.createElement("div"); r1.className = "row";
+    r1.innerHTML = `<label style="margin:0">Correct option index (0-based)</label>`;
+    const num = document.createElement("input"); num.type = "number"; num.min = 0; num.value = q.answerIdx; num.style.width = "90px";
+    num.oninput = () => q.answerIdx = +num.value; r1.appendChild(num); div.appendChild(r1);
+    const nl = document.createElement("label"); nl.textContent = "Misconception notes, one per WRONG option (in order, “—” to skip the correct one)"; div.appendChild(nl);
+    const nbox = document.createElement("textarea"); nbox.style.minHeight = "52px";
+    nbox.value = (q.optionNotes || []).join("\n"); nbox.oninput = () => q.optionNotes = nbox.value.split("\n"); div.appendChild(nbox);
+    box.appendChild(div);
+  });
+}
+let QUIZ_QUESTIONS = [];
+$("qz-addq").onclick = () => { QUIZ_QUESTIONS.push({ prompt: "", options: ["", ""], answerIdx: 0, explanation: "", optionNotes: [], simplerExample: "", nextChallenge: "" }); renderQuestions(QUIZ_QUESTIONS); };
+$("qz-save").onclick = async () => {
+  const lessonId = await lessonIdFor($("qz-lesson").value.trim());
+  const r = await api("POST", "/api/v1/admin/cms/lessons/" + lessonId + "/quiz", {
+    title: $("qz-title").value, passPct: +$("qz-pass").value, questions: QUIZ_QUESTIONS,
+  });
+  $("qz-out").textContent = "saved quiz " + r.code;
+  toast("Knowledge check saved with feedback data");
+};
+async function lessonIdFor(code) {
+  const r = await api("GET", "/api/v1/catalog/lessons/" + code);
+  return r.lesson.id;
+}
+
+/* ---------- create content ---------- */
+$("cr-sub").onclick = async () => { await api("POST", "/api/v1/admin/cms/subjects", { key: $("cr-sub-key").value.trim(), name: $("cr-sub-name").value.trim() }); toast("Subject created"); };
+$("cr-co").onclick = async () => {
+  const subjectId = $("cr-co-subject").value.trim() || (await subjectIdFor($("cr-sub-key").value.trim() || "mathematics"));
+  const stage = await api("GET", "/api/v1/catalog/stages/" + $("cr-co-stage").value);
+  await api("POST", "/api/v1/admin/cms/courses", {
+    code: $("cr-co-code").value.trim(), title: $("cr-co-title").value.trim(),
+    subjectId, stageId: stage.id, difficulty: $("cr-co-diff").value, blurb: $("cr-co-blurb").value, objectives: [],
+  });
+  toast("Course created as draft — publish from the tree");
+  loadTree();
+};
+async function subjectIdFor(key) {
+  const subs = await api("GET", "/api/v1/catalog/subjects");
+  const s = subs.subjects.find(x => x.key === key);
+  return s ? s.id : subs.subjects[0].id;
+}
+$("cr-mod").onclick = async () => { await api("POST", "/api/v1/admin/cms/courses/" + $("cr-x-course").value.trim() + "/modules", { title: $("cr-mod-title").value }); toast("Module added"); loadTree(); };
+$("cr-ch").onclick = async () => { await api("POST", "/api/v1/admin/cms/modules/" + $("cr-ch-module").value.trim() + "/chapters", { title: $("cr-ch-title").value }); toast("Chapter added"); loadTree(); };
+$("cr-ls").onclick = async () => {
+  await api("POST", "/api/v1/admin/cms/chapters/" + $("cr-ls-chapter").value.trim() + "/lessons", {
+    code: $("cr-ls-code").value.trim(), title: $("cr-ls-title").value.trim(), minutes: +$("cr-ls-minutes").value,
+    objectives: [], content: [{ t: "p", x: "Write the lesson here." }], status: $("cr-ls-status").value,
+  });
+  toast("Lesson created — edit it in the Lesson editor tab");
+  loadTree();
+};
+
+/* ---------- exercises ---------- */
+$("ex-save").onclick = async () => {
+  await api("POST", "/api/v1/admin/cms/exercises/coding", {
+    code: $("ex-code").value.trim(), title: $("ex-title").value.trim(), language: $("ex-lang").value,
+    instructions: $("ex-instructions").value, starterCode: $("ex-starter").value || "// starter",
+    minutes: 20, hints: $("ex-hints").value.split("\n").map(s => s.trim()).filter(Boolean),
+    solution: $("ex-solution").value || undefined,
+  });
+  toast("Coding exercise created");
+};
+$("mx-save").onclick = async () => {
+  await api("POST", "/api/v1/admin/cms/exercises/math", {
+    code: $("mx-code").value.trim(), title: $("mx-title").value.trim(), prompt: $("mx-prompt").value,
+    solution: $("mx-solution").value || undefined, minutes: 15,
+  });
+  toast("Math exercise created");
+};
+
+/* ---------- uploads ---------- */
+$("up-diagram-go").onclick = async () => {
+  const file = $("up-diagram").files[0];
+  if (!file) return toast("Choose a file first", true);
+  const buf = await file.arrayBuffer();
+  const r = await api("POST", `/api/v1/admin/cms/uploads?kind=diagram&filename=${encodeURIComponent(file.name)}&lessonId=${encodeURIComponent($("up-lesson").value.trim())}`, buf, true);
+  $("up-diagram-out").textContent = `Public asset URL: ${r.url} — use it in a diagram block`;
+  toast("Diagram uploaded");
+};
+$("up-book-go").onclick = async () => {
+  const file = $("up-book").files[0];
+  if (!file) return toast("Choose a file first", true);
+  const buf = await file.arrayBuffer();
+  const r = await api("POST", `/api/v1/admin/cms/uploads?kind=book&filename=${encodeURIComponent(file.name)}`, buf, true);
+  $("up-book-out").textContent = "file id: " + r.id;
+  $("bk-file-id").value = r.id;
+  toast("Book file uploaded — now register the book");
+};
+$("bk-go").onclick = async () => {
+  const stages = await api("GET", "/api/v1/catalog/stages");
+  await api("POST", "/api/v1/admin/cms/books", {
+    slug: $("bk-slug").value.trim(), title: $("bk-title").value.trim(), subject: $("bk-subject").value.trim(),
+    difficulty: $("bk-diff").value.trim() || "Beginner", description: $("bk-desc").value,
+    objectives: [], stageId: stages.stages[1]?.id, fileId: $("bk-file-id").value || undefined,
+  });
+  toast("Book registered as draft — the file is attached as its edition");
+};
+
+/* ---------- glossary ---------- */
+$("gl-load").onclick = async () => {
+  const q = $("gl-search").value.trim();
+  const r = await api("GET", "/api/v1/glossary" + (q ? "?search=" + encodeURIComponent(q) : ""));
+  const body = $("gl-body"); body.innerHTML = "";
+  for (const t of r.terms) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><b>${t.term}</b></td><td>${t.simple}</td><td>${t.category}</td><td></td>`;
+    const btn = document.createElement("button"); btn.className = "small"; btn.textContent = "edit";
+    btn.onclick = () => { $("gl-edit").classList.remove("hidden"); GL_ID = t.isAdminAdded ? null : t.id;
+      $("gl-term").value = t.term; $("gl-simple").value = t.simple; $("gl-detailed").value = t.detailed;
+      $("gl-example").value = t.example; $("gl-category").value = t.category; };
+    tr.lastChild.appendChild(btn);
+    body.appendChild(tr);
+  }
+};
+let GL_ID = null;
+$("gl-new").onclick = () => { GL_ID = null; $("gl-edit").classList.remove("hidden"); $("gl-term").value = ""; $("gl-simple").value = ""; $("gl-detailed").value = ""; $("gl-example").value = ""; $("gl-category").value = "General"; };
+$("gl-save").onclick = async () => {
+  const body = { term: $("gl-term").value, simple: $("gl-simple").value, detailed: $("gl-detailed").value,
+    example: $("gl-example").value, category: $("gl-category").value };
+  if (GL_ID) await api("PUT", "/api/v1/admin/glossary/" + GL_ID, body);
+  else { const r = await api("POST", "/api/v1/admin/glossary", body); GL_ID = r.id; }
+  toast("Glossary term saved"); $("gl-load").click();
+};
+
+/* ---------- analytics ---------- */
+async function loadAnalytics() {
+  try {
+    const o = await api("GET", "/api/v1/admin/analytics/overview");
+    const k = o.users; const l = o.learning;
+    $("an-kpis").innerHTML = [
+      ["Users", k.total], ["Active 7d", k.active7d], ["New 7d", k.new7d],
+      ["Lesson completions", l.completions], ["Attempts", l.attempts], ["Avg score", (l.avgScore ?? 0) + "%"],
+      ["Pass rate", (l.passRate ?? 0) + "%"], ["Downloads", l.downloads], ["Lab submissions", l.labSubmissions],
+    ].map(([s, v]) => `<div class="kpi"><b>${v}</b><span>${s}</span></div>`).join("");
+    const h = await api("GET", "/api/v1/admin/analytics/content-health");
+    $("an-health").innerHTML = h.health.map(x => `<tr><td>${x.title}</td><td>${x.attempts}</td><td>${x.avgScore}%</td><td>${x.passRate}%</td></tr>`).join("");
+    const d = await api("GET", "/api/v1/admin/downloads");
+    $("an-downloads").innerHTML = d.downloads.slice(0, 15).map(x => `<tr><td>${new Date(x.at).toLocaleString()}</td><td>${x.filename}</td><td>${x.user || "—"}</td></tr>`).join("");
+  } catch (e) { /* analytics needs data; ignore */ }
+}
+
+/* ---------- users ---------- */
+$("us-load").onclick = async () => {
+  const role = $("us-role").value;
+  const r = await api("GET", "/api/v1/admin/users" + (role ? "?role=" + role : ""));
+  $("us-body").innerHTML = "";
+  for (const u of r.users) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${u.email}</td><td>${u.role}</td><td>${u.status}</td><td>${u.lessonsCompleted}</td><td>${u.attempts}</td><td></td>`;
+    const btn = document.createElement("button"); btn.className = "small";
+    btn.textContent = u.status === "active" ? "suspend" : "reactivate";
+    btn.onclick = async () => { await api("PUT", `/api/v1/admin/users/${u.id}/status`, { status: u.status === "active" ? "suspended" : "active" }); $("us-load").click(); };
+    tr.lastChild.appendChild(btn);
+    $("us-body").appendChild(tr);
+  }
+};
+</script>
+</body>
+</html>

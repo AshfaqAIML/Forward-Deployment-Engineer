@@ -1,0 +1,57 @@
+{
+ "identifier": "FDE-BK-002",
+ "slug": "alg",
+ "title": "Algebra: From Expressions to Quadratics",
+ "subtitle": "Letters that stand for numbers, and what they can do",
+ "subject": "Mathematics",
+ "difficulty": "Beginner",
+ "stageNumber": 3,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "Variables, expressions, equations and quadratics — taught through prices, wages and profit so every symbol keeps its meaning. The bridge from arithmetic to modelling.",
+ "objectives": [
+  "Write and simplify expressions for real quantities",
+  "Solve linear equations and know why the steps work",
+  "Read, factor and solve quadratics",
+  "Model business questions as equations"
+ ],
+ "chapters": [
+  {
+   "lessons": [
+    "al-1"
+   ]
+  },
+  {
+   "lessons": [
+    "al-2"
+   ]
+  },
+  {
+   "lessons": [
+    "al-3"
+   ]
+  },
+  {
+   "lessons": [
+    "al-4"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Mathematics"
+ ],
+ "references": [
+  {
+   "text": "OpenStax, Elementary Algebra 2e (open textbook).",
+   "url": "https://openstax.org/details/books/elementary-algebra-2e"
+  },
+  {
+   "text": "OpenStax, Prealgebra 2e (open textbook).",
+   "url": "https://openstax.org/details/books/prealgebra-2e"
+  },
+  {
+   "text": "ISO 80000-2:2019, Quantities and units — Part 2: Mathematical signs and symbols to be used in the natural sciences and technology. International Organization for Standardization."
+  }
+ ]
+}

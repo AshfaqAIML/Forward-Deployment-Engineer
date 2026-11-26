@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDE Academy — From Zero Knowledge to Real-World Engineering</title>
+<meta name="description" content="FDE Academy takes complete beginners from foundational mathematics to professional Forward Deployed Engineering — 18 stages, 8 courses, 34 lessons, 6 books, 15 projects.">
+<style>
+/* Design tokens — same names and values as the FDE Academy app (:root in FDE_Academy_Frontend.html) */
+:root{
+  --ink-900:#1A2330; --ink-700:#2C3440; --slate-600:#46566B; --slate-500:#68727E;
+  --amber-500:#C27E4D; --amber-700:#A55F33; --amber-800:#8F5229; --amber-50:#FFF7ED;
+  --teal-700:#2E7D74; --teal-50:#F0FDF4; --navy-800:#1E3A5F; --navy-50:#EFF6FF;
+  --surface:#F5F7FA; --surface-2:#EEF2F6; --line:#D9DEE4; --white:#FFFFFF;
+  --r-s:6px; --r-m:10px; --r-l:14px;
+  --sh-1:0 1px 3px rgba(26,35,48,.08); --sh-2:0 6px 18px rgba(26,35,48,.14);
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--surface);color:var(--ink-700);font:16px/1.65 var(--font)}
+a{color:var(--amber-700);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+/* 1 — navigation bar */
+.topbar{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.topbar .wrap{display:flex;align-items:center;gap:20px;padding:14px 24px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:18px;color:var(--ink-900);letter-spacing:-.2px}
+.logo small{display:block;font-weight:400;font-size:11px;color:var(--slate-500);letter-spacing:.3px}
+.topnav{display:flex;gap:2px;flex-wrap:wrap}
+.topnav a{color:var(--slate-600);font-size:14px;padding:7px 11px;border-radius:var(--r-s)}
+.topnav a:hover{background:var(--surface-2);color:var(--ink-900);text-decoration:none}
+.openapp{margin-left:auto;font-size:14px;font-weight:700;white-space:nowrap}
+/* 2 — hero */
+.hero{background:var(--ink-900);color:#E9EDF2}
+.hero .wrap{padding-top:72px;padding-bottom:64px}
+.eyebrow{display:inline-block;border:1px solid #46506B;border-radius:999px;padding:4px 14px;font-size:13px;color:#C9D1DC}
+.hero h1{font-size:clamp(30px,5vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.5px;margin:20px 0 16px;color:var(--white)}
+.hero p{font-size:clamp(16px,2vw,19px);color:#C9D1DC;max-width:660px}
+.ctarow{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-size:14.5px;font-weight:600;border:2px solid var(--amber-700)}
+.btn.primary{background:var(--amber-700);border-color:var(--amber-700);color:var(--white)}
+.btn.primary:hover{background:var(--amber-800);text-decoration:none}
+.btn.ghost{border-color:#5A6572;color:#E9EDF2}
+.btn.ghost:hover{border-color:var(--amber-500);color:var(--amber-500);text-decoration:none}
+.fineprint{margin-top:18px;font-size:12.5px;color:#8E99A8}
+/* stats strip */
+.stats{border-bottom:1px solid var(--line);background:var(--white)}
+.stats .wrap{display:flex;flex-wrap:wrap;gap:8px 36px;padding:16px 24px}
+.stat{font-size:14px;color:var(--slate-600)}
+.stat b{font-size:20px;color:var(--ink-900);margin-right:6px}
+/* sections */
+section .wrap{padding-top:56px;padding-bottom:4px}
+h2{font-size:26px;font-weight:800;letter-spacing:-.3px;color:var(--ink-900);margin-bottom:10px}
+.sub{color:var(--slate-600);max-width:730px;margin-bottom:26px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-l);padding:20px;box-shadow:var(--sh-1)}
+.card:hover{box-shadow:var(--sh-2)}
+.card h3{font-size:16.5px;color:var(--ink-900);margin-bottom:8px}
+.card p{font-size:14px;color:var(--slate-600)}
+.card .meta{margin-top:12px;font-size:12.5px;color:var(--slate-500)}
+.chip{display:inline-block;background:var(--amber-50);color:var(--amber-800);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600}
+.chip.t{background:var(--teal-50);color:var(--teal-700)}
+/* 5 — roadmap */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stage{background:var(--white);border:1px solid var(--line);border-radius:var(--r-m);padding:10px 14px;font-size:13.5px;color:var(--slate-600)}
+.stage b{color:var(--amber-700);margin-right:6px}
+.seeall{margin-top:20px;font-size:14.5px}
+/* 6 — subjects */
+.subj .n{font-size:12.5px;color:var(--slate-500)}
+/* 7 — maths & programming */
+.pair .card{border-top:3px solid var(--amber-500)}
+.pair .card.prog{border-top-color:var(--teal-700)}
+/* 8 — projects */
+.plist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.proj{background:var(--white);border:1px solid var(--line);border-radius:var(--r-m);padding:12px 14px;font-size:14px;color:var(--ink-700)}
+.proj .lv{font-size:11.5px;color:var(--amber-800);font-weight:700;letter-spacing:.4px}
+/* 9 — interactive */
+.feat{display:flex;gap:12px;align-items:flex-start}
+.feat .ico{flex-shrink:0;width:38px;height:38px;border-radius:var(--r-m);background:var(--teal-50);color:var(--teal-700);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800}
+.feat h3{font-size:15.5px}
+/* 10 — books */
+.book{display:flex;gap:14px;align-items:flex-start}
+.cover{flex-shrink:0;width:52px;height:72px;border-radius:var(--r-s);background:linear-gradient(165deg,var(--amber-700),var(--amber-500));color:var(--white);display:flex;align-items:flex-end;padding:6px;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.dl{margin-top:8px;font-size:13px}
+.dl a{margin-right:10px}
+.filabox{margin-top:22px;background:var(--white);border:1px dashed var(--line);border-radius:var(--r-l);padding:18px 20px}
+.filabox h3{font-size:15.5px;color:var(--ink-900);margin-bottom:6px}
+.filabox p{font-size:13.5px;color:var(--slate-600);margin-bottom:10px}
+/* 11 — final CTA */
+.final{background:var(--ink-900);margin-top:64px}
+.final .wrap{padding-top:56px;padding-bottom:56px;text-align:center}
+.final h2{color:var(--white)}
+.final p{color:#C9D1DC;max-width:560px;margin:12px auto 26px}
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--white)}
+footer .wrap{padding-top:26px;padding-bottom:34px;display:flex;flex-wrap:wrap;gap:10px 40px;font-size:13.5px;color:var(--slate-500)}
+footer .col a{display:block;margin-bottom:6px}
+footer .note{max-width:420px}
+@media (max-width:860px){.g4{grid-template-columns:repeat(2,1fr)}.stages{grid-template-columns:repeat(2,1fr)}.plist{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.g3,.g2,.g4,.stages,.plist{grid-template-columns:1fr}.topnav{display:none}section .wrap{padding-top:44px}}
+</style>
+</head>
+<body>
+
+<!-- 1 — navigation bar -->
+<div class="topbar"><div class="wrap">
+  <div class="logo">FDE Academy<small>From Zero Knowledge to Real-World Engineering</small></div>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#roadmap-sec">Roadmap</a><a href="#subjects-sec">Subjects</a><a href="#projects-sec">Projects</a>
+    <a href="#interactive-sec">Interactive</a><a href="#books-sec">Books</a>
+  </nav>
+  <a class="openapp" href="FDE_Academy_Frontend.html">Open the academy →</a>
+</div></div>
+
+<!-- 2 + 3 — hero and call to action -->
+<div class="hero"><div class="wrap">
+  <span class="eyebrow">For absolute beginners — no computer science background needed</span>
+  <h1>From zero knowledge<br>to real-world engineering.</h1>
+  <p>FDE Academy is a guided 18-stage path that starts at first arithmetic and ends with deployed, customer-facing engineering work. Mathematics first, plain language always, real deliverables at every step.</p>
+  <div class="ctarow">
+    <a class="btn primary" href="FDE_Academy_Frontend.html">Start Learning</a>
+    <a class="btn ghost" href="FDE_Academy_Frontend.html#/roadmap">See the 18-stage roadmap</a>
+  </div>
+  <p class="fineprint">No credit card · No placement test · The whole academy works offline in a single file</p>
+</div></div>
+
+<div class="stats"><div class="wrap">
+  <span class="stat"><b>18</b>stages</span><span class="stat"><b>8</b>courses</span><span class="stat"><b>34</b>lessons</span>
+  <span class="stat"><b>34</b>knowledge-check quizzes</span><span class="stat"><b>9</b>interactive labs</span>
+  <span class="stat"><b>15</b>guided projects</span><span class="stat"><b>6</b>textbooks</span><span class="stat"><b>56</b>glossary terms</span>
+</div></div>
+
+<!-- what an FDE is -->
+<section><div class="wrap">
+  <h2>What is a Forward Deployed Engineer?</h2>
+  <p class="sub">An engineer who works directly with customers: understands their business, models their problems, writes the code and data that solve them, and explains everything in plain language. The academy teaches exactly this — starting from zero.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Listen &amp; model</h3><p>Turn a customer's story into requirements, numbers and rules — before any code.</p></div>
+    <div class="card"><h3>Build &amp; ship</h3><p>Small programs, clean data, working APIs, deployed services — real deliverables at every stage.</p></div>
+    <div class="card"><h3>Explain &amp; hand over</h3><p>Documentation, demonstrations and honest limitations — the skills employers actually test.</p></div>
+  </div>
+</div></section>
+
+<!-- 4 — learning roadmap -->
+<section id="roadmap-sec"><div class="wrap">
+  <h2>Your learning roadmap</h2>
+  <p class="sub">Eighteen stages, each with prerequisites, lessons, books, projects and checkpoints. Mathematics comes first — everything after builds on it.</p>
+  <div class="stages">
+    <span class="stage"><b>1</b>Start Here &amp; Study Skills</span>
+    <span class="stage"><b>2</b>Mathematical Foundations</span>
+    <span class="stage"><b>3</b>Algebra Essentials</span>
+    <span class="stage"><b>4</b>Logic &amp; Proof</span>
+    <span class="stage"><b>5</b>Graphs &amp; Networks</span>
+    <span class="stage"><b>6</b>Problem Solving</span>
+    <span class="stage"><b>7</b>Python I</span>
+    <span class="stage"><b>8</b>Files &amp; Automation</span>
+    <span class="stage"><b>9</b>Data Cleaning</span>
+    <span class="stage"><b>10</b>SQL</span>
+    <span class="stage"><b>11</b>APIs</span>
+    <span class="stage"><b>12</b>Frontends</span>
+    <span class="stage"><b>13</b>Cloud &amp; Deployment</span>
+    <span class="stage"><b>14</b>Operations &amp; Monitoring</span>
+    <span class="stage"><b>15</b>AI I: Assistants</span>
+    <span class="stage"><b>16</b>AI II: Search &amp; Evaluation</span>
+    <span class="stage"><b>17</b>Complete FDE Deployments</span>
+    <span class="stage"><b>18</b>Career Launch</span>
+  </div>
+  <p class="seeall"><a href="FDE_Academy_Frontend.html#/roadmap">Open the full roadmap with prerequisites and checkpoints →</a></p>
+</div></section>
+
+<!-- 5 — featured learning subjects -->
+<section id="subjects-sec"><div class="wrap">
+  <h2>Learning subjects</h2>
+  <p class="sub">Four subjects, eight courses — each course states its objectives, prerequisites and difficulty before you start.</p>
+  <div class="grid g4">
+    <div class="card subj"><span class="chip">Orientation</span><h3>Start right</h3><p>How the academy works, how to study mathematics and code honestly, and how progress is measured. <span class="n">1 course</span></p></div>
+    <div class="card subj"><span class="chip">Mathematics</span><h3>The foundation</h3><p>Arithmetic, algebra, logic, graphs and problem solving — taught from zero in business contexts. <span class="n">5 courses</span></p></div>
+    <div class="card subj"><span class="chip t">Programming</span><h3>Build things</h3><p>First Python programs, files and automation, then data, SQL, APIs and frontends. <span class="n">1 course</span></p></div>
+    <div class="card subj"><span class="chip t">AI</span><h3>Grounded AI</h3><p>Retrieval-grounded assistants, search and honest evaluation — engineering, not hype. <span class="n">1 course</span></p></div>
+  </div>
+</div></section>
+
+<!-- 6 — mathematics and programming introduction -->
+<section><div class="wrap">
+  <h2>Where every learner starts</h2>
+  <p class="sub">The first two courses carry the whole programme: mathematics that assumes nothing, and programming that runs from lesson one.</p>
+  <div class="grid g2 pair">
+    <div class="card">
+      <h3>Foundation Mathematics</h3>
+      <p>Arithmetic, ratios and percentages taught through market-stall, delivery and shop contexts — every chapter ends with what you can now do.</p>
+      <div class="meta"><a href="FDE_Academy_Frontend.html#/course/fm">Course details →</a> · Beginner · Mathematics</div>
+    </div>
+    <div class="card prog">
+      <h3>Programming Foundations I</h3>
+      <p>First programs with variables, decisions and loops — written, run and broken on purpose from the very first lesson.</p>
+      <div class="meta"><a href="FDE_Academy_Frontend.html#/course/prog1">Course details →</a> · Beginner · Programming</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 7 — practical projects -->
+<section id="projects-sec"><div class="wrap">
+  <h2>Practical projects</h2>
+  <p class="sub">Fifteen guided projects across Levels 1–7, each with a brief, requirements, checkpoints and a rubric — starting with pencil-and-paper logic, ending with deployed systems.</p>
+  <div class="plist">
+    <div class="proj"><span class="lv">LEVEL 1</span><br>The Market-Stall Budget</div>
+    <div class="proj"><span class="lv">LEVEL 1</span><br>Delivery-Route Logic Pack</div>
+    <div class="proj"><span class="lv">LEVEL 2</span><br>The Expense Tracker</div>
+    <div class="proj"><span class="lv">LEVEL 2</span><br>The Sales Report Automator</div>
+    <div class="proj"><span class="lv">LEVEL 3</span><br>Clean the Market Dataset</div>
+    <div class="proj"><span class="lv">LEVEL 3</span><br>The Sales Reporting Database</div>
+  </div>
+  <p class="seeall"><a href="FDE_Academy_Frontend.html#/projects">All fifteen projects, Levels 1–7 →</a></p>
+</div></section>
+
+<!-- 8 — interactive learning and exercises -->
+<section id="interactive-sec"><div class="wrap">
+  <h2>Interactive learning</h2>
+  <p class="sub">Reading is only half the method. Every lesson ends with a knowledge check, and the labs let you turn knobs and see the consequences immediately.</p>
+  <div class="grid g2">
+    <div class="card feat"><div class="ico">Q</div><div><h3>34 knowledge-check quizzes</h3><p>Per-answer feedback and explanations — you learn why an answer is right, not just which one.</p></div></div>
+    <div class="card feat"><div class="ico">∞</div><div><h3>9 hands-on labs</h3><p>Fraction, percentage and geometry drills, predict-then-run coding labs, SQL queries, an API endpoint and a grounded FAQ assistant.</p></div></div>
+    <div class="card feat"><div class="ico">✓</div><div><h3>Maths &amp; coding exercises</h3><p>Step-by-step worked exercises with solutions hidden behind an honest attempt, plus a mock exam mode with scoring.</p></div></div>
+    <div class="card feat"><div class="ico">A</div><div><h3>Glossary on every page</h3><p>56 technical terms explained in simple English — click any highlighted term anywhere in the academy.</p></div></div>
+  </div>
+  <p class="seeall"><a href="FDE_Academy_Frontend.html#/labs">Open the labs →</a> · <a href="FDE_Academy_Frontend.html#/assessments">Assessment centre →</a></p>
+</div></section>
+
+<!-- 9 — books and downloadable study materials -->
+<section id="books-sec"><div class="wrap">
+  <h2>Books &amp; study materials</h2>
+  <p class="sub">Six textbooks written for this programme — readable online with progress tracked per chapter, exportable as DOCX and PDF from the reader.</p>
+  <div class="grid g2">
+    <div class="card book"><div class="cover">FDE</div><div><h3>Foundation Mathematics</h3><p>The four operations to percentages, in business contexts · 8 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/fm">Read online →</a></div></div></div>
+    <div class="card book"><div class="cover">FDE</div><div><h3>Algebra: Expressions to Quadratics</h3><p>Letters that stand for numbers: expressions, equations, lines, quadratics · 8 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/alg">Read online →</a></div></div></div>
+    <div class="card book"><div class="cover">FDE</div><div><h3>Logic &amp; Proof</h3><p>Statements, truth tables, implications and proof techniques · 6 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/log">Read online →</a></div></div></div>
+    <div class="card book"><div class="cover">FDE</div><div><h3>Graphs &amp; Networks</h3><p>Nodes, edges, shortest paths and flows — roads, deliveries, networks · 5 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/gph">Read online →</a></div></div></div>
+    <div class="card book"><div class="cover">FDE</div><div><h3>Problem Solving</h3><p>A repeatable method for messy questions: understand, plan, solve, check · 5 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/ps">Read online →</a></div></div></div>
+    <div class="card book"><div class="cover">FDE</div><div><h3>FDE Project Handbook</h3><p>All fifteen guided projects, Levels 1–7: briefs, requirements, checkpoints · 5 chapters</p><div class="dl"><a href="FDE_Academy_Frontend.html#/book/hb">Read online →</a></div></div></div>
+  </div>
+  <div class="filabox">
+    <h3>Standalone editions — ready to download</h3>
+    <p>Complete books exported as files (the same files the academy app generates):</p>
+    <div class="dl">
+      <a href="Everyday_Mathematics_for_Future_Engineers.docx" download>Everyday Mathematics for Future Engineers — DOCX</a>
+      <a href="Everyday_Mathematics_for_Future_Engineers.pdf" download>PDF</a><br>
+      <a href="Algebra_Logic_Graphs_and_Problem_Solving.docx" download>Algebra · Logic · Graphs · Problem Solving — DOCX</a>
+      <a href="Algebra_Logic_Graphs_and_Problem_Solving.pdf" download>PDF</a><br>
+      <a href="Algebra_Logic_Graphs_and_Problem_Solving_Practical_Workbook.docx" download>Practical Workbook — DOCX</a>
+      <a href="Algebra_Logic_Graphs_and_Problem_Solving_Practical_Workbook.pdf" download>PDF</a><br>
+      <a href="FDE_Project_Handbook.docx" download>FDE Project Handbook — DOCX</a>
+      <a href="FDE_Project_Handbook.pdf" download>PDF</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- 10 — final call to action -->
+<div class="final"><div class="wrap">
+  <h2>Start at stage 1. Finish deployable.</h2>
+  <p>Progress is saved in your browser as you go — no account needed. When you want cloud sync and PDF downloads, the optional backend is one command away.</p>
+  <a class="btn primary" href="FDE_Academy_Frontend.html">Start Learning</a>
+</div></div>
+
+<!-- 11 — footer -->
+<footer><div class="wrap">
+  <div class="col">
+    <b style="color:var(--ink-900)">Learn</b>
+    <a href="FDE_Academy_Frontend.html#/roadmap">Roadmap</a>
+    <a href="FDE_Academy_Frontend.html#/courses">Courses</a>
+    <a href="FDE_Academy_Frontend.html#/books">Book library</a>
+    <a href="FDE_Academy_Frontend.html#/labs">Labs</a>
+  </div>
+  <div class="col">
+    <b style="color:var(--ink-900)">Practise</b>
+    <a href="FDE_Academy_Frontend.html#/projects">Projects</a>
+    <a href="FDE_Academy_Frontend.html#/assessments">Assessments</a>
+    <a href="FDE_Academy_Frontend.html#/glossary">Glossary</a>
+    <a href="FDE_Academy_Frontend.html#/career">Career centre</a>
+  </div>
+  <div class="col">
+    <b style="color:var(--ink-900)">Project</b>
+    <a href="FDE_Academy_Workspace.html">Dev workspace</a>
+    <a href="fde-academy-backend.zip">Backend source (.zip)</a>
+  </div>
+  <div class="note">FDE Academy — a self-contained learning platform. This page is the simple front door; the full academy behind it works offline in a single file.</div>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS publish_events;
+DROP TABLE IF EXISTS content_revisions;
+DROP TABLE IF EXISTS content_reviews;
+DROP TABLE IF EXISTS content_drafts;
+DROP TABLE IF EXISTS content_authors;
+DROP TYPE IF EXISTS publish_action;
+DROP TYPE IF EXISTS review_verdict;
+DROP TYPE IF EXISTS draft_status;
+DROP TYPE IF EXISTS draft_entity;

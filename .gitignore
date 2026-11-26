@@ -1,0 +1,8 @@
+skills/
+node_modules/
+.env
+pgdata/
+/storage/
+*.log
+__pycache__/
+*.pyc

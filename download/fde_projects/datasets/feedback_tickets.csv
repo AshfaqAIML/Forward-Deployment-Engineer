@@ -1,0 +1,91 @@
+ticket_id,date,channel,category,rating,comment,escalated
+1001,2026-03-01,web,delivery,5,"Perfect, no follow-up needed.",no
+1002,2026-03-01,web,account,5,"Perfect, no follow-up needed.",no
+1003,2026-03-01,phone,orders,5,The assistant answered instantly and fixed my issue.,no
+1004,2026-03-02,phone,orders,3,Fine overall.,no
+1005,2026-03-02,web,returns,4,"Good answer, slightly slow.",no
+1006,2026-03-02,web,billing,4,"Helpful, but I had to ask once more.",no
+1007,2026-03-03,web,account,5,"Perfect, no follow-up needed.",no
+1008,2026-03-03,phone,returns,4,"Good answer, slightly slow.",no
+1009,2026-03-03,phone,returns,4,"Helpful, but I had to ask once more.",no
+1010,2026-03-04,phone,orders,5,"Very clear instructions, problem solved.",no
+1011,2026-03-04,web,delivery,5,"Very clear instructions, problem solved.",no
+1012,2026-03-04,email,delivery,4,"Solved it, thanks.",no
+1013,2026-03-05,email,billing,1,Completely wrong answer.,yes
+1014,2026-03-05,phone,returns,3,Answer was okay but generic.,no
+1015,2026-03-05,phone,delivery,4,"Helpful, but I had to ask once more.",no
+1016,2026-03-06,email,account,3,Answer was okay but generic.,no
+1017,2026-03-06,email,returns,5,"Perfect, no follow-up needed.",no
+1018,2026-03-06,email,delivery,5,The assistant answered instantly and fixed my issue.,no
+1019,2026-03-07,web,account,1,Unhelpful and confusing.,yes
+1020,2026-03-07,email,billing,3,Fine overall.,no
+1021,2026-03-07,email,account,4,"Helpful, but I had to ask once more.",no
+1022,2026-03-08,web,billing,5,"Perfect, no follow-up needed.",no
+1023,2026-03-08,web,orders,3,Fine overall.,no
+1024,2026-03-08,phone,account,3,Fine overall.,no
+1025,2026-03-09,email,delivery,2,"Too slow, I gave up.",yes
+1026,2026-03-09,email,billing,4,"Good answer, slightly slow.",no
+1027,2026-03-09,email,orders,3,Answer was okay but generic.,no
+1028,2026-03-10,web,returns,3,Took two attempts to understand my question.,no
+1029,2026-03-10,email,orders,4,"Good answer, slightly slow.",no
+1030,2026-03-10,phone,billing,4,"Good answer, slightly slow.",no
+1031,2026-03-11,phone,billing,2,"Too slow, I gave up.",yes
+1032,2026-03-11,email,delivery,4,"Good answer, slightly slow.",no
+1033,2026-03-11,web,returns,5,The assistant answered instantly and fixed my issue.,no
+1034,2026-03-12,web,delivery,3,Fine overall.,no
+1035,2026-03-12,email,orders,5,The assistant answered instantly and fixed my issue.,no
+1036,2026-03-12,email,account,4,"Solved it, thanks.",no
+1037,2026-03-13,web,account,4,"Solved it, thanks.",no
+1038,2026-03-13,phone,orders,3,Took two attempts to understand my question.,no
+1039,2026-03-13,phone,account,2,The suggested steps did not work.,yes
+1040,2026-03-14,email,orders,4,"Helpful, but I had to ask once more.",no
+1041,2026-03-14,web,returns,3,Answer was okay but generic.,no
+1042,2026-03-14,email,returns,1,Completely wrong answer.,yes
+1043,2026-03-15,web,orders,4,"Good answer, slightly slow.",no
+1044,2026-03-15,phone,orders,4,"Helpful, but I had to ask once more.",no
+1045,2026-03-15,web,returns,3,Fine overall.,no
+1046,2026-03-16,phone,billing,4,"Helpful, but I had to ask once more.",no
+1047,2026-03-16,email,orders,3,Answer was okay but generic.,no
+1048,2026-03-16,email,delivery,2,The suggested steps did not work.,yes
+1049,2026-03-17,web,orders,4,"Solved it, thanks.",no
+1050,2026-03-17,email,delivery,4,"Solved it, thanks.",no
+1051,2026-03-17,web,returns,5,"Very clear instructions, problem solved.",no
+1052,2026-03-18,phone,account,4,"Good answer, slightly slow.",no
+1053,2026-03-18,email,orders,3,Fine overall.,no
+1054,2026-03-18,phone,billing,2,Did not understand my question at all.,yes
+1055,2026-03-19,web,account,4,"Solved it, thanks.",no
+1056,2026-03-19,email,returns,3,Fine overall.,no
+1057,2026-03-19,web,returns,2,The suggested steps did not work.,yes
+1058,2026-03-20,web,returns,3,Fine overall.,no
+1059,2026-03-20,phone,orders,4,"Good answer, slightly slow.",no
+1060,2026-03-20,email,billing,3,Answer was okay but generic.,no
+1061,2026-03-21,email,delivery,3,Fine overall.,no
+1062,2026-03-21,email,orders,1,Completely wrong answer.,yes
+1063,2026-03-21,email,returns,5,"Perfect, no follow-up needed.",no
+1064,2026-03-22,phone,account,5,The assistant answered instantly and fixed my issue.,no
+1065,2026-03-22,phone,billing,4,"Solved it, thanks.",no
+1066,2026-03-22,phone,orders,5,"Perfect, no follow-up needed.",no
+1067,2026-03-23,web,delivery,3,Answer was okay but generic.,no
+1068,2026-03-23,phone,billing,4,"Good answer, slightly slow.",no
+1069,2026-03-23,phone,delivery,2,The suggested steps did not work.,yes
+1070,2026-03-24,web,returns,4,"Good answer, slightly slow.",no
+1071,2026-03-24,web,returns,1,Unhelpful and confusing.,yes
+1072,2026-03-24,phone,returns,2,"Too slow, I gave up.",yes
+1073,2026-03-25,email,billing,2,Did not understand my question at all.,yes
+1074,2026-03-25,web,orders,4,"Good answer, slightly slow.",no
+1075,2026-03-25,phone,orders,3,Fine overall.,no
+1076,2026-03-26,web,delivery,3,Answer was okay but generic.,no
+1077,2026-03-26,web,orders,2,The suggested steps did not work.,yes
+1078,2026-03-26,phone,returns,5,"Very clear instructions, problem solved.",no
+1079,2026-03-27,phone,delivery,4,"Good answer, slightly slow.",no
+1080,2026-03-27,phone,billing,5,"Perfect, no follow-up needed.",no
+1081,2026-03-27,phone,delivery,3,Fine overall.,no
+1082,2026-03-28,web,account,5,"Very clear instructions, problem solved.",no
+1083,2026-03-28,email,returns,5,"Very clear instructions, problem solved.",no
+1084,2026-03-28,web,returns,5,The assistant answered instantly and fixed my issue.,no
+1085,2026-03-29,phone,orders,4,"Solved it, thanks.",no
+1086,2026-03-29,phone,account,5,"Very clear instructions, problem solved.",no
+1087,2026-03-29,web,account,4,"Good answer, slightly slow.",no
+1088,2026-03-30,email,orders,5,The assistant answered instantly and fixed my issue.,no
+1089,2026-03-30,phone,orders,4,"Good answer, slightly slow.",no
+1090,2026-03-30,phone,account,4,"Solved it, thanks.",no

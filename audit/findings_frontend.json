@@ -1,0 +1,74 @@
+[
+ {
+  "area": "frontend",
+  "name": "viewport meta present",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "lang attribute",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "media queries (responsive)",
+  "pass": true,
+  "detail": "7 @media blocks"
+ },
+ {
+  "area": "frontend",
+  "name": "clamp() fluid type",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "all nav anchors resolve",
+  "pass": true,
+  "detail": "dangling: []"
+ },
+ {
+  "area": "frontend",
+  "name": "images have alt/aria",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "buttons have accessible text/aria",
+  "pass": false,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "labels on inputs",
+  "pass": true,
+  "detail": "inputs without id/aria: 0"
+ },
+ {
+  "area": "frontend",
+  "name": "heading hierarchy exists",
+  "pass": true,
+  "detail": "h1=26 h2=4 h3=2"
+ },
+ {
+  "area": "frontend",
+  "name": "skip/nav landmarks",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "tables have th",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "frontend",
+  "name": "frontend API calls match backend routes",
+  "pass": true,
+  "detail": "unmatched: []"
+ }
+]

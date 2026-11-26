@@ -1,0 +1,175 @@
+// Book MA-1 - Chapter 11 and back matter (final review, welcome, references).
+const ch11 = {
+  title: "Solving Everyday Mathematical Problems",
+  story: "A letter arrives: the electricity bill is 38 dollars this month, and Priya does not believe it. Last month it was less. She could call the company and wait on hold, or she could do what an engineer does: take the bill apart, number by number, and check its story. The bill says the meter read 180 last month and 320 this month, each unit costs 20 cents, and there is a fixed 10-dollar charge. Priya works it through in four small steps and finds the bill is exactly right. This chapter teaches the four steps so that no letter, receipt, or report can ever quietly fool you again.",
+  meaning: "A word problem is a small story with numbers hiding inside it. Solving it is a skill with a method, not a gift with a few lucky owners. The method has four steps. Understand: find what is given and what is asked. Plan: choose the operation or operations the story implies. Solve: calculate carefully, with the unit written beside every number. Check: test the answer against an estimate and against common sense. Every problem in this book so far has quietly trained these steps; now we make them visible and deliberate.",
+  why: "Real life does not hand you exercises labeled addition. It hands you bills, contracts, travel plans, and data, all mixed together. The person who can translate a messy paragraph into a few clean calculations is the person teams trust with decisions. This is also the exact bridge to your future study of programming: a program is nothing but a problem-solving plan written so precisely that a machine can follow it. Practise the plan on paper now, and code will feel familiar later.",
+  words: [
+    ["Word problem", "A problem written as a story, where the numbers and the question are hidden inside sentences."],
+    ["Given information", "The facts and numbers the problem supplies as starting material."],
+    ["Goal", "The exact thing the problem asks you to find, stated in one sentence."],
+    ["Plan", "The chosen operation or sequence of operations that turns the givens into the goal."],
+    ["Reasonable answer", "An answer whose size and unit make sense in the story's real world."],
+    ["Working", "The written steps of your solution, kept so you and others can check them."],
+  ],
+  steps: [
+    "Understand: read the story twice and list the given facts with their units. A meter reading of 320 and a price of 20 cents per unit are two givens.",
+    "Understand: write the goal as one sentence, like: I must find this month's electricity cost in dollars.",
+    "Plan: match each part of the story to an operation. Difference between two readings suggests subtraction; each and per suggest multiplication or division; total and remaining suggest addition and subtraction.",
+    "Plan: put the operations in order. The units tell you the road: units used, then cost of those units, then add fixed charges. Follow the units like signposts.",
+    "Solve: compute one small step at a time, writing the intermediate result with its unit before moving on.",
+    "Solve: keep the units honest all the way; if the unit of an intermediate result is nonsense, the plan slipped, and now is the moment to catch it.",
+    "Check: estimate the answer roughly, with rounded numbers, and compare. If the estimate and the answer live in different worlds, hunt the error before showing anyone.",
+    "Check: state the final answer as a full sentence with its unit, and ask one last question: could this be true in the real world?",
+  ],
+  examples: [
+    {
+      title: "The Electricity Bill",
+      q: "The meter read 180 units last month and 320 units this month. Each unit costs 0.20 dollars, and there is a fixed charge of 10 dollars. What is this month's bill?",
+      work: ["Units used: 320 \u2212 180 = 140 kWh", "Energy cost: 140 \u00d7 0.20 = 28 dollars", "Total: 28 + 10 = 38 dollars"],
+      a: "The bill is 38 dollars. The plan follows the units: readings differ by 140 units, those units cost 28 dollars at 20 cents each, and the fixed 10 dollars rides on top. Check by estimate: about 140 \u00d7 0.2 = 28, plus 10, gives about 38, exactly what we calculated, so the bill's story is honest.",
+    },
+    {
+      title: "The Phone Plan",
+      q: "A phone plan costs 15 dollars per month plus 5 dollars for each gigabyte of data used. This month, 3 gigabytes were used. What is the monthly cost?",
+      work: ["Data: 3 \u00d7 5 = 15 dollars", "Total: 15 + 15 = 30 dollars"],
+      a: "The cost is 30 dollars. The word each flags multiplication for the data, and the fixed monthly fee is added after. Check: with zero data the bill would be the fixed 15 alone, and each extra gigabyte lifts it by 5, so 30 sits three fives above 15, exactly where 3 gigabytes should put it.",
+    },
+    {
+      title: "The Monthly Budget",
+      q: "Priya earns 2,400 dollars per month. Rent is 800 dollars, food is 350 dollars, and transport is 120 dollars. How much is left each month?",
+      work: ["Spending: 800 + 350 + 120 = 1,270", "Remaining: 2,400 \u2212 1,270 = 1,130 dollars"],
+      a: "1,130 dollars remain each month. The plan adds the outflows first, then subtracts once, which is safer than three separate subtractions. Check by estimate: rent is roughly 800, food roughly 350, transport roughly 100, total roughly 1,250; 2,400 minus 1,250 is about 1,150, and our exact 1,130 sits right in that neighborhood.",
+    },
+    {
+      title: "The Journey Plan",
+      q: "A trip is 240 kilometers at a steady 80 kilometers per hour, with one 20-minute break. If you leave at 09:00, when do you arrive?",
+      work: ["Driving time: 240 \u00f7 80 = 3 hours", "Total: 3 h + 20 min", "Arrival: 09:00 + 3:20 = 12:20"],
+      a: "You arrive at 12:20. Distance divided by speed gives driving time, and the break is added before touching the clock, because time questions mix hours and minutes. Check: 80 \u00d7 3 = 240 kilometers, and 09:00 plus 3 hours is 12:00, plus 20 minutes is 12:20, so the story runs true.",
+    },
+    {
+      title: "Which Pack Is Cheaper?",
+      q: "Coffee A: 500 grams for 4 dollars. Coffee B: 1,200 grams for 9 dollars. Which pack costs less per 100 grams?",
+      work: ["A: 4 \u00f7 5 = 0.80 dollars per 100 g", "B: 9 \u00f7 12 = 0.75 dollars per 100 g"],
+      a: "Coffee B is cheaper per 100 grams: 0.75 dollars against 0.80 dollars. The plan reduces both to the same unit rate before comparing, which is the only fair comparison for different-sized packs. Check: 500 g at 0.80 per 100 g costs 5 \u00d7 0.80 = 4 dollars, recovering Coffee A's price exactly.",
+    },
+  ],
+  applications: [
+    "Checking electricity, water, and internet bills line by line.",
+    "Comparing phone, insurance, and subscription contracts.",
+    "Planning monthly budgets and savings targets.",
+    "Working out travel times and arrival times with breaks.",
+    "Choosing the cheaper pack in any shop, per unit.",
+    "Reading a simple business report and checking its arithmetic.",
+  ],
+  mistakes: [
+    ["Answering the wrong question, like computing the bill when asked for the change.", "Write the goal as a sentence before planning anything else, and read the question's last line twice."],
+    ["Grabbing a formula before understanding the story.", "List the givens with units first. The plan chooses itself once the givens are honestly laid out."],
+    ["One long mental calculation.", "One small step at a time, each written down with its unit. Long mental chains are where errors go to hide."],
+    ["Never checking, or checking by repeating the same arithmetic.", "Check differently: estimate with rounded numbers, or reverse the operations. Repeating the same steps repeats the same mistakes."],
+  ],
+  summary: [
+    "Word problems are stories with numbers; a four-step method solves them reliably.",
+    "Understand: list the givens with units and write the goal as one sentence.",
+    "Plan: let the words and the units choose the operations and their order.",
+    "Solve: one small step at a time, working written, units kept honest.",
+    "Check: estimate with rounded numbers and test the story for sense.",
+    "Finish with a full-sentence answer carrying its unit.",
+    "This method is the seed of programming: a plan so precise a machine could follow it.",
+  ],
+  callouts: [
+    {
+      title: "A Look Ahead: From Problem Solving to Programming",
+      text: "The four steps you just learned, understand, plan, solve, check, are exactly how software is written. A program is the plan, written in a language a computer can follow, and testing is the checking step, done automatically. Later books in this series teach you to write those plans in Python, to store their data in databases, and to let machines run them millions of times per second. Every one of those books begins here, with a person, a problem, a pencil, and the four questions: what is given, what is asked, what is the plan, and does the answer make sense.",
+    },
+  ],
+  figures: [
+    { file: "fig_ma1_11_solveflow.png", cap: "The four-step problem-solving method: understand, plan, solve, check." },
+  ],
+  questions: [
+    { band: "VE", q: "Lunch costs 8 dollars and a juice costs 4 dollars. What is the total?", h: [], a: "The word total signals addition: 8 + 4 = 12 dollars. Check: 12 \u2212 8 = 4, the juice, so the parts rebuild the whole." },
+    { band: "VE", q: "A train ride takes 40 minutes and the walk to the station takes 15 minutes. How long is the whole journey?", h: [], a: "Add the two times: 40 + 15 = 55 minutes. Since 55 is under 60, the answer stays in minutes rather than spilling into hours. Check: 55 \u2212 15 = 40, the train time." },
+    { band: "VE", q: "Three identical notebooks cost 5 dollars each. What is the total cost?", h: [], a: "Identical items with each means multiplication: 3 \u00d7 5 = 15 dollars. Check: 15 \u00f7 3 = 5, the price of one notebook." },
+    { band: "VE", q: "A budget holds 80 dollars, and 30 dollars has been spent. How much is left?", h: [], a: "Left means subtraction: 80 \u2212 30 = 50 dollars. Check: 30 spent plus 50 left rebuilds the 80-dollar budget." },
+    { band: "E", q: "A phone plan costs 15 dollars per month plus 5 dollars per gigabyte. This month 3 gigabytes were used. What is the total?", h: [], a: "Two steps: data cost 3 \u00d7 5 = 15 dollars, then add the fixed fee, 15 + 15 = 30 dollars. The each in 5 dollars per gigabyte flags the multiplication, and the fixed fee rides on top. Check: with zero gigabytes the bill would be 15, so 30 for three gigabytes is exactly three fives higher." },
+    { band: "E", q: "Two cinema tickets cost 9 dollars each, plus 6 dollars of snacks. What is the evening's total cost?", h: [], a: "Tickets: 2 \u00d7 9 = 18 dollars. Total: 18 + 6 = 24 dollars. Check: 24 \u2212 6 = 18, the ticket cost, and 18 \u00f7 2 = 9, the ticket price, so every number in the story is recovered." },
+    { band: "E", q: "Maya reads 15 pages every day for 6 days. How many pages in total?", h: [], a: "Every day means multiplication: 15 \u00d7 6 = 90 pages. Check: 90 \u00f7 6 = 15, the daily rate, and 90 \u00f7 15 = 6, the days, so the story holds from both ends." },
+    { band: "E", q: "Sam saves 25 dollars per week. How many weeks until he has 125 dollars?", h: [], a: "This time the total is known and the count is asked, so divide: 125 \u00f7 25 = 5 weeks. Check: 5 \u00d7 25 = 125 dollars saved, exactly the target." },
+    { band: "M", q: "An electricity meter read 180 last month and 320 this month. Each unit costs 0.20 dollars and the fixed charge is 10 dollars. What is this month's bill?", h: [], a: "Units used: 320 \u2212 180 = 140. Energy cost: 140 \u00d7 0.20 = 28 dollars. Total with fixed charge: 28 + 10 = 38 dollars. Check: about 140 units at about 0.2 is about 28, plus 10 gives about 38, so the exact answer lives where the estimate says it should." },
+    { band: "M", q: "A data plan includes 2 gigabytes. This month 1.4 gigabytes are already used, and each video watched uses 0.3 gigabytes. How many full videos fit in the remaining data?", h: [], a: "Remaining data: 2 \u2212 1.4 = 0.6 gigabytes. Videos: 0.6 \u00f7 0.3 = 2 exactly. Two full videos fit. Check: 2 \u00d7 0.3 = 0.6, the remaining data, so nothing is left over." },
+    { band: "M", q: "Coffee A costs 4 dollars for 500 grams. Coffee B costs 9 dollars for 1,200 grams. Which is cheaper per 100 grams?", h: [], a: "A: 4 \u00f7 5 = 0.80 dollars per 100 g. B: 9 \u00f7 12 = 0.75 dollars per 100 g. Coffee B is cheaper by 5 cents per 100 grams, which on a 1,200-gram pack saves 12 \u00d7 0.05 = 0.60 dollars against buying A at the same rate. Fair comparison needs the same unit on both sides." },
+    { band: "M", q: "A monthly salary is 2,400 dollars. Rent is 800, food is 350, transport is 120. How much remains?", h: [], a: "Outflows first: 800 + 350 + 120 = 1,270 dollars. Remainder: 2,400 \u2212 1,270 = 1,130 dollars. Check: 1,130 + 1,270 = 2,400, the whole salary, and the estimate (about 1,250 out) agrees in size." },
+    { band: "C", q: "An internet plan costs 25 dollars per month, includes 10 gigabytes, and charges 3 dollars for each extra gigabyte or part thereof. This month 13.5 gigabytes were used. What is the bill?", h: ["Hint 1: How much data went over the included 10 gigabytes?", "Hint 2: The company rounds any part of a gigabyte up to a whole one, so 3.5 extra gigabytes are charged as 4."], a: "Extra data: 13.5 \u2212 10 = 3.5 gigabytes, charged as 4 whole gigabytes. Extra charge: 4 \u00d7 3 = 12 dollars. Bill: 25 + 12 = 37 dollars. The words part thereof are the puzzle's teeth: they convert 3.5 into 4. Check: 10 included plus 4 charged covers 14 gigabytes, which contains the 13.5 used." },
+    { band: "C", q: "A water bill is 30 dollars fixed plus 1.20 dollars per cubic meter, and this quarter's use was 45 cubic meters. A 10% tax is then applied to the whole bill. What is the final total?", h: ["Hint 1: Compute the use charge before tax.", "Hint 2: Adding 10% means multiplying the pre-tax total by 1.10."], a: "Use charge: 45 \u00d7 1.20 = 54 dollars. Pre-tax bill: 30 + 54 = 84 dollars. With 10% tax: 84 \u00d7 1.10 = 92.40 dollars. Check: the tax alone is 8.40 dollars, and 84 + 8.40 = 92.40, agreeing with the one-step multiplication." },
+    { band: "C", q: "A trip covers 240 kilometers at 80 kilometers per hour, plus a 20-minute break. If you leave at 08:15, what time do you arrive?", h: ["Hint 1: Driving time is distance divided by speed.", "Hint 2: Add the break before reading the clock."], a: "Driving time: 240 \u00f7 80 = 3 hours. Total time: 3 hours 20 minutes. Departure 08:15 plus 3 hours is 11:15, plus 20 minutes is 11:35. Check: from 11:35, subtracting 20 minutes and 3 hours returns exactly to 08:15, the stated departure." },
+    { band: "C", q: "A project needs materials listed at 450 dollars, discounted by 15%, plus tools at 120 dollars with no discount. A contingency of 10% is added to that subtotal. What is the final budget?", h: ["Hint 1: A 15% discount means paying 85% of 450.", "Hint 2: Adding 10% contingency means multiplying the subtotal by 1.10."], a: "Materials: 450 \u00d7 0.85 = 382.50 dollars. Subtotal with tools: 382.50 + 120 = 502.50 dollars. Contingency: 502.50 \u00d7 1.10 = 552.75 dollars. Check: the contingency alone is 50.25 dollars, and 502.50 + 50.25 = 552.75, matching the one-step total." },
+  ],
+  activity: "Take one real bill or receipt from your home: electricity, water, internet, or a long receipt. Copy its numbers, and check its arithmetic step by step using the four-step method, writing the givens, the goal, the plan, and your check. Then write one sentence: is the bill honest, and how do you know? Keep this page; it is your first independent engineering-style verification.",
+};
+
+const welcome = {
+  intro: [
+    "Welcome to the first book of the FDE Academy mathematics series. This book was written for one specific person: you, the reader who may have finished high school long ago, or who never quite made peace with mathematics, and who now wants a technical career. You do not need any background beyond everyday reading. Every word, every symbol, and every small step is explained before it is used.",
+    "Here is the most important sentence in the book: mathematics is not a talent. It is a set of small skills, learned one at a time, exactly like cooking or driving. People who look quick with numbers were once slow and careful, exactly as you will be in the first chapters. Speed comes from repetition, and confidence comes from checking your own answers, which this book teaches you to do from day one.",
+    "The book has eleven chapters in a fixed order, each built on the ones before it. You will meet numbers, the four operations, fractions, decimals, percentages, ratios, negative numbers, powers, measurements, and finally a method for solving everyday problems. Along the way, short sections called A Look Ahead show where each idea will reappear in your future work with computers, data, and artificial intelligence. You do not need any computer knowledge now; those notes only plant seeds.",
+  ],
+  howToUse: [
+    "Work with a pencil and paper beside the book. Doing is learning; reading alone is watching.",
+    "Every chapter follows the same twelve-part shape, shown in the table below, so you always know where you are and what comes next.",
+    "Try every practice question yourself before looking at any hint, and before touching the Answer Key at the back of the book.",
+    "Hints are printed with the challenging questions and grow stronger as they go: try after the first hint, and only read the second if you are still stuck.",
+    "The Answer Key explains every answer, not just the number but the why. Read it even for questions you got right; a second way of seeing deepens the first.",
+    "If a chapter feels hard, slow down rather than skip. The next chapter is always built on this one; the order is the safety rail.",
+    "The practical activity at the end of each chapter is not decoration. It moves the mathematics from the page into your hands and your home, which is where it must live.",
+  ],
+  anatomy: [
+    ["A story from everyday life", "A real situation that shows why the topic exists before any symbols appear."],
+    ["What this topic means", "The idea explained in plain words, with the formal definition built slowly."],
+    ["Why it matters", "Where the skill pays off in work and daily life."],
+    ["New words you will need", "Every technical term defined simply, before it is used."],
+    ["The idea, step by step", "The method broken into numbered steps small enough to always follow."],
+    ["Solved examples", "Several fully worked examples with every step written out."],
+    ["Where you will meet this in real life", "Applications so the skill feels worth owning."],
+    ["Common mistakes and how to avoid them", "The traps, named before you fall into them."],
+    ["Revision summary", "A short recap you can reread in two minutes."],
+    ["Practice questions", "Sixteen questions in four levels: very easy, easy, medium, and challenging."],
+    ["Answers", "In the Answer Key at the back, fully explained, never peeked at early."],
+    ["A practical activity", "A small real-world task that turns the chapter into a lived experience."],
+  ],
+};
+
+const finalReview = {
+  intro: "This final section mixes every topic of the book into sixteen questions, in the same four levels you know. No chapter labels are given: choosing the method is now part of the exercise, exactly as it is in real life. Work with paper and pencil, use the four-step method from the final chapter, and only then visit the Answer Key. When you finish, the closing project below turns the whole book into one real deliverable.",
+  questions: [
+    { band: "VE", q: "Calculate 9 \u00d7 6.", h: [], a: "9 \u00d7 6 = 54. Six groups of nine: 9, 18, 27, 36, 45, 54. Check: 54 \u00f7 9 = 6." },
+    { band: "VE", q: "Calculate 25% of 80.", h: [], a: "25% is one quarter, and a quarter of 80 is 80 \u00f7 4 = 20. Check: 20 \u00d7 4 = 80, and 0.25 \u00d7 80 = 20 agrees." },
+    { band: "VE", q: "Calculate \u22123 + 7.", h: [], a: "Start at \u22123 and walk 7 steps right: after 3 steps you reach 0, and 4 steps remain, landing on 4. The answer is 4. Check: 4 \u2212 7 = \u22123, back to the start." },
+    { band: "VE", q: "Calculate 10^{3}.", h: [], a: "The exponent 3 counts the zeros: 10^{3} = 1,000, one thousand. Check by expanding: 10 \u00d7 10 \u00d7 10 = 1,000." },
+    { band: "E", q: "Calculate 5/6 \u2212 2/6, and simplify.", h: [], a: "Same-size parts: 5 sixths take away 2 sixths is 3 sixths. Simplify by dividing top and bottom by 3: 3/6 = 1/2." },
+    { band: "E", q: "Calculate 4.2 + 3.9.", h: [], a: "Points lined: tenths 2 + 9 = 11, write 1 carry 1; ones 4 + 3 + 1 = 8. The total is 8.1. Check: 8.1 \u2212 4.2 = 3.9, the number added." },
+    { band: "E", q: "A sum of 28 dollars is shared in the ratio 3:4. How much does each side receive?", h: [], a: "Parts: 3 + 4 = 7. One part: 28 \u00f7 7 = 4 dollars. Shares: 3 \u00d7 4 = 12 dollars and 4 \u00d7 4 = 16 dollars. Check: 12 + 16 = 28, and 12:16 simplifies to 3:4." },
+    { band: "E", q: "Write 0.75 as a fraction in its simplest form.", h: [], a: "0.75 is 75/100. Divide top and bottom by 25: 3/4. Check: 3 \u00f7 4 = 0.75, landing back exactly where the decimal began." },
+    { band: "M", q: "Calculate 35% of 60.", h: [], a: "Ten percent of 60 is 6; thirty-five percent is 6 \u00d7 3.5 = 21. Or: 0.35 \u00d7 60 = 21. Check: 5% of 60 is 3, and 30% + 5% = 18 + 3 = 21, the same answer by a second road." },
+    { band: "M", q: "Calculate 3/4 \u00d7 2/5.", h: [], a: "Multiply straight across: tops 3 \u00d7 2 = 6, bottoms 4 \u00d7 5 = 20, giving 6/20. Simplify by dividing both by 2: 3/10. Check: 3/10 as a decimal is 0.3, and 0.75 \u00d7 0.4 = 0.3 agrees." },
+    { band: "M", q: "Calculate \u22126 \u00d7 (\u22124).", h: [], a: "Same signs give a positive product: 24. Check: 24 \u00f7 (\u22124) = \u22126, recovering the first factor, so the signs must have matched." },
+    { band: "M", q: "A room is 7 meters by 5 meters. What are its area and perimeter?", h: [], a: "Area: 7 \u00d7 5 = 35 square meters. Perimeter: 7 + 5 + 7 + 5 = 24 meters. The units differ because covering a surface and walking its edge are different measurements. Check: doubling (7 + 5) also gives 24." },
+    { band: "C", q: "A tablet costs 250 dollars with 30% off in a sale, and 8% tax is added to the sale price. What is the final price?", h: ["Hint 1: The discount acts on 250 first.", "Hint 2: The tax acts on the discounted price, not on 250."], a: "Discount: 30% of 250 = 75 dollars, so the sale price is 250 \u2212 75 = 175 dollars. Tax: 8% of 175 = 14 dollars, so the final price is 175 + 14 = 189 dollars. Check: 175 \u00d7 1.08 = 189, and the stacked percents (0.70 \u00d7 1.08 = 0.756) mean you paid 75.6% of the original, which is 0.756 \u00d7 250 = 189, agreeing exactly." },
+    { band: "C", q: "A juice mix uses concentrate and water in the ratio 2:5, and one batch totals 350 milliliters. How much concentrate and how much water does it contain?", h: ["Hint 1: How many parts make up the whole batch?", "Hint 2: Find the size of one part, then multiply by 2 and by 5."], a: "Parts: 2 + 5 = 7. One part: 350 \u00f7 7 = 50 milliliters. Concentrate: 2 \u00d7 50 = 100 mL. Water: 5 \u00d7 50 = 250 mL. Check: 100 + 250 = 350, and 100:250 simplifies to 2:5, the recipe's promise kept." },
+    { band: "C", q: "A sequence starts 3, 6, 12, 24. What is the next number, and what is the 8th number?", h: ["Hint 1: What number multiplies each term into the next?", "Hint 2: The 8th term is the 1st term multiplied by the growth factor seven times."], a: "Each number doubles, so the next number is 48. The 8th term: starting at 3 and doubling seven times gives 3 \u00d7 2^{7} = 3 \u00d7 128 = 384. Check by walking: 3, 6, 12, 24, 48, 96, 192, 384, which is eight numbers, the last being 384." },
+    { band: "C", q: "Rosa earns 1,500 dollars. She saves 20% of it, then gives one tenth of the remainder to her family. How much does she keep for herself?", h: ["Hint 1: Find the savings first; the remainder is what is left after saving.", "Hint 2: One tenth of the remainder is the remainder divided by 10."], a: "Savings: 20% of 1,500 = 300 dollars. Remainder: 1,500 \u2212 300 = 1,200 dollars. Family gift: 1,200 \u00f7 10 = 120 dollars. Kept: 1,200 \u2212 120 = 1,080 dollars. Check: 300 + 120 + 1,080 = 1,500, the whole salary, so every dollar is accounted for." },
+  ],
+  project: {
+    title: "The Closing Project: A Shop Report with Discounts and Margins",
+    intro: "The final deliverable of this book is a one-page report for an imaginary small shop, built from real arithmetic. Invent a shop (stationery, snacks, or anything you like) with five products. For each product, choose a cost price and a selling price, and compute the margin: selling price minus cost. Then imagine a sale week: apply a 20% discount to two products and work out their sale prices. Finally, compute what a customer buying one of everything would pay in the sale week, and by what percent the shop's takings on that basket fell compared with a normal week. Present the report as a table with a unit column (dollars), a short paragraph explaining your discount choices, and a check of one calculation using estimation. This mirrors, in miniature, exactly what a forward deployed engineer does for a living: take real numbers, treat them honestly, and explain them clearly.",
+  },
+};
+
+const references = [
+  "Khan Academy, Arithmetic and Prealgebra courses, free at khanacademy.org. Unlimited practice exercises with instant feedback, matched to every topic of this book.",
+  "OpenStax, Prealgebra 2e, a free open textbook at openstax.org. A full reference with more worked examples for every chapter here.",
+  "GCFGlobal, free everyday mathematics tutorials at gcfglobal.org. Gentle videos and practice for refreshing basics.",
+  "The FDE Academy curriculum and study plan, which places this book as MA-1, the entry point of the Foundation Mathematics series.",
+  "The remaining books of this series: Algebra, Logic, Graphs, and Problem Solving (MA-2), and Probability, Statistics, and Linear Algebra for Data and AI (MA-3).",
+];
+
+module.exports = { ch11, welcome, finalReview, references };

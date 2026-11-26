@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS book_reading_progress;
+DROP TABLE IF EXISTS download_records;
+DROP TABLE IF EXISTS download_tokens;
+DROP TABLE IF EXISTS file_versions;
+DROP TABLE IF EXISTS files;
+ALTER TABLE learning_resources DROP CONSTRAINT IF EXISTS fk_resources_book;
+DROP TABLE IF EXISTS book_chapters;
+DROP TABLE IF EXISTS book_editions;
+DROP TABLE IF EXISTS books;
+DROP TYPE IF EXISTS file_kind;
+DROP TYPE IF EXISTS book_format;

@@ -1,0 +1,101 @@
+{
+ "book": "fm",
+ "checks": [
+  {
+   "n": 1,
+   "name": "docx-opens-structure",
+   "pass": [
+    "the four operations, in real shops",
+    "fractions you can see",
+    "decimals and money",
+    "ratios and best buys",
+    "percentages that mean something",
+    "break-even: the first business model",
+    "glossary",
+    "references",
+    "answer key"
+   ],
+   "detail": "paragraphs=266 tables=12 images=7 h1=9"
+  },
+  {
+   "n": 2,
+   "name": "pdf-converted",
+   "pass": true,
+   "detail": "610728 bytes"
+  },
+  {
+   "n": 3,
+   "name": "page-count-sane",
+   "pass": true,
+   "detail": "22 pages"
+  },
+  {
+   "n": 4,
+   "name": "chapter-page-breaks",
+   "pass": true,
+   "detail": "chapters opening fresh pages: 6/6"
+  },
+  {
+   "n": 5,
+   "name": "diagrams-present",
+   "pass": true,
+   "detail": "inline images=7 (cover + 6 figures)"
+  },
+  {
+   "n": 6,
+   "name": "equations-rendered",
+   "pass": true,
+   "detail": "1 equation blocks rendered"
+  },
+  {
+   "n": 7,
+   "name": "tables-rendered",
+   "pass": true,
+   "detail": "docx tables=12 vs content tables=1 (incl. boxes/answer key)"
+  },
+  {
+   "n": 8,
+   "name": "headers-footers",
+   "pass": true,
+   "detail": "header on 20/20 body pages"
+  },
+  {
+   "n": 9,
+   "name": "page-numbers",
+   "pass": true,
+   "detail": "numbers on 21/21 pages, strictly increasing"
+  },
+  {
+   "n": 10,
+   "name": "no-content-loss",
+   "pass": true,
+   "detail": "all 79 sentinel atoms found"
+  },
+  {
+   "n": 11,
+   "name": "no-blank-pages",
+   "pass": true,
+   "detail": "near-empty pages: none"
+  }
+ ],
+ "passed": true,
+ "pages": 22,
+ "docx": {
+  "paragraphs": 266,
+  "tables": 12,
+  "images": 7,
+  "h1": [
+   "the four operations, in real shops",
+   "fractions you can see",
+   "decimals and money",
+   "ratios and best buys",
+   "percentages that mean something",
+   "break-even: the first business model",
+   "glossary",
+   "references",
+   "answer key"
+  ],
+  "textChars": 17044
+ },
+ "missingAtoms": []
+}

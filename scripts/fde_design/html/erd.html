@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #1A2330; --text-sub: #46566B; --text-muted: #68727E;
+    --bg: #FFFFFF; --surface: #F8FAFC; --border: #E5E7EB; --connector: #94A3B8;
+    --amber: #F59E0B;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  #root { width: fit-content; min-width: 1240px; max-width: 1400px; margin: 0 auto; padding: 48px 44px; }
+  .flow-title { font-size: 24px; font-weight: 700; color: var(--text); text-align: center; }
+  .flow-subtitle { font-size: 14px; color: var(--text-sub); text-align: center; margin-top: 8px; margin-bottom: 36px; }
+  .phase-group { background: var(--surface); border-radius: 12px; padding: 20px 24px; }
+  .phase-title { font-size: 16px; font-weight: 700; padding: 10px 16px; border-radius: 8px; margin-bottom: 14px; }
+  .phase-steps { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; }
+  .phase-step { font-size: 14px; font-weight: 400; color: var(--text); padding: 9px 14px; background: white;
+    border-radius: 6px; border: 1px solid var(--border); line-height: 1.5; }
+  .phase-step b { font-weight: 600; }
+  .step-num { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center;
+    border-radius: 50%; font-size: 12px; font-weight: 600; margin-right: 10px; }
+  .step-note { display: block; font-size: 12.5px; color: #92400E; margin-top: 5px; padding: 4px 10px;
+    background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 4px; }
+  .arrow { text-align: center; color: var(--connector); font-size: 22px; margin: 10px 0; }
+  .p1 .phase-title { background: #F0F4F8; color: #334155; border-left: 4px solid #64748B; }
+  .p1 .step-num { background: #E2E8F0; color: #475569; }
+  .p2 .phase-title { background: #E8EDF2; color: #1E3A5F; border-left: 4px solid #5B7A99; }
+  .p2 .step-num { background: #DBEAFE; color: #1E3A5F; }
+  .p3 .phase-title { background: #E0E7EF; color: #1E3050; border-left: 4px solid #4A6B8A; }
+  .p3 .step-num { background: #D0D9E4; color: #1E3050; }
+  .p4 .phase-title { background: #D8E0EA; color: #172540; border-left: 4px solid #3A5C7A; }
+  .p4 .step-num { background: #C7D2E0; color: #172540; }
+  .p5 .phase-title { background: #DAE1EB; color: #23364D; border-left: 4px solid #4B6A87; }
+  .p5 .step-num { background: #C7D2E0; color: #23364D; }
+  .p6 .phase-title { background: #D2DAE5; color: #1E3048; border-left: 4px solid #3B5F7D; }
+  .p6 .step-num { background: #BFC9D8; color: #1E3048; }
+  .p7 .phase-title { background: #CAD3E0; color: #192A3E; border-left: 4px solid #2B5473; }
+  .p7 .step-num { background: #B7C2D2; color: #192A3E; }
+  .legend { display: flex; gap: 24px; justify-content: center; margin-top: 28px; padding: 12px 20px;
+    background: #F9FAFB; border-radius: 8px; border: 1px solid #E5E7EB; font-size: 12.5px; color: #4B5563; }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px;
+    vertical-align: -1px; border: 2px solid #F59E0B; background: #FFF7ED; }
+  
+    .erd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .dom { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px 18px; }
+    .dom-name { font-size: 15px; font-weight: 700; color: #1E3050; }
+    .dom-note { font-size: 12px; color: #68727E; margin: 3px 0 12px; }
+    .ents { display: flex; flex-direction: column; gap: 8px; }
+    .ent { background: #FFFFFF; border: 1px solid #D7DFE8; border-radius: 8px; padding: 9px 12px; }
+    .ent-name { font-size: 13.5px; font-weight: 600; color: #1E40AF; font-family: 'Courier New', monospace; }
+    .ent-fields { font-size: 11.5px; color: #46566B; margin-top: 3px; line-height: 1.5;
+      font-family: 'Courier New', monospace; word-break: break-word; }
+    .rel-title { font-size: 15px; font-weight: 700; color: #1E3050; margin: 26px 0 10px; }
+    table.rel { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    table.rel th { text-align: left; background: #D4875A; color: #FFFFFF; padding: 8px 12px; font-weight: 600; }
+    table.rel td { background: #FFFFFF; border-bottom: 1px solid #E5E7EB; padding: 7px 12px; color: #2C3440; }
+    table.rel td.mono { font-family: 'Courier New', monospace; color: #1E3A5F; }
+    
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="flow-title">Database Requirements &mdash; Logical Schema by Domain</div>
+  <div class="flow-subtitle">Seventeen entities in five domains; all learner data resolves to users, all content hangs off the stage ladder</div>
+  <div class="erd-grid"><div class="dom"><div class="dom-name">Identity & Progress</div><div class="dom-note">Who the learner is and everything they did</div><div class="ents"><div class="ent"><div class="ent-name">users</div><div class="ent-fields">id PK · email UQ · name · role (student|admin) · created_at</div></div><div class="ent"><div class="ent-name">progress_events</div><div class="ent-fields">id PK · user_id FK · lesson_id FK · status · happened_at</div></div><div class="ent"><div class="ent-name">streaks</div><div class="ent-fields">user_id PK/FK · current · longest · last_active_date</div></div></div></div><div class="dom"><div class="dom-name">Curriculum</div><div class="dom-note">The ordered teaching content</div><div class="ents"><div class="ent"><div class="ent-name">stages</div><div class="ent-fields">id PK · sort_order UQ · title · phase · requires_stage_id FK</div></div><div class="ent"><div class="ent-name">courses</div><div class="ent-fields">id PK · stage_id FK · title · subject · difficulty</div></div><div class="ent"><div class="ent-name">modules</div><div class="ent-fields">id PK · course_id FK · title · sort_order</div></div><div class="ent"><div class="ent-name">chapters</div><div class="ent-fields">id PK · module_id FK · title · sort_order</div></div><div class="ent"><div class="ent-name">lessons</div><div class="ent-fields">id PK · chapter_id FK · title · type · content · sort_order</div></div><div class="ent"><div class="ent-name">exercises</div><div class="ent-fields">id PK · lesson_id FK · type · payload JSON</div></div></div></div><div class="dom"><div class="dom-name">Assessment</div><div class="dom-note">Questions asked and answers given</div><div class="ents"><div class="ent"><div class="ent-name">quizzes</div><div class="ent-fields">id PK · lesson_id FK (optional) · title · pass_score</div></div><div class="ent"><div class="ent-name">questions</div><div class="ent-fields">id PK · quiz_id FK · type · prompt · options JSON · answer</div></div><div class="ent"><div class="ent-name">attempts</div><div class="ent-fields">id PK · user_id FK · quiz_id FK · score · submitted_at</div></div></div></div><div class="dom"><div class="dom-name">Library & Projects</div><div class="dom-note">Books to read, projects to build</div><div class="ents"><div class="ent"><div class="ent-name">books</div><div class="ent-fields">id PK · title · subject · difficulty · file_docx · file_pdf · chapters</div></div><div class="ent"><div class="ent-name">book_progress</div><div class="ent-fields">user_id FK · book_id FK · chapters_done · last_chapter</div></div><div class="ent"><div class="ent-name">projects</div><div class="ent-fields">id PK · stage_id FK · level · title · brief · rubric JSON</div></div><div class="ent"><div class="ent-name">submissions</div><div class="ent-fields">id PK · user_id FK · project_id FK · status · rubric_score · feedback</div></div></div></div><div class="dom"><div class="dom-name">Reference</div><div class="dom-note">The shared dictionary</div><div class="ents"><div class="ent"><div class="ent-name">glossary_terms</div><div class="ent-fields">id PK · term UQ · simple · detailed · example · category</div></div></div></div></div><div class="rel-title">Key relationships</div><table class="rel"><tr><th>From</th><th>To</th><th>Cardinality</th><th>Meaning</th></tr><tr><td>stages</td><td>courses</td><td class="mono">1 : N</td><td>a stage orders its courses</td></tr><tr><td>courses → modules → chapters → lessons</td><td>exercises</td><td class="mono">1 : N each</td><td>the content tree</td></tr><tr><td>users</td><td>progress_events / attempts / submissions / book_progress</td><td class="mono">1 : N</td><td>all learner activity</td></tr><tr><td>lessons</td><td>quizzes</td><td class="mono">1 : 0..1</td><td>a lesson may carry one quiz</td></tr><tr><td>quizzes</td><td>questions</td><td class="mono">1 : N</td><td>question bank per quiz</td></tr><tr><td>projects</td><td>submissions</td><td class="mono">1 : N</td><td>each submission graded against the rubric</td></tr><tr><td>stages</td><td>stages (requires_stage_id)</td><td class="mono">self FK</td><td>prerequisite chains; Stage 2 (Mathematics) requires only Stage 1</td></tr></table>
+  <div class="legend"><span>PK = primary key &nbsp;·&nbsp; FK = foreign key &nbsp;·&nbsp; UQ = unique &nbsp;·&nbsp; JSON = structured document column</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+ "book": "gph",
+ "checks": [
+  {
+   "n": 1,
+   "name": "docx-opens-structure",
+   "pass": [
+    "modelling with nodes and edges",
+    "shortest paths, step by step",
+    "connected, or not? reachability without hope",
+    "flows and bottlenecks",
+    "glossary",
+    "references",
+    "answer key"
+   ],
+   "detail": "paragraphs=176 tables=8 images=5 h1=7"
+  },
+  {
+   "n": 2,
+   "name": "pdf-converted",
+   "pass": true,
+   "detail": "518053 bytes"
+  },
+  {
+   "n": 3,
+   "name": "page-count-sane",
+   "pass": true,
+   "detail": "18 pages"
+  },
+  {
+   "n": 4,
+   "name": "chapter-page-breaks",
+   "pass": true,
+   "detail": "chapters opening fresh pages: 4/4"
+  },
+  {
+   "n": 5,
+   "name": "diagrams-present",
+   "pass": true,
+   "detail": "inline images=5 (cover + 4 figures)"
+  },
+  {
+   "n": 6,
+   "name": "equations-rendered",
+   "pass": true,
+   "detail": "0 equation blocks rendered"
+  },
+  {
+   "n": 7,
+   "name": "tables-rendered",
+   "pass": true,
+   "detail": "docx tables=8 vs content tables=2 (incl. boxes/answer key)"
+  },
+  {
+   "n": 8,
+   "name": "headers-footers",
+   "pass": true,
+   "detail": "header on 16/16 body pages"
+  },
+  {
+   "n": 9,
+   "name": "page-numbers",
+   "pass": true,
+   "detail": "numbers on 17/17 pages, strictly increasing"
+  },
+  {
+   "n": 10,
+   "name": "no-content-loss",
+   "pass": true,
+   "detail": "all 48 sentinel atoms found"
+  },
+  {
+   "n": 11,
+   "name": "no-blank-pages",
+   "pass": true,
+   "detail": "near-empty pages: none"
+  }
+ ],
+ "passed": true,
+ "pages": 18,
+ "docx": {
+  "paragraphs": 176,
+  "tables": 8,
+  "images": 5,
+  "h1": [
+   "modelling with nodes and edges",
+   "shortest paths, step by step",
+   "connected, or not? reachability without hope",
+   "flows and bottlenecks",
+   "glossary",
+   "references",
+   "answer key"
+  ],
+  "textChars": 10326
+ },
+ "missingAtoms": []
+}

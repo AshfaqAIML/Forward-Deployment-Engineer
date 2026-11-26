@@ -1,0 +1,54 @@
+{
+ "chapters": {
+  "1": {
+   "approved": true,
+   "title": "Understand, plan, solve, check",
+   "atoms": 11,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  },
+  "2": {
+   "approved": true,
+   "title": "When the problem is underspecified",
+   "atoms": 15,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  },
+  "3": {
+   "approved": true,
+   "title": "Fermi estimates: sized right, quickly",
+   "atoms": 9,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  },
+  "4": {
+   "approved": true,
+   "title": "Tables and charts that answer questions",
+   "atoms": 12,
+   "figures": 1,
+   "tables": 1,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  }
+ },
+ "book": {
+  "slug": "ps",
+  "identifier": "FDE-BK-005",
+  "version": "1.0.0",
+  "edition": "1st",
+  "docx": "FDE_Mathematics_Problem_Solving_v1.docx",
+  "pdf": "FDE_Mathematics_Problem_Solving_v1.pdf",
+  "qcPassed": true,
+  "pages": 18
+ }
+}

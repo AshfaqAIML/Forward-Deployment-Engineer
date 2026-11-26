@@ -1,0 +1,266 @@
+[
+ {
+  "area": "toc",
+  "name": "fm: TOC lists 6 chapters",
+  "pass": true,
+  "detail": "6 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "fm: TOC page numbers match actual chapter starts (6/6)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "fm: all 18 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "fm: DOCX headings == PDF chapters (6+3)",
+  "pass": true,
+  "detail": "['thefouroperationsinrealshops', 'fractionsyoucansee', 'decimalsandmoney', 'ratiosandbestbuys', 'percentagesthatmeansomething']"
+ },
+ {
+  "area": "consistency",
+  "name": "fm: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "7 images"
+ },
+ {
+  "area": "format",
+  "name": "fm: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "fm: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "toc",
+  "name": "alg: TOC lists 4 chapters",
+  "pass": true,
+  "detail": "4 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "alg: TOC page numbers match actual chapter starts (4/4)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "alg: all 12 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "alg: DOCX headings == PDF chapters (4+3)",
+  "pass": true,
+  "detail": "['lettersthatstandfornumbers', 'expandingandfactorising', 'solvinglinearequations', 'straightlinegraphsandwhattheymean', 'glossary']"
+ },
+ {
+  "area": "consistency",
+  "name": "alg: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "5 images"
+ },
+ {
+  "area": "format",
+  "name": "alg: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "alg: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "toc",
+  "name": "log: TOC lists 4 chapters",
+  "pass": true,
+  "detail": "4 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "log: TOC page numbers match actual chapter starts (4/4)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "log: all 12 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "log: DOCX headings == PDF chapters (4+3)",
+  "pass": true,
+  "detail": "['statementsandornot', 'ifthenandtheconversetrap', 'directproofandproofbycases', 'setsallandsome', 'glossary']"
+ },
+ {
+  "area": "consistency",
+  "name": "log: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "5 images"
+ },
+ {
+  "area": "format",
+  "name": "log: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "log: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "toc",
+  "name": "gph: TOC lists 4 chapters",
+  "pass": true,
+  "detail": "4 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "gph: TOC page numbers match actual chapter starts (4/4)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "gph: all 12 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "gph: DOCX headings == PDF chapters (4+3)",
+  "pass": true,
+  "detail": "['modellingwithnodesandedges', 'shortestpathsstepbystep', 'connectedornotreachabilitywithouthope', 'flowsandbottlenecks', 'glossary']"
+ },
+ {
+  "area": "consistency",
+  "name": "gph: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "5 images"
+ },
+ {
+  "area": "format",
+  "name": "gph: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "gph: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "toc",
+  "name": "ps: TOC lists 4 chapters",
+  "pass": true,
+  "detail": "4 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "ps: TOC page numbers match actual chapter starts (4/4)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "ps: all 12 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "ps: DOCX headings == PDF chapters (4+3)",
+  "pass": true,
+  "detail": "['understandplansolvecheck', 'whentheproblemisunderspecified', 'fermiestimatessizedrightquickly', 'tablesandchartsthatanswerquestions', 'glossary']"
+ },
+ {
+  "area": "consistency",
+  "name": "ps: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "5 images"
+ },
+ {
+  "area": "format",
+  "name": "ps: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "ps: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "toc",
+  "name": "hb: TOC lists 5 chapters",
+  "pass": true,
+  "detail": "5 entries parsed"
+ },
+ {
+  "area": "toc",
+  "name": "hb: TOC page numbers match actual chapter starts (5/5)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "answers",
+  "name": "hb: all 36 answer-key answers match seed options",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "area": "consistency",
+  "name": "hb: DOCX headings == PDF chapters (5+3)",
+  "pass": true,
+  "detail": "['workinglikeanfdethestudysystem', 'programmingpracticelabs', 'level1projectsfirstcustomerwork', 'level23projectsgrowingresponsibility', 'aiengineeringpractice']"
+ },
+ {
+  "area": "consistency",
+  "name": "hb: DOCX images == PDF figure count",
+  "pass": true,
+  "detail": "6 images"
+ },
+ {
+  "area": "format",
+  "name": "hb: body font + size consistent",
+  "pass": true,
+  "detail": "Liberation Serif 10.5"
+ },
+ {
+  "area": "format",
+  "name": "hb: A4 + consistent margins",
+  "pass": true,
+  "detail": "21.0x29.7 top=2.3"
+ },
+ {
+  "area": "figures",
+  "name": "32 figure PNGs non-blank",
+  "pass": true,
+  "detail": "blank=0, min non-white=0.0582"
+ },
+ {
+  "area": "references",
+  "name": "6 unique reference URLs resolve",
+  "pass": true,
+  "detail": ""
+ }
+]

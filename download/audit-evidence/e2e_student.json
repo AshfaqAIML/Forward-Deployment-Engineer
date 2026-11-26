@@ -1,0 +1,62 @@
+[
+ {
+  "step": 1,
+  "name": "website opens (single process serves SPA + API)",
+  "pass": true,
+  "detail": "(200, 384367)"
+ },
+ {
+  "step": 2,
+  "name": "account created and access token issued",
+  "pass": true,
+  "detail": "(200, ['user', 'accessToken', 'refreshToken', 'tokenType'])"
+ },
+ {
+  "step": 3,
+  "name": "curriculum served; Mathematics is the first subject; fm course opens",
+  "pass": true,
+  "detail": "(200, '[{\"stageNumber\": 1, \"phase\": \"A\", \"title\": \"Start Here & Study Skills\", \"meta\": ')"
+ },
+ {
+  "step": 4,
+  "name": "lesson fm-1 opens with objectives and content blocks",
+  "pass": true,
+  "detail": "(200, 5)"
+ },
+ {
+  "step": 5,
+  "name": "coding exercise submitted and listed in my submissions",
+  "pass": true,
+  "detail": "(200, 201, 200)"
+ },
+ {
+  "step": 6,
+  "name": "quiz submitted, scored and passed (graded attempt)",
+  "pass": true,
+  "detail": "(201, 200, 200, {'score': 100, 'passed': True, 'correctCount': 3})"
+ },
+ {
+  "step": 7,
+  "name": "DOCX print edition downloads through the token flow",
+  "pass": true,
+  "detail": "(201, 453762, b'PK')"
+ },
+ {
+  "step": 8,
+  "name": "matching PDF downloads (%PDF magic bytes)",
+  "pass": true,
+  "detail": "(201, 610728, b'%PDF')"
+ },
+ {
+  "step": 9,
+  "name": "progress dashboard reflects the completed lesson (fm 17%)",
+  "pass": true,
+  "detail": "(200, 1, 17)"
+ },
+ {
+  "step": 10,
+  "name": "next recommended lesson loads (learning continues past the completed one)",
+  "pass": true,
+  "detail": "(200, 200, 'st-1', 1)"
+ }
+]

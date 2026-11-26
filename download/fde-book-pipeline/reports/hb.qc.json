@@ -1,0 +1,99 @@
+{
+ "book": "hb",
+ "checks": [
+  {
+   "n": 1,
+   "name": "docx-opens-structure",
+   "pass": [
+    "working like an fde: the study system",
+    "programming practice labs",
+    "level 1 projects \u2014 first customer work",
+    "level 2\u20133 projects \u2014 growing responsibility",
+    "ai engineering practice",
+    "glossary",
+    "references",
+    "answer key"
+   ],
+   "detail": "paragraphs=365 tables=21 images=6 h1=8"
+  },
+  {
+   "n": 2,
+   "name": "pdf-converted",
+   "pass": true,
+   "detail": "657597 bytes"
+  },
+  {
+   "n": 3,
+   "name": "page-count-sane",
+   "pass": true,
+   "detail": "26 pages"
+  },
+  {
+   "n": 4,
+   "name": "chapter-page-breaks",
+   "pass": true,
+   "detail": "chapters opening fresh pages: 5/5"
+  },
+  {
+   "n": 5,
+   "name": "diagrams-present",
+   "pass": true,
+   "detail": "inline images=6 (cover + 5 figures)"
+  },
+  {
+   "n": 6,
+   "name": "equations-rendered",
+   "pass": true,
+   "detail": "0 equation blocks rendered"
+  },
+  {
+   "n": 7,
+   "name": "tables-rendered",
+   "pass": true,
+   "detail": "docx tables=21 vs content tables=4 (incl. boxes/answer key)"
+  },
+  {
+   "n": 8,
+   "name": "headers-footers",
+   "pass": true,
+   "detail": "header on 24/24 body pages"
+  },
+  {
+   "n": 9,
+   "name": "page-numbers",
+   "pass": true,
+   "detail": "numbers on 25/25 pages, strictly increasing"
+  },
+  {
+   "n": 10,
+   "name": "no-content-loss",
+   "pass": true,
+   "detail": "all 109 sentinel atoms found"
+  },
+  {
+   "n": 11,
+   "name": "no-blank-pages",
+   "pass": true,
+   "detail": "near-empty pages: none"
+  }
+ ],
+ "passed": true,
+ "pages": 26,
+ "docx": {
+  "paragraphs": 365,
+  "tables": 21,
+  "images": 6,
+  "h1": [
+   "working like an fde: the study system",
+   "programming practice labs",
+   "level 1 projects \u2014 first customer work",
+   "level 2\u20133 projects \u2014 growing responsibility",
+   "ai engineering practice",
+   "glossary",
+   "references",
+   "answer key"
+  ],
+  "textChars": 27274
+ },
+ "missingAtoms": []
+}

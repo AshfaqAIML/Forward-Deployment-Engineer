@@ -1,0 +1,50 @@
+[
+ {
+  "step": 1,
+  "name": "administrator signs in",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "step": 2,
+  "name": "course created in the CMS (draft)",
+  "pass": true,
+  "detail": "(201, {'id': '0199551c-bd45-4a33-a79d-ed5ea6157445', 'code': 'ext1', 'title': 'Extension Mathematics (E2E)', 'status': 'draft'})"
+ },
+ {
+  "step": 3,
+  "name": "module, chapter and published lesson created",
+  "pass": true,
+  "detail": "(201, 201, 201, {'id': '4a38b942-27dc-4ee9-82ac-8596c87fd1d7', 'code': 'ext-1', 'title': 'Four operations, refreshed', 'status': 'published'})"
+ },
+ {
+  "step": 4,
+  "name": "course published (publish event recorded)",
+  "pass": true,
+  "detail": "(200, {'id': '0199551c-bd45-4a33-a79d-ed5ea6157445', 'code': 'ext1', 'title': 'Extension Mathematics (E2E)', 'status': 'published'})"
+ },
+ {
+  "step": 5,
+  "name": "student sees the published course and reads its lesson",
+  "pass": true,
+  "detail": "(200, 200)"
+ },
+ {
+  "step": 6,
+  "name": "book file uploaded (private, checksummed)",
+  "pass": true,
+  "detail": "(201, {'id': '7eefadb1-8673-4ca1-b2c2-0877c9e73e72', 'original_filename': 'e2e-edition.docx', 'mime_type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+ },
+ {
+  "step": 7,
+  "name": "new DOCX edition (v1.1.0) attached to Foundation Mathematics",
+  "pass": true,
+  "detail": "(201, {'id': '0e1a0cf8-6041-4a40-8b29-d83e8ccc6b90', 'version': '1.1.0', 'format': 'docx', 'notes': 'uploaded by the admin journey test', 'fileId': '7eefadb1-8673-4ca1-b2c2-0877c9e"
+ },
+ {
+  "step": 8,
+  "name": "student downloads the new edition; bytes match the upload exactly",
+  "pass": true,
+  "detail": "(201, 1764, 1764)"
+ }
+]

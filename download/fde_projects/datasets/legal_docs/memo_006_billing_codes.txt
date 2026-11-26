@@ -1,0 +1,6 @@
+MEMO 006 - Billing Code Reference
+Time entries use the firm's billing codes: LIT for litigation, COR for
+corporate, REG for regulatory, IP for intellectual property, and GEN for
+general advisory. Each code carries a standard hourly rate band. Codes are
+reviewed every January; entries recorded under retired codes are remapped
+by the finance team during the January close.

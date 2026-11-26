@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS learning_resources;
+DROP TYPE IF EXISTS resource_kind;
+DROP TABLE IF EXISTS lesson_prerequisites;
+DROP TABLE IF EXISTS lessons;
+DROP TABLE IF EXISTS chapters;
+DROP TABLE IF EXISTS modules;
+DROP TABLE IF EXISTS course_prerequisites;
+DROP TABLE IF EXISTS courses;
+DROP TABLE IF EXISTS learning_stages;
+DROP TABLE IF EXISTS subjects;
+DROP TYPE IF EXISTS difficulty_level;
+DROP TYPE IF EXISTS content_status;

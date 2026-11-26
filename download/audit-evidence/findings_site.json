@@ -1,0 +1,254 @@
+[
+ {
+  "area": "auth",
+  "name": "register new student",
+  "pass": true,
+  "detail": "(201, {'user': {'id': 'a8cb8f2a-20be-4b51-b6d4-ef94b868110c', 'email': 'auditor@fde.local', 'displayName': 'Auditor', 'role': 'student'}, 'accessToken': 'eyJhbG"
+ },
+ {
+  "area": "auth",
+  "name": "weak password rejected",
+  "pass": true,
+  "detail": "422"
+ },
+ {
+  "area": "auth",
+  "name": "login returns access token",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "auth",
+  "name": "auth/me shows profile",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "auth",
+  "name": "anon auth/me \u2192 401",
+  "pass": true,
+  "detail": "401"
+ },
+ {
+  "area": "auth",
+  "name": "wrong password \u2192 401 generic",
+  "pass": true,
+  "detail": "401"
+ },
+ {
+  "area": "auth",
+  "name": "refresh token rotates",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "auth",
+  "name": "password reset: enumeration-resistant generic response",
+  "pass": true,
+  "detail": "200/200"
+ },
+ {
+  "area": "student",
+  "name": "dashboard endpoint me/progress",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "dashboard endpoint me/mastery",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "dashboard endpoint me/recommendation",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "curriculum tree",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "course detail fm",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "lesson content (fm-1)",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "student",
+  "name": "lesson includes objectives + blocks",
+  "pass": true,
+  "detail": "['lesson']"
+ },
+ {
+  "area": "progress",
+  "name": "lesson UUID resolved from catalog",
+  "pass": true,
+  "detail": "2109075a-323e-4180-abd8-148d42513770"
+ },
+ {
+  "area": "progress",
+  "name": "mark lesson complete",
+  "pass": false,
+  "detail": "(403, {'error': {'code': 'forbidden', 'message': 'Lessons complete only through a passing knowledge check \u2014 take the quiz first'}})"
+ },
+ {
+  "area": "progress",
+  "name": "progress reflects completion",
+  "pass": false,
+  "detail": "200"
+ },
+ {
+  "area": "progress",
+  "name": "knowledge check GET served",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "progress",
+  "name": "knowledge check feedback returned",
+  "pass": true,
+  "detail": "(200, {'mode': 'practice', 'score': 0, 'correctCount': 0, 'questionCount': 3, 'feedback': [{'questionId': 'f27b0b03-ebf6-45cb-976d-05bf12c3ef2a', 'outcome': 'in"
+ },
+ {
+  "area": "quiz",
+  "name": "quiz attempt created",
+  "pass": true,
+  "detail": "(201, {'attemptId': '80b28fc7-1e64-47ae-9cb2-c902c3a042dd', 'startedAt': '2026-11-25T10:37:49.497Z', 'status': 'in_progress'})"
+ },
+ {
+  "area": "quiz",
+  "name": "answer \u00a364 accepted (UUID shape)",
+  "pass": true,
+  "detail": "(200, {'ok': True, 'saved': 1})"
+ },
+ {
+  "area": "quiz",
+  "name": "FIXED QUIZ: \u00a364 question marked correct",
+  "pass": true,
+  "detail": "{\"attemptId\": \"80b28fc7-1e64-47ae-9cb2-c902c3a042dd\", \"score\": 33, \"passed\": false, \"passPct\": 70, \"correctCount\": 1, \"questionCount\": 3, \"questions\": [{\"questi"
+ },
+ {
+  "area": "quiz",
+  "name": "unknown quiz \u2192 clean 404",
+  "pass": true,
+  "detail": "404"
+ },
+ {
+  "area": "search",
+  "name": "search returns hits",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "exercises",
+  "name": "exercise list",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "glossary",
+  "name": "glossary served (55 terms)",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "books",
+  "name": "library lists 6 books",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "books",
+  "name": "fm editions present",
+  "pass": true,
+  "detail": "['doc']"
+ },
+ {
+  "area": "books",
+  "name": "FRESH SEED: only seed 'doc' edition (print editions need publish step)",
+  "pass": true,
+  "detail": "['doc']"
+ },
+ {
+  "area": "books",
+  "name": "download token issued",
+  "pass": true,
+  "detail": "201"
+ },
+ {
+  "area": "books",
+  "name": "seed book file downloads",
+  "pass": false,
+  "detail": "(200, 5567)"
+ },
+ {
+  "area": "permissions",
+  "name": "student POST admin/cms \u2192 403",
+  "pass": true,
+  "detail": "403"
+ },
+ {
+  "area": "permissions",
+  "name": "student GET analytics \u2192 403",
+  "pass": true,
+  "detail": "403"
+ },
+ {
+  "area": "permissions",
+  "name": "anon analytics \u2192 401",
+  "pass": true,
+  "detail": "401"
+ },
+ {
+  "area": "admin",
+  "name": "admin analytics works",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "admin",
+  "name": "content-health report",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "admin",
+  "name": "admin user list",
+  "pass": true,
+  "detail": "200"
+ },
+ {
+  "area": "errors",
+  "name": "unknown lesson check \u2192 4xx JSON",
+  "pass": true,
+  "detail": "(404, {'error': {'code': 'not_found', 'message': 'No knowledge check for this lesson'}})"
+ },
+ {
+  "area": "errors",
+  "name": "unknown book \u2192 404 JSON",
+  "pass": true,
+  "detail": "404"
+ },
+ {
+  "area": "errors",
+  "name": "validation error shape",
+  "pass": true,
+  "detail": "422"
+ },
+ {
+  "area": "security",
+  "name": "CORS header when FDE_CORS_ORIGIN set",
+  "pass": true,
+  "detail": "['Access-Control-Allow-Origin']"
+ }
+]

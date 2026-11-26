@@ -1,0 +1,104 @@
+[
+ {
+  "area": "A",
+  "name": "average sentence length 15.2 words (target < 25)",
+  "pass": true,
+  "detail": "15.2"
+ },
+ {
+  "area": "A",
+  "name": "sentences over 38 words: 5",
+  "pass": true,
+  "detail": "5 long sentences"
+ },
+ {
+  "area": "A",
+  "name": "abbreviations all introduced or glossary-defined",
+  "pass": true,
+  "detail": "unexplained: []"
+ },
+ {
+  "area": "G",
+  "name": "every technical term defined or glossary-covered",
+  "pass": false,
+  "detail": "gaps: {'expand': ['al-2', 'gr-2']}"
+ },
+ {
+  "area": "G",
+  "name": "no term used before its defining lesson",
+  "pass": false,
+  "detail": "forward refs: {'break-even': ('st-1', 'st-2'), 'graph': ('st-1', 'gr-1'), 'fixed cost': ('fm-6', 'al-4'), 'profit': ('fm-6', 'al-3'), 'variable': ('fm-6', 'pg-1'), 'path': ('gr-1', 'gr-2'), 'loop': ('"
+ },
+ {
+  "area": "D",
+  "name": "course start: 3 lessons in module order",
+  "pass": true,
+  "detail": "{'Getting ready': [1, 2, 3]}"
+ },
+ {
+  "area": "D",
+  "name": "course fm: 6 lessons in module order",
+  "pass": true,
+  "detail": "{'Numbers and operatio': [1, 2, 3], 'Ratios, percentages ': [1, 2, 3]}"
+ },
+ {
+  "area": "D",
+  "name": "course algebra: 4 lessons in module order",
+  "pass": true,
+  "detail": "{'Expressions and patt': [1, 2], 'Equations and graphs': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "course logic: 4 lessons in module order",
+  "pass": true,
+  "detail": "{'Statements and truth': [1, 2], 'Proof techniques': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "course graphs: 4 lessons in module order",
+  "pass": true,
+  "detail": "{'Graphs and paths': [1, 2], 'Flows and networks': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "course ps: 4 lessons in module order",
+  "pass": true,
+  "detail": "{'Problem-solving meth': [1, 2], 'Modelling and estima': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "course prog1: 5 lessons in module order",
+  "pass": true,
+  "detail": "{'First programs': [1, 2, 3], 'Loops and functions': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "course ai1: 4 lessons in module order",
+  "pass": true,
+  "detail": "{'Grounded assistants': [1, 2], 'Evaluation': [1, 2]}"
+ },
+ {
+  "area": "D",
+  "name": "all 6 prerequisites point to earlier stages",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "area": "D",
+  "name": "lesson minutes rise or stay flat across stages 1\u219215",
+  "pass": true,
+  "detail": "{1: 11, 2: 27, 3: 28, 4: 28, 5: 30, 6: 29, 7: 30, 15: 34}"
+ },
+ {
+  "area": "D",
+  "name": "objectives match taught content (34 lessons)",
+  "pass": false,
+  "detail": "[\"st-1: 'Say in one sentence what an FDE does'\", \"fm-1: 'Compute with confidence and check the result'\", \"fm-3: 'Read decimals as fractions with power-of-ten'\", \"fm-5: 'Apply discounts and VAT-style m"
+ },
+ {
+  "area": "D",
+  "name": "every non-orientation course has stage projects",
+  "pass": false,
+  "detail": "['algebra', 'graphs', 'ps']"
+ }
+]

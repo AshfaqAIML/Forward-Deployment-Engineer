@@ -1,0 +1,6 @@
+MEMO 005 - Conflict of Interest Check Procedure
+Every new matter runs a conflict check against the client and adverse
+party database before opening. Checks cover current clients, former
+clients within the retention window, and related entities by registration
+number. A potential conflict escalates to the general counsel, who decides
+within two business days. Matters may not open while a check is pending.

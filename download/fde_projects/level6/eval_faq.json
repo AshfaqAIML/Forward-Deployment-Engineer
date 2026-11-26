@@ -1,0 +1,15 @@
+{
+  "description": "Evaluation set for Project 6.1. Each case: a probe question, the FAQ record the retrieval step must rank first (expect), and what the assistant should do. 'fallback' cases must trigger the low-confidence answer instead of a guess.",
+  "cases": [
+    {"q": "Where is my order?", "expect": "Where is my order?", "behavior": "answer from FAQ"},
+    {"q": "How can I return an item I bought?", "expect": "How do I return an item?", "behavior": "answer from FAQ"},
+    {"q": "Payment failed and money left my account", "expect": "My payment failed", "behavior": "answer from FAQ"},
+    {"q": "Can I change the delivery address after ordering?", "expect": "change my delivery address", "behavior": "answer from FAQ"},
+    {"q": "Do you deliver to other countries?", "expect": "internationally", "behavior": "answer from FAQ"},
+    {"q": "I forgot my password, how do I get back in?", "expect": "reset my password", "behavior": "answer from FAQ"},
+    {"q": "Where can I download my invoice?", "expect": "Where is my invoice?", "behavior": "answer from FAQ"},
+    {"q": "My discount code is not accepted at checkout", "expect": "discount code", "behavior": "answer from FAQ"},
+    {"q": "What is your refund policy?", "expect": "How do I return an item?", "behavior": "answer from FAQ (nearest match)"},
+    {"q": "Who is the CEO of the company?", "expect": null, "behavior": "fallback: low confidence, hand to a human"}
+  ]
+}

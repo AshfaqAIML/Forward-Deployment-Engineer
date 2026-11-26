@@ -1,0 +1,74 @@
+{
+ "chapters": {
+  "1": {
+   "approved": true,
+   "title": "The four operations, in real shops",
+   "atoms": 14,
+   "figures": 1,
+   "tables": 1,
+   "examples": 1,
+   "exercises": 2,
+   "reviewQuestions": 3
+  },
+  "2": {
+   "approved": true,
+   "title": "Fractions you can see",
+   "atoms": 11,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 2,
+   "reviewQuestions": 3
+  },
+  "3": {
+   "approved": true,
+   "title": "Decimals and money",
+   "atoms": 12,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  },
+  "4": {
+   "approved": true,
+   "title": "Ratios and best buys",
+   "atoms": 14,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  },
+  "5": {
+   "approved": true,
+   "title": "Percentages that mean something",
+   "atoms": 14,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 2,
+   "reviewQuestions": 3
+  },
+  "6": {
+   "approved": true,
+   "title": "Break-even: the first business model",
+   "atoms": 14,
+   "figures": 1,
+   "tables": 0,
+   "examples": 1,
+   "exercises": 1,
+   "reviewQuestions": 3
+  }
+ },
+ "book": {
+  "slug": "fm",
+  "identifier": "FDE-BK-001",
+  "version": "1.0.0",
+  "edition": "1st",
+  "docx": "FDE_Mathematics_Foundation_Mathematics_v1.docx",
+  "pdf": "FDE_Mathematics_Foundation_Mathematics_v1.pdf",
+  "qcPassed": true,
+  "pages": 22
+ }
+}

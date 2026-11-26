@@ -1,0 +1,83 @@
+{
+ "claimsChecked": 27,
+ "failed": [
+  {
+   "location": "lesson fm-1 block1(table)",
+   "claim": "144 + 12 = 213",
+   "detail": "156 vs 213"
+  },
+  {
+   "location": "lesson fm-3 block5(exercise) solution",
+   "claim": "3.85 + 0.05 = 16.30",
+   "detail": "39/10 vs 163/10"
+  },
+  {
+   "location": "lesson al-2 block2(steps) expr",
+   "claim": "8 + 8 = 4",
+   "detail": "16 vs 4"
+  },
+  {
+   "location": "lesson gr-2 block1(steps) expr",
+   "claim": "7 + 9 = 21",
+   "detail": "16 vs 21"
+  }
+ ],
+ "verifiedExamples": [
+  {
+   "location": "lesson fm-1 block1(table)",
+   "claim": "57 + 144 + 12 = 213"
+  },
+  {
+   "location": "lesson fm-3 block1(p)",
+   "claim": "12.40 + 3.85 = 16.25"
+  },
+  {
+   "location": "lesson fm-3 block5(exercise) solution",
+   "claim": "12.40 + 3.85 + 0.05 = 16.30"
+  },
+  {
+   "location": "lesson al-1 block2(exercise) solution",
+   "claim": "40 + 24 = \u00a364"
+  },
+  {
+   "location": "lesson al-1 quiz1 why",
+   "claim": "40 + 24 = 64"
+  },
+  {
+   "location": "lesson gr-2 block0(p)",
+   "claim": "5 + 7 = 12"
+  },
+  {
+   "location": "lesson gr-2 block0(p)",
+   "claim": "12 + 9 = 21"
+  },
+  {
+   "location": "lesson gr-2 block1(steps) expr",
+   "claim": "5 + 7 + 9 = 21"
+  },
+  {
+   "location": "lesson gr-2 quiz0 why",
+   "claim": "5 + 7 = 12"
+  },
+  {
+   "location": "lesson gr-4 quiz1 why",
+   "claim": "20 + 30 = 50"
+  },
+  {
+   "location": "lesson ps-1 block3(exercise) solution",
+   "claim": "36 + 8 = \u00a344"
+  },
+  {
+   "location": "book fm ch2 block1",
+   "claim": "12.40 + 3.85 = 16.25"
+  },
+  {
+   "location": "book gph ch2 block0",
+   "claim": "5+7 = 12"
+  },
+  {
+   "location": "book gph ch2 block0",
+   "claim": "12+9 = 21"
+  }
+ ]
+}

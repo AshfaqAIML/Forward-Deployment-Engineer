@@ -1,0 +1,27 @@
+{
+  "name": "fde-academy-backend",
+  "version": "2.0.0",
+  "description": "FDE Academy backend v2 — standalone Node.js + PostgreSQL service: auth, RBAC, catalog, secure book downloads, server-scored assessments, adaptive learning engine, knowledge-check feedback, grounded AI tutor, CMS + admin console, analytics.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "migrate": "node src/db/migrate.js up",
+    "migrate:down": "node src/db/migrate.js down",
+    "migrate:status": "node src/db/migrate.js status",
+    "seed": "node src/db/seed.js",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.2.0"
+  },
+  "comments": {
+    "dependencies": "Zero runtime dependencies by design: Node stdlib (http, crypto, fs) covers routing, scrypt password hashing and HS256 tokens. Production PostgreSQL uses the optional 'pg' driver; tests run on @electric-sql/pglite (real PostgreSQL compiled to WASM) so migrations and queries are verified against genuine PostgreSQL semantics."
+  }
+}

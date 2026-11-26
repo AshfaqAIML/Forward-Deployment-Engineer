@@ -1,0 +1,49 @@
+{
+ "identifier": "FDE-BK-004",
+ "slug": "gph",
+ "title": "Graphs & Networks",
+ "subtitle": "Relationships you can draw",
+ "subject": "Mathematics",
+ "difficulty": "Intermediate",
+ "stageNumber": 5,
+ "edition": "1st",
+ "version": "1.0.0",
+ "publicationDate": "2026-11-25",
+ "description": "Nodes, edges, degrees, paths and flows — how warehouses, roads, friend networks and dependencies become pictures that compute.",
+ "objectives": [
+  "Model situations as nodes and edges",
+  "Read degree, path and connectivity from a drawing",
+  "Trace and count routes",
+  "Explain why network thinking matters for data engineering"
+ ],
+ "chapters": [
+  {
+   "lessons": [
+    "gr-1"
+   ]
+  },
+  {
+   "lessons": [
+    "gr-2"
+   ]
+  },
+  {
+   "lessons": [
+    "gr-3"
+   ]
+  },
+  {
+   "lessons": [
+    "gr-4"
+   ]
+  }
+ ],
+ "glossaryCategories": [
+  "Mathematics"
+ ],
+ "references": [
+  {
+   "text": "Rosen, K. H., Discrete Mathematics and Its Applications. McGraw-Hill."
+  }
+ ]
+}

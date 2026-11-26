@@ -1,0 +1,1653 @@
+{
+  "program": "FDE Academy",
+  "document": "Complete Curriculum and Book Collection Blueprint",
+  "version": "1.0",
+  "date": "2026-11-24",
+  "totals": {
+    "books": 32,
+    "chapters": 404,
+    "hours": 1820,
+    "optionalHours": 30
+  },
+  "books": [
+    {
+      "id": "MA-1",
+      "title": "Everyday Mathematics for Future Engineers",
+      "track": "Mathematics",
+      "stage": "1",
+      "hours": 45,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - Numbers and Operations",
+          "chapters": [
+            "Numbers and How They Work",
+            "Addition and Subtraction with Understanding",
+            "Multiplication and Division with Confidence",
+            "Negative Numbers",
+            "Powers and Roots"
+          ]
+        },
+        {
+          "name": "Part II - Fractions, Decimals, and Percentages",
+          "chapters": [
+            "Fractions and Their Meanings",
+            "Multiplying and Dividing Fractions",
+            "Decimals in Practice",
+            "Percentages That Mean Something",
+            "Ratios and Proportions"
+          ]
+        },
+        {
+          "name": "Part III - Measurement and Problem Solving",
+          "chapters": [
+            "Measurements and Units",
+            "Estimation and Checking",
+            "Word Problems and the Translation Method",
+            "Putting It Together: Everyday Engineering Problems"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MA-2",
+      "title": "Algebra, Logic, Graphs, and Problem Solving",
+      "track": "Mathematics",
+      "stage": "1",
+      "hours": 50,
+      "chapters": 15,
+      "parts": [
+        {
+          "name": "Part I - Algebra from Scratch",
+          "chapters": [
+            "What Algebra Really Is",
+            "Variables and Expressions",
+            "Equations and Balancing",
+            "Equations That Describe the Real World",
+            "Inequalities and Ranges"
+          ]
+        },
+        {
+          "name": "Part II - Patterns and Graphs",
+          "chapters": [
+            "Patterns and Sequences",
+            "The Coordinate Plane",
+            "Straight Lines and Their Stories",
+            "Curves and Change",
+            "Functions: Machines for Turning Inputs into Outputs"
+          ]
+        },
+        {
+          "name": "Part III - Logic and Discrete Thinking",
+          "chapters": [
+            "Statements, Negation, and Truth Tables",
+            "Sets and Venn Diagrams",
+            "Counting: An Invitation to Discrete Mathematics",
+            "Networks and Discrete Structures",
+            "Problem-Solving Capstone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MA-3",
+      "title": "Probability, Statistics, and Linear Algebra for Data and AI",
+      "track": "Mathematics",
+      "stage": "15 (gate; studied alongside Stages 6-14)",
+      "hours": 55,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - Describing Data",
+          "chapters": [
+            "Data and Measurements",
+            "Averages: Mean, Median, and Mode",
+            "Spread: Range and Variation"
+          ]
+        },
+        {
+          "name": "Part II - Probability",
+          "chapters": [
+            "Basic Probability",
+            "Combining Probabilities",
+            "Conditional Probability",
+            "Distributions"
+          ]
+        },
+        {
+          "name": "Part III - Reasoning from Samples",
+          "chapters": [
+            "Sampling",
+            "Correlation",
+            "Statistical Reasoning in Practice"
+          ]
+        },
+        {
+          "name": "Part IV - Linear Algebra for Models",
+          "chapters": [
+            "Vectors",
+            "Matrices",
+            "Matrix Operations",
+            "Introduction to Optimisation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MA-X",
+      "title": "Advanced Mathematics Extension: Calculus for AI",
+      "track": "Mathematics",
+      "stage": "16 (optional specialisation)",
+      "hours": 30,
+      "chapters": 8,
+      "parts": [
+        {
+          "name": "Part I - Rates of Change",
+          "chapters": [
+            "Change and Rates of Change",
+            "The Derivative",
+            "Using Derivatives"
+          ]
+        },
+        {
+          "name": "Part II - Many Variables and Descent",
+          "chapters": [
+            "Functions of Several Variables and Partial Derivatives",
+            "The Gradient",
+            "Gradient Descent",
+            "Integration in One Look",
+            "Where Calculus Lives in AI"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Computer Basics for Future Engineers",
+      "track": "Core computing",
+      "stage": "2",
+      "hours": 40,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Understanding the Machine",
+          "chapters": [
+            "What a Computer Actually Does",
+            "Inside the Machine: Memory, Storage, and Speed",
+            "Your Operating System and Its Settings"
+          ]
+        },
+        {
+          "name": "Part II - Everyday Skills",
+          "chapters": [
+            "Files, Folders, and Getting Organised",
+            "Typing and Text Like a Professional",
+            "Documents, Spreadsheets, and Presentations"
+          ]
+        },
+        {
+          "name": "Part III - The Internet and Safety",
+          "chapters": [
+            "The Internet: How Pages Reach You",
+            "Browsers, Search, and Judging Information",
+            "Accounts, Passwords, and Personal Safety"
+          ]
+        },
+        {
+          "name": "Part IV - Maintaining and Fixing",
+          "chapters": [
+            "Installing, Updating, and Removing Software",
+            "When Things Go Wrong: Calm Troubleshooting",
+            "Your Working Setup"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Computational Thinking and Problem Solving",
+      "track": "Core computing",
+      "stage": "3",
+      "hours": 40,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Thinking in Steps",
+          "chapters": [
+            "Problems, Solutions, and Precise Steps",
+            "Decomposition: Eating Problems One Bite at a Time",
+            "Patterns and Reuse",
+            "Abstraction: Deciding What Matters"
+          ]
+        },
+        {
+          "name": "Part II - Describing Solutions",
+          "chapters": [
+            "Algorithms You Already Know",
+            "Flowcharts: Drawing Your Thinking",
+            "Pseudocode: Writing Steps That Look Like Code"
+          ]
+        },
+        {
+          "name": "Part III - Checking and Hardening",
+          "chapters": [
+            "Testing Your Thinking Before It Breaks",
+            "Debugging as a Way of Life",
+            "Logic Puzzles and Thinking Games"
+          ]
+        },
+        {
+          "name": "Part IV - From Thinking to Doing",
+          "chapters": [
+            "From Business Mess to Clear Process",
+            "Readiness for Programming"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Programming Fundamentals with Python",
+      "track": "Core computing",
+      "stage": "4",
+      "hours": 70,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - First Contact",
+          "chapters": [
+            "Welcome to Programming: Your First Conversation with a Computer",
+            "Variables: Naming and Storing Information",
+            "Numbers, Text, and Truth",
+            "Asking and Answering: Input and Output"
+          ]
+        },
+        {
+          "name": "Part II - Decisions, Repetition, and Collections",
+          "chapters": [
+            "Making Decisions with If",
+            "Repeating Work with Loops",
+            "Lists: Working with Many Things",
+            "Dictionaries: Labelled Data"
+          ]
+        },
+        {
+          "name": "Part III - Structure and Reliability",
+          "chapters": [
+            "Functions: Reusable Building Blocks",
+            "When Programs Go Wrong: Errors and Debugging",
+            "Working with Files"
+          ]
+        },
+        {
+          "name": "Part IV - Becoming a Programmer",
+          "chapters": [
+            "Good Habits from Day One",
+            "Three Small Complete Programs",
+            "What Comes Next"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Python Programming Through Practical Examples",
+      "track": "Core computing",
+      "stage": "4",
+      "hours": 60,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - The Professional Toolkit",
+          "chapters": [
+            "A Toolkit for Real Programs",
+            "Working with Text and Reports",
+            "CSV Files and Real Data",
+            "JSON: Data That Travels"
+          ]
+        },
+        {
+          "name": "Part II - Automation and the Outside World",
+          "chapters": [
+            "Automating the Boring Things",
+            "Talking to Websites: A First Look at APIs",
+            "Simple Data Storage: JSON and SQLite",
+            "Errors in the Wild: Robust Programs"
+          ]
+        },
+        {
+          "name": "Part III - Real Programs",
+          "chapters": [
+            "Building Tools People Can Use",
+            "Money, Dates, and Time",
+            "Case Study: An Expense Tracker",
+            "Case Study: A Report Generator",
+            "Case Study: A Tiny Web Scraper",
+            "Shipping Your Python"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Data Structures and Algorithms for Beginners",
+      "track": "Core computing",
+      "stage": "5",
+      "hours": 60,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - Foundations",
+          "chapters": [
+            "How Computers Store Data: Bits and Memory",
+            "Measuring Work: Why Speed Matters"
+          ]
+        },
+        {
+          "name": "Part II - The Core Structures",
+          "chapters": [
+            "Arrays and Lists",
+            "Stacks and Queues",
+            "Hash Maps: Finding Things Instantly",
+            "Trees: Data That Branches",
+            "Graphs First Look"
+          ]
+        },
+        {
+          "name": "Part III - The Core Algorithms",
+          "chapters": [
+            "Searching: Linear and Binary",
+            "Sorting: Five Ways to Order the World",
+            "Recursion: Functions That Call Themselves"
+          ]
+        },
+        {
+          "name": "Part IV - Judgement",
+          "chapters": [
+            "Choosing Structures Like an Engineer",
+            "Algorithm Thinking Capstone",
+            "Looking Ahead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Git, GitHub, Linux, and Command-Line Tools",
+      "track": "Core computing",
+      "stage": "6",
+      "hours": 55,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - The Command Line",
+          "chapters": [
+            "The Terminal: Talking Directly to Your Computer",
+            "Files and Folders from the Command Line",
+            "Pipes, Redirection, and Small Powerful Tools",
+            "The Linux Way: Users, Permissions, and Processes",
+            "Editing and Automating"
+          ]
+        },
+        {
+          "name": "Part II - Version Control",
+          "chapters": [
+            "Version Control: Why Every Change Matters",
+            "Git Fundamentals",
+            "Branches and Merging",
+            "Undoing Things Safely"
+          ]
+        },
+        {
+          "name": "Part III - Working with Others",
+          "chapters": [
+            "GitHub: Sharing and Collaborating",
+            "Pull Requests and Code Review First Look",
+            "A Professional Workspace End to End"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "HTML, CSS, and JavaScript from Zero",
+      "track": "Core computing",
+      "stage": "7",
+      "hours": 70,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - Structure",
+          "chapters": [
+            "How the Web Works",
+            "HTML: The Skeleton of Every Page",
+            "HTML That Means Something"
+          ]
+        },
+        {
+          "name": "Part II - Presentation",
+          "chapters": [
+            "CSS: Painting and Shaping the Page",
+            "The Box Model and Page Flow",
+            "Layout: Flexbox and Grid",
+            "Responsive Design: One Page, Every Screen",
+            "Accessibility: Pages Everyone Can Use"
+          ]
+        },
+        {
+          "name": "Part III - Behaviour",
+          "chapters": [
+            "JavaScript: Bringing Pages to Life",
+            "The DOM: Reading and Changing Pages",
+            "Events: Listening to Users",
+            "Fetching Data: APIs and JSON in the Browser"
+          ]
+        },
+        {
+          "name": "Part IV - Shipping",
+          "chapters": [
+            "Build and Publish: Your First Real Website",
+            "Where Frontend Goes Next"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "TypeScript and Modern Frontend Development",
+      "track": "Core computing",
+      "stage": "7",
+      "hours": 60,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - Modern JavaScript and TypeScript",
+          "chapters": [
+            "From JavaScript to TypeScript: Why Types Help",
+            "Basic Types and Annotations",
+            "Functions, Interfaces, and Shaping Data",
+            "Modern JavaScript You Must Know",
+            "Generics and Utility Types First Look"
+          ]
+        },
+        {
+          "name": "Part II - Component Applications",
+          "chapters": [
+            "Components: Thinking in Building Blocks",
+            "A Component Framework, Step by Step",
+            "State and Data Flow",
+            "Forms, Validation, and User Input"
+          ]
+        },
+        {
+          "name": "Part III - A Real Application",
+          "chapters": [
+            "Talking to Backends from a Frontend",
+            "Routing and Application Structure",
+            "Testing the Frontend First Look",
+            "Build and Deploy a Complete Application",
+            "Capstone: A Complete Small Application"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Backend Engineering and REST APIs",
+      "track": "Core computing",
+      "stage": "8",
+      "hours": 75,
+      "chapters": 15,
+      "parts": [
+        {
+          "name": "Part I - Servers and HTTP",
+          "chapters": [
+            "What Servers Do and How They Live",
+            "HTTP: The Grammar of the Web",
+            "REST: Resources, Verbs, and Good Manners",
+            "The Restaurant That Is an API"
+          ]
+        },
+        {
+          "name": "Part II - Building the Service",
+          "chapters": [
+            "Your First API with a Framework",
+            "Reading Requests and Answering Well",
+            "Validation and Honest Errors",
+            "Databases Behind APIs",
+            "Users, Passwords, and Sessions",
+            "Tokens and Simple Authorization"
+          ]
+        },
+        {
+          "name": "Part III - Quality and Delivery",
+          "chapters": [
+            "Testing APIs",
+            "Documenting APIs So People Use Them",
+            "Deploying Your First Service",
+            "Capstone: A Complete Small Product API",
+            "Looking Ahead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Database Fundamentals and PostgreSQL",
+      "track": "Core computing",
+      "stage": "9",
+      "hours": 65,
+      "chapters": 14,
+      "parts": [
+        {
+          "name": "Part I - Relational Thinking",
+          "chapters": [
+            "Why Databases Rule Data",
+            "Tables, Rows, and Keys",
+            "Meet PostgreSQL"
+          ]
+        },
+        {
+          "name": "Part II - SQL in Practice",
+          "chapters": [
+            "SELECT: Asking Questions of Data",
+            "Filtering, Sorting, and Shaping Results",
+            "JOINs: Combining Tables",
+            "Aggregation: GROUP BY and Summaries",
+            "Changing Data: INSERT, UPDATE, DELETE"
+          ]
+        },
+        {
+          "name": "Part III - Design and Safety",
+          "chapters": [
+            "Designing Schemas That Last",
+            "Indexes and Query Performance",
+            "Transactions and Keeping Data Safe",
+            "Views, Roles, and Everyday Administration"
+          ]
+        },
+        {
+          "name": "Part IV - From Python",
+          "chapters": [
+            "Using PostgreSQL from Python",
+            "A Schema Project"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Software Engineering and Software Testing",
+      "track": "Core computing",
+      "stage": "10",
+      "hours": 65,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - Code People Can Live With",
+          "chapters": [
+            "Code That People Can Read",
+            "Structure: Functions, Modules, and Boundaries",
+            "Documentation That Actually Helps"
+          ]
+        },
+        {
+          "name": "Part II - Testing as a Habit",
+          "chapters": [
+            "Why Tests Pay for Themselves",
+            "Unit Testing with pytest",
+            "Testing Edges: Cases You Did Not Consider",
+            "Testing with Dependencies"
+          ]
+        },
+        {
+          "name": "Part III - Keeping Code Healthy",
+          "chapters": [
+            "Debugging Systematically",
+            "Refactoring Without Fear",
+            "Code Review: Giving and Taking"
+          ]
+        },
+        {
+          "name": "Part IV - Team and Automation",
+          "chapters": [
+            "Working in a Team: Workflow and Etiquette",
+            "Continuous Integration First Pass",
+            "Hardening a Real Project"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Computer Networks and Operating Systems",
+      "track": "Core computing",
+      "stage": "11",
+      "hours": 60,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - Networks from the Ground Up",
+          "chapters": [
+            "Networks from the Ground Up",
+            "Addresses, Routers, and DNS",
+            "Ports, Protocols, and Services"
+          ]
+        },
+        {
+          "name": "Part II - Traffic, Trust, and Troubleshooting",
+          "chapters": [
+            "HTTP Revisited: Traffic on the Wire",
+            "TLS and HTTPS: Trust on the Internet",
+            "Diagnosing Networks: A Method and Its Tools",
+            "Firewalls, NAT, and Why Connections Fail",
+            "Webhooks and Integrations"
+          ]
+        },
+        {
+          "name": "Part III - Operating Systems",
+          "chapters": [
+            "What an Operating System Does",
+            "Processes, Threads, and Resources",
+            "Memory, Files, and the Kernel in Plain Words",
+            "Containers Versus Machines: A First Look",
+            "Capstone: A Network Troubleshooting Playbook"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Cloud Computing Fundamentals",
+      "track": "Core computing",
+      "stage": "12",
+      "hours": 60,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Concepts and Safety",
+          "chapters": [
+            "Why the Cloud Changed Everything",
+            "Regions, Availability, and Shared Responsibility",
+            "Accounts, Billing, and Staying Safe"
+          ]
+        },
+        {
+          "name": "Part II - Core Services",
+          "chapters": [
+            "Virtual Machines: Renting a Computer",
+            "Object Storage: Files at Scale",
+            "Managed Databases and Services",
+            "Identity and Access: Who May Do What",
+            "Networking in the Cloud"
+          ]
+        },
+        {
+          "name": "Part III - Running Real Workloads",
+          "chapters": [
+            "Serverless: Functions Without Servers",
+            "Scaling and Cost Thinking",
+            "Deploying a Real Application",
+            "Cleaning Up and Looking Ahead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Docker, DevOps, and Deployment",
+      "track": "Core computing",
+      "stage": "13",
+      "hours": 65,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - From Code to Running Product",
+          "chapters": [
+            "The Journey from Code to Users",
+            "Environments: Dev, Staging, Production",
+            "Configuration and Secrets"
+          ]
+        },
+        {
+          "name": "Part II - Containers",
+          "chapters": [
+            "Containers: The Why",
+            "Docker in Practice",
+            "Docker Compose and Multi-Container Apps",
+            "Registries and Reusable Images"
+          ]
+        },
+        {
+          "name": "Part III - Pipelines and Operations",
+          "chapters": [
+            "CI/CD: Pipelines That Ship",
+            "GitHub Actions from Zero",
+            "Monitoring, Logs, and Knowing When It Breaks",
+            "Alerting and On-Call Basics",
+            "Incidents, Backups, and Recovery",
+            "Capstone: Full Pipeline for a Real Service"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Data Engineering Fundamentals",
+      "track": "Core computing",
+      "stage": "14",
+      "hours": 60,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Data in the Wild",
+          "chapters": [
+            "Where Data Comes From and Where It Goes",
+            "Data Formats: CSV, JSON, and Parquet",
+            "Cleaning Messy Data with pandas"
+          ]
+        },
+        {
+          "name": "Part II - Pipelines",
+          "chapters": [
+            "ETL: Extract, Transform, Load as Code",
+            "Pipelines That Can Be Rerun Safely",
+            "Scheduling and Orchestration"
+          ]
+        },
+        {
+          "name": "Part III - Trust and Delivery",
+          "chapters": [
+            "Analytical SQL and Warehouse Thinking",
+            "Data Quality and Validation",
+            "Privacy and Careful Data Handling",
+            "Dashboards and Reports for Customers",
+            "When Batch Is Not Enough: Streaming First Look",
+            "Capstone: From Messy Export to Trusted Dashboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Artificial Intelligence Fundamentals",
+      "track": "Data and AI",
+      "stage": "15",
+      "hours": 55,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - The Big Picture",
+          "chapters": [
+            "What AI Is and What It Is Not",
+            "Learning from Data: The Central Idea",
+            "The Shape of an ML Problem"
+          ]
+        },
+        {
+          "name": "Part II - First Models",
+          "chapters": [
+            "Your First Models: Regression",
+            "Classification: Deciding Between Choices",
+            "Judging Models Honestly"
+          ]
+        },
+        {
+          "name": "Part III - Discipline",
+          "chapters": [
+            "Overfitting and Underfitting",
+            "Feature Thinking",
+            "When Machine Learning Is the Wrong Tool"
+          ]
+        },
+        {
+          "name": "Part IV - Responsibility and Practice",
+          "chapters": [
+            "Bias, Fairness, and Responsibility",
+            "The Life of an ML Project",
+            "Mini-Project: An End-to-End Model"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Machine Learning from Zero",
+      "track": "Data and AI",
+      "stage": "15",
+      "hours": 65,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Data Before Models",
+          "chapters": [
+            "The Machine Learning Toolbox",
+            "Preparing Data Like a Professional"
+          ]
+        },
+        {
+          "name": "Part II - Model Families",
+          "chapters": [
+            "Linear and Logistic Models in Depth",
+            "Trees and Forests",
+            "Gradient Boosting First Look",
+            "Clustering and Unsupervised Learning"
+          ]
+        },
+        {
+          "name": "Part III - Honest Evaluation",
+          "chapters": [
+            "Evaluation Beyond Accuracy",
+            "Cross-Validation and Honest Testing",
+            "Hyperparameters and Tuning"
+          ]
+        },
+        {
+          "name": "Part IV - Shipping Craft",
+          "chapters": [
+            "Pipelines and Reproducibility",
+            "Explaining Models to Non-Experts",
+            "Mini-Project: A Model With a Report Card"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Deep Learning Fundamentals",
+      "track": "Data and AI",
+      "stage": "16",
+      "hours": 65,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - Networks and Learning",
+          "chapters": [
+            "Neurons, Layers, and Networks in Plain Words",
+            "How Networks Learn",
+            "Training a Network by Hand and by Framework",
+            "Activation Functions and Depth",
+            "Backpropagation Without Tears"
+          ]
+        },
+        {
+          "name": "Part II - Training Discipline",
+          "chapters": [
+            "Training Discipline: Batches, Epochs, and Curves",
+            "Overfitting, Regularisation, and Patience",
+            "Data for Deep Learning"
+          ]
+        },
+        {
+          "name": "Part III - Families and Judgement",
+          "chapters": [
+            "Images and Convolutional Networks First Look",
+            "Text and Embeddings First Look",
+            "Hardware: CPUs, GPUs, and What They Cost",
+            "When Deep Learning Is Worth It",
+            "Mini-Project: A Small Network Trained Honestly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Generative AI and Large Language Models",
+      "track": "Data and AI",
+      "stage": "16",
+      "hours": 60,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - How the Models Work",
+          "chapters": [
+            "Generative AI: From Prediction to Creation",
+            "Inside an LLM: Tokens, Attention in Plain Words, Training at a Glance",
+            "Context Windows, Prompts, and Instructions"
+          ]
+        },
+        {
+          "name": "Part II - Working with Models",
+          "chapters": [
+            "Prompt Design Patterns",
+            "Structured Output and Reliability",
+            "LLM APIs in Practice",
+            "Costs, Latency, and Model Choice"
+          ]
+        },
+        {
+          "name": "Part III - Safety and Evaluation",
+          "chapters": [
+            "Prompt Injection and LLM Safety Basics",
+            "Evaluating Generative Output",
+            "Fine-Tuning and Adaptation First Look",
+            "Multimodal Models First Look",
+            "Mini-Project: A Careful Assistant Feature"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Embeddings, Vector Databases, and RAG",
+      "track": "Data and AI",
+      "stage": "16",
+      "hours": 55,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Meaning as Numbers",
+          "chapters": [
+            "Embeddings: What They Are and Why They Matter",
+            "Similarity and Distance",
+            "Embedding Models in Practice"
+          ]
+        },
+        {
+          "name": "Part II - Storing and Searching",
+          "chapters": [
+            "Vector Databases: Why and Which",
+            "Vector Search with PostgreSQL",
+            "Chunking Documents Well",
+            "Retrieval Pipelines That Work"
+          ]
+        },
+        {
+          "name": "Part III - Grounded Answers",
+          "chapters": [
+            "RAG: Grounding Answers in Your Documents",
+            "Citations, Honesty, and Failure Modes",
+            "Evaluating RAG Systems",
+            "Hybrid Search and Reranking First Look",
+            "Capstone: A Document Assistant with Receipts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "AI Agents and Tool Integration",
+      "track": "Data and AI",
+      "stage": "16",
+      "hours": 55,
+      "chapters": 11,
+      "parts": [
+        {
+          "name": "Part I - The Agent Model",
+          "chapters": [
+            "What an Agent Actually Is",
+            "Function Calling: Letting Models Act",
+            "Reasoning and Acting Loops"
+          ]
+        },
+        {
+          "name": "Part II - Tools and Memory",
+          "chapters": [
+            "Tools: Search, Code, Databases, and APIs",
+            "Memory: Short-Term and Long-Term",
+            "Multi-Step Tasks and Reliability"
+          ]
+        },
+        {
+          "name": "Part III - Control and Proof",
+          "chapters": [
+            "Guardrails and Permissioning",
+            "Evaluating Agents",
+            "Cost and Latency Engineering",
+            "When Not to Build an Agent",
+            "Capstone: An Agent That Does a Real Job"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "Building and Evaluating Production AI Systems",
+      "track": "Data and AI",
+      "stage": "16",
+      "hours": 60,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - From Demo to Product",
+          "chapters": [
+            "From Demo to Product: What Changes",
+            "Reference Architectures for AI Features",
+            "Designing for Failure: Fallbacks and Graceful Degradation"
+          ]
+        },
+        {
+          "name": "Part II - Evaluation as Engineering",
+          "chapters": [
+            "Evaluation: Offline, Online, and Human",
+            "Building an Eval Set That Matters",
+            "Regression Testing for Prompts and Models"
+          ]
+        },
+        {
+          "name": "Part III - Operating the System",
+          "chapters": [
+            "Monitoring AI Features in Production",
+            "Caching, Routing, and Cost Control",
+            "Latency Engineering and Streaming",
+            "A/B Thinking for AI Features",
+            "Incident Response for AI Behaviour",
+            "Capstone: Ship and Operate an AI Feature"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "Security, Privacy, and Responsible AI Engineering",
+      "track": "Data and AI",
+      "stage": "16-17 (cross-cutting)",
+      "hours": 50,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Security Foundations",
+          "chapters": [
+            "Security Thinking: Attackers, Assets, and Trust",
+            "Web Security Essentials",
+            "Authentication and Authorization Done Right",
+            "Secrets, Keys, and Credential Hygiene"
+          ]
+        },
+        {
+          "name": "Part II - Data and Privacy",
+          "chapters": [
+            "Data Privacy Fundamentals",
+            "Privacy Duties in Plain Words",
+            "Security for AI Systems",
+            "Abuse, Misuse, and Rate Discipline"
+          ]
+        },
+        {
+          "name": "Part III - Responsibility",
+          "chapters": [
+            "Responsible AI: Fairness, Transparency, and Oversight",
+            "Documentation and Model Cards",
+            "Threat Modelling a Small System",
+            "Capstone: A Security and Privacy Review"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "Business Problem Solving for FDEs",
+      "track": "FDE craft",
+      "stage": "17",
+      "hours": 50,
+      "chapters": 11,
+      "parts": [
+        {
+          "name": "Part I - Understanding the Business",
+          "chapters": [
+            "How Businesses Create Value",
+            "Metrics That Matter",
+            "Processes: How Work Actually Flows"
+          ]
+        },
+        {
+          "name": "Part II - Problem Shaping",
+          "chapters": [
+            "From Vague Pain to Clear Problem Statements",
+            "Decomposing Business Problems",
+            "Root Cause Thinking"
+          ]
+        },
+        {
+          "name": "Part III - Shaping Solutions",
+          "chapters": [
+            "Solution Options and Trade-offs",
+            "Business Cases: Costs, Benefits, and Honest Numbers",
+            "Prioritisation: Doing the Right Next Thing",
+            "Proposals People Say Yes To",
+            "Capstone: Problem-to-Proposal Package"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "title": "Customer Communication and Technical Discovery",
+      "track": "FDE craft",
+      "stage": "17",
+      "hours": 50,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Listening and Discovery",
+          "chapters": [
+            "The FDE in the Room: Role and Mindset",
+            "Listening: Interviews That Surface Truth",
+            "Asking Questions That Get Real Answers",
+            "Discovery Workshops and Stakeholders",
+            "Writing Findings Back: The Discovery Report"
+          ]
+        },
+        {
+          "name": "Part II - Committing Honestly",
+          "chapters": [
+            "Scoping: From Findings to an Agreed Plan",
+            "Estimates and Their Assumptions",
+            "Saying No Kindly"
+          ]
+        },
+        {
+          "name": "Part III - Through the Project",
+          "chapters": [
+            "Status Updates, Bad News, and Trust",
+            "Demos That Land",
+            "Training and Handover",
+            "Capstone: A Full Simulated Engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "title": "FDE System Design and Architecture",
+      "track": "FDE craft",
+      "stage": "17",
+      "hours": 55,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Design Foundations",
+          "chapters": [
+            "What System Design Means for Deployed Work",
+            "Requirements Before Diagrams",
+            "Architecture Patterns You Will Actually Use"
+          ]
+        },
+        {
+          "name": "Part II - Connecting Systems",
+          "chapters": [
+            "Designing Integrations Between Systems",
+            "Data Models for Customer Systems",
+            "APIs as Contracts: Versioning and Stability",
+            "Designing for Failure"
+          ]
+        },
+        {
+          "name": "Part III - Deployment Realities and the Document",
+          "chapters": [
+            "Multi-Tenancy and Customer Environments",
+            "Capacity, Cost, and Performance Budgets",
+            "Migration and Rollout Planning",
+            "Writing the Design Document",
+            "Capstone: A Complete Design Document"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "title": "Real-World FDE Engineering Projects",
+      "track": "FDE craft",
+      "stage": "18",
+      "hours": 70,
+      "chapters": 13,
+      "parts": [
+        {
+          "name": "Part I - Choosing and Planning",
+          "chapters": [
+            "How to Choose and Scope a Capstone",
+            "Project One Brief: The Customer Data Dashboard",
+            "Project One Build Sessions"
+          ]
+        },
+        {
+          "name": "Part II - The Assistant Project",
+          "chapters": [
+            "Project Two Brief: The Document Assistant",
+            "Project Two Build Sessions",
+            "Project Two Review and Handover"
+          ]
+        },
+        {
+          "name": "Part III - The Product Project",
+          "chapters": [
+            "Project Three Brief: The Deployed Product",
+            "Project Three Build Sessions",
+            "Working Through Change"
+          ]
+        },
+        {
+          "name": "Part IV - Evidence",
+          "chapters": [
+            "Testing, Documentation, and Handover",
+            "The Project Retrospective",
+            "Turning Projects into Case Studies",
+            "Portfolio Assembly and Presentation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "title": "FDE Interview and Career Preparation",
+      "track": "FDE craft",
+      "stage": "18",
+      "hours": 45,
+      "chapters": 12,
+      "parts": [
+        {
+          "name": "Part I - Positioning",
+          "chapters": [
+            "The FDE Job Market: Roles, Titles, and Honest Expectations",
+            "Telling Your Story: Resume and Profile",
+            "Portfolios That Get Read"
+          ]
+        },
+        {
+          "name": "Part II - Interviews",
+          "chapters": [
+            "Finding Openings and Applying Well",
+            "Technical Interviews: Coding Under Pressure",
+            "Technical Interviews: System and Integration Questions",
+            "The Take-Home Assignment",
+            "Behavioural Interviews: Evidence Over Adjectives",
+            "Customer Scenarios and Role-Plays"
+          ]
+        },
+        {
+          "name": "Part III - Deciding and Growing",
+          "chapters": [
+            "Offers, Negotiation Basics, and Deciding Well",
+            "Your First Ninety Days and Continuing Growth",
+            "The Programme Ends, the Evidence Remains"
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "MA-1",
+      "first": "Nothing; the programme's entry point",
+      "parallel": "Book 1 and Book 2 from day one",
+      "next": "MA-2, and every later book",
+      "why": "Reads and checks the business numbers every engagement produces, from margins to conversion rates"
+    },
+    {
+      "id": "MA-2",
+      "first": "MA-1",
+      "parallel": "Book 3 and Book 4; the parallel-track rule starts here",
+      "next": "MA-3, Book 5, Book 9",
+      "why": "Equations, graphs, and logic underpin conditions in code, sizing arguments, and chart reading"
+    },
+    {
+      "id": "MA-3",
+      "first": "MA-2",
+      "parallel": "Any book from Book 6 onward; finish before Book 16",
+      "next": "Books 16 to 23, and optionally MA-X",
+      "why": "The AI track gate: honest metrics, probability, and the vectors that embeddings and models are made of"
+    },
+    {
+      "id": "MA-X",
+      "first": "MA-3 (or MA-2 with MA-3 in progress)",
+      "parallel": "Book 18",
+      "next": "Deep dives inside Books 18 and 22",
+      "why": "Optional specialisation: how models actually train, for engineers who must explain learning itself"
+    },
+    {
+      "id": "1",
+      "first": "Nothing",
+      "parallel": "MA-1 and MA-2",
+      "next": "Book 2, Book 6",
+      "why": "A forward deployed engineer lives on customer machines; tool control is the entry fee"
+    },
+    {
+      "id": "2",
+      "first": "Book 1 helpful, not required",
+      "parallel": "MA-1, Book 3 possible after Chapter one",
+      "next": "Book 3",
+      "why": "Problem decomposition and precise steps are the daily habit behind every integration and fix"
+    },
+    {
+      "id": "3",
+      "first": "Book 2 strongly recommended",
+      "parallel": "MA-1 essentials then MA-2; no advanced maths needed",
+      "next": "Book 4, Book 5",
+      "why": "Python is the programme's working language and the FDE's default automation and data tool"
+    },
+    {
+      "id": "4",
+      "first": "Book 3",
+      "parallel": "Book 5, Book 6",
+      "next": "Book 9, Book 15",
+      "why": "Turns programming into working tools: files, APIs, reports; the bread-and-butter of deployed work"
+    },
+    {
+      "id": "5",
+      "first": "Book 3",
+      "parallel": "Book 4, MA-2",
+      "next": "Books 9, 10, 17, and Book 28 interviews",
+      "why": "Judging performance and choosing structures; also the base of technical interview practice"
+    },
+    {
+      "id": "6",
+      "first": "Book 1, Book 3 recommended",
+      "parallel": "Book 4, Book 5",
+      "next": "Book 13, Book 14",
+      "why": "The professional environment: without Git and the command line, nothing later can be done properly"
+    },
+    {
+      "id": "7",
+      "first": "Book 1, Book 2",
+      "parallel": "Books 3 to 6",
+      "next": "Book 8, Book 9",
+      "why": "Customer-facing tools and dashboards start as pages; the web's mechanics repeat throughout the role"
+    },
+    {
+      "id": "8",
+      "first": "Book 7",
+      "parallel": "Book 9",
+      "next": "Book 22 for AI-feature frontends",
+      "why": "Product-grade frontend craft that makes demos land and internal tools survive real users"
+    },
+    {
+      "id": "9",
+      "first": "Book 3 or 4, Book 7",
+      "parallel": "Book 8; Book 10 from its early chapters",
+      "next": "Books 10, 11, 13, 19",
+      "why": "APIs are the daily bread of deployed engineering; most integrations live or die here"
+    },
+    {
+      "id": "10",
+      "first": "Book 3 or 4",
+      "parallel": "Book 9",
+      "next": "Book 15, Book 20",
+      "why": "Customer data lives in databases; SQL fluency is the fastest way to be useful in week one"
+    },
+    {
+      "id": "11",
+      "first": "Book 3, Book 6",
+      "parallel": "Book 9, Book 10",
+      "next": "Book 14",
+      "why": "Tests, review, and documentation are what make handover to customers and teams survivable"
+    },
+    {
+      "id": "12",
+      "first": "Book 1, Book 6; Book 9 helpful",
+      "parallel": "Book 13",
+      "next": "Book 14",
+      "why": "Diagnosing connectivity and process failures turns panic into a checklist during escalations"
+    },
+    {
+      "id": "13",
+      "first": "Book 6, Book 9",
+      "parallel": "Book 12",
+      "next": "Book 14",
+      "why": "Deployment lives in the cloud; cost and access discipline prevent expensive accidents"
+    },
+    {
+      "id": "14",
+      "first": "Book 11, Book 13",
+      "parallel": "Book 22 later",
+      "next": "Book 22, Book 27",
+      "why": "Shipping repeatedly and safely is what separates production systems from laptop demos"
+    },
+    {
+      "id": "15",
+      "first": "Book 4, Book 10",
+      "parallel": "Book 16 and MA-3",
+      "next": "Book 24 dashboards, Book 27 project one",
+      "why": "Messy customer data is the opening move of nearly every engagement; pipelines make it trusted"
+    },
+    {
+      "id": "16",
+      "first": "Book 4, MA-3 (track gate)",
+      "parallel": "Book 15",
+      "next": "Book 17",
+      "why": "Lets the FDE answer AI questions honestly: what is possible, what is not, and how to tell afterwards"
+    },
+    {
+      "id": "17",
+      "first": "Book 16",
+      "parallel": "Book 18's start",
+      "next": "Book 18, Book 27 project two",
+      "why": "Classical ML craft with honest evaluation; the base for models a customer can trust"
+    },
+    {
+      "id": "18",
+      "first": "Books 16 and 17; MA-X recommended",
+      "parallel": "Book 19",
+      "next": "Deeper understanding inside Books 19 to 22",
+      "why": "Modern AI literacy: enough depth to judge, budget, and explain deep learning systems"
+    },
+    {
+      "id": "19",
+      "first": "Book 9, Book 16",
+      "parallel": "Book 18",
+      "next": "Book 20, Book 21",
+      "why": "LLM features are what customers now ask for first; this is the toolkit to build them safely"
+    },
+    {
+      "id": "20",
+      "first": "Books 10 and 19",
+      "parallel": "Book 21",
+      "next": "Book 21, Book 22",
+      "why": "Document-heavy customer work is dominated by retrieval; grounded, cited answers win trust"
+    },
+    {
+      "id": "21",
+      "first": "Book 19, Book 20 helpful",
+      "parallel": "Book 22",
+      "next": "Book 22, Book 27",
+      "why": "Agents automate real back-office jobs when built with guardrails; restraint is the skill"
+    },
+    {
+      "id": "22",
+      "first": "Books 19 to 21, Book 14",
+      "parallel": "Book 23 (finish before its capstone)",
+      "next": "Book 27",
+      "why": "The demo-to-production discipline: evaluation, monitoring, cost, and incident response for AI"
+    },
+    {
+      "id": "23",
+      "first": "Book 9, Book 13 basics; Book 19 for AI chapters",
+      "parallel": "Books 19 to 22",
+      "next": "Book 22 capstone, Book 27",
+      "why": "Trust and compliance are engineering deliverables; security failures end customer relationships"
+    },
+    {
+      "id": "24",
+      "first": "Nothing strictly; Books 9 and 15 recommended",
+      "parallel": "Any time from the final phase",
+      "next": "Book 25",
+      "why": "Translates business pain into problems software can solve; the FDE's sharpest differentiator"
+    },
+    {
+      "id": "25",
+      "first": "Book 24 helpful",
+      "parallel": "Book 26",
+      "next": "Book 27, Book 28 interviews",
+      "why": "The human craft: discovery, scoping, updates, and demos decide engagements as much as code"
+    },
+    {
+      "id": "26",
+      "first": "Books 9, 10, 13, 14",
+      "parallel": "Book 25",
+      "next": "Book 27",
+      "why": "Design documents and integration architecture are how deployed work scales beyond one engineer"
+    },
+    {
+      "id": "27",
+      "first": "Books 22, 23, 25, 26; the full core",
+      "parallel": "Book 28",
+      "next": "Book 28 and the job market",
+      "why": "Three real capstones convert knowledge into a portfolio a hiring manager can inspect"
+    },
+    {
+      "id": "28",
+      "first": "Book 27 in progress",
+      "parallel": "Book 27",
+      "next": "Employment and continued growth",
+      "why": "Makes the programme's evidence legible to employers and interviews deliberate, without promising outcomes"
+    }
+  ],
+  "periods": [
+    {
+      "n": 1,
+      "books": [
+        "MA-1 (45 h)",
+        "Book 1 (40 h)",
+        "Book 2 (40 h)"
+      ],
+      "hours": 125,
+      "milestone": "Gate A1: computer comfort, everyday maths, and precise problem-solving habits"
+    },
+    {
+      "n": 2,
+      "books": [
+        "MA-2 (50 h)",
+        "Book 3 (70 h)"
+      ],
+      "hours": 120,
+      "milestone": "Gate A2: first complete Python programs; algebra and logic in place"
+    },
+    {
+      "n": 3,
+      "books": [
+        "Book 4 (60 h)",
+        "Book 5 (60 h)"
+      ],
+      "hours": 120,
+      "milestone": "Gate B1: real-world Python tools plus algorithmic judgement"
+    },
+    {
+      "n": 4,
+      "books": [
+        "Book 6 (55 h)",
+        "Book 7 (70 h)"
+      ],
+      "hours": 125,
+      "milestone": "Gate B2: professional Git workflow and a published website"
+    },
+    {
+      "n": 5,
+      "books": [
+        "Book 8 (60 h)",
+        "Book 9 (75 h)"
+      ],
+      "hours": 135,
+      "milestone": "Gate B3: modern frontend and a tested, documented, deployed API"
+    },
+    {
+      "n": 6,
+      "books": [
+        "Book 10 (65 h)",
+        "MA-3 (55 h)"
+      ],
+      "hours": 120,
+      "milestone": "Gate B4: SQL fluency; the AI-track mathematics gate is open"
+    },
+    {
+      "n": 7,
+      "books": [
+        "Book 11 (65 h)",
+        "Book 12 (60 h)"
+      ],
+      "hours": 125,
+      "milestone": "Gate B5: hardened code with CI; network diagnosis method"
+    },
+    {
+      "n": 8,
+      "books": [
+        "Book 13 (60 h)",
+        "Book 14 (65 h)"
+      ],
+      "hours": 125,
+      "milestone": "Gate B6: cloud-deployed service with a full delivery pipeline"
+    },
+    {
+      "n": 9,
+      "books": [
+        "Book 15 (60 h)",
+        "Book 16 (55 h)"
+      ],
+      "hours": 115,
+      "milestone": "Gate C1: trusted data pipelines and honest first models"
+    },
+    {
+      "n": 10,
+      "books": [
+        "Book 17 (65 h)",
+        "Book 18 (65 h)",
+        "MA-X optional (30 h)"
+      ],
+      "hours": 130,
+      "milestone": "Gate C2: practitioner ML and training discipline (+optional calculus)"
+    },
+    {
+      "n": 11,
+      "books": [
+        "Book 19 (60 h)",
+        "Book 20 (55 h)"
+      ],
+      "hours": 115,
+      "milestone": "Gate C3: LLM features and a cited, grounded RAG assistant"
+    },
+    {
+      "n": 12,
+      "books": [
+        "Book 21 (55 h)",
+        "Book 23 (50 h)"
+      ],
+      "hours": 105,
+      "milestone": "Gate C4: guarded agents; security and privacy review passed"
+    },
+    {
+      "n": 13,
+      "books": [
+        "Book 22 (60 h)",
+        "Book 24 (50 h)"
+      ],
+      "hours": 110,
+      "milestone": "Gate C5: an operated production AI feature; business framing"
+    },
+    {
+      "n": 14,
+      "books": [
+        "Book 25 (50 h)",
+        "Book 26 (55 h)"
+      ],
+      "hours": 105,
+      "milestone": "Gate C6: simulated engagement delivered; design document defended"
+    },
+    {
+      "n": 15,
+      "books": [
+        "Book 27 (70 h)",
+        "Book 28 (45 h)"
+      ],
+      "hours": 115,
+      "milestone": "Final gate: three capstones, portfolio, and application pack complete"
+    }
+  ],
+  "routes": [
+    {
+      "name": "Focused full-time",
+      "pace": "About 30 study hours per week, one period every four weeks",
+      "duration": "Roughly 12 to 15 months",
+      "note": "The sequence table's default reading; review weeks absorbed into each period's project time"
+    },
+    {
+      "name": "Steady part-time",
+      "pace": "About 15 study hours per week, one period every eight weeks",
+      "duration": "Roughly 24 to 30 months",
+      "note": "Same order, halved pace; keep the review queue alive between periods"
+    },
+    {
+      "name": "Fast-start variant",
+      "pace": "As chosen route, with one change",
+      "duration": "Same duration",
+      "note": "Learners eager for code may move Book 3 alongside MA-1 in Period 1 and shift Book 2 into Period 2; the parallel-track rule allows it because Book 3 needs no advanced mathematics"
+    }
+  ]
+}

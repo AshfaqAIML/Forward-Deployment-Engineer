@@ -1,0 +1,145 @@
+date,region,product,units,unit_price,discount_pct,channel
+2026-02-01,north,Loaf Bread,16,3.5,0,Store
+2026-02-01,NORTH,Croissant,6,4.25,20,app
+2026-02-01,north,Cinnamon Roll,6,3.75,0,store
+2026-02-01,WEST,Croissant,2,4.25,20,app
+2026-02-01,WEST,Croissant,15,4.25,10,Online
+2026-02-02,SOUTH,Bagel,11,2.5,10,store
+2026-02-02,SOUTH,Sourdough,14,6.0,0,online
+2026-02-02,NORTH,Loaf Bread,7,3.5,0,Online
+2026-02-02,West,Sourdough,3,6.0,10,Store
+2026-02-02,NORTH,Bagel,6,2.5,20,Online
+2026-02-03,West,Sourdough,37,6.0,0,Store
+2026-13-05,north,Loaf Bread,19,3.5,0,online
+2026-02-03,NORTH,Croissant,,4.25,10,Online
+2026-02-03,North,Sourdough,23,6.0,0,Store
+2026-02-03,NORTH,Sourdough,11,6.0,20,app
+2026-02-04,North,Croissant,25,4.25,0,Online
+2026-02-04,South,Bagel,4,2.5,0,Store
+2026-02-04,south,Loaf Bread,18,3.5,0,Online
+2026-02-04,West,Croissant,,4.25,10,Store
+2026-02-04,east,Cinnamon Roll,17,3.75,0,online
+2026-02-05,WEST,Croissant,17,4.25,20,app
+2026-02-05,West,Cinnamon Roll,24,3.75,0,Online
+2026-02-05,WEST,Croissant,6,4.25,0,Online
+2026-02-05,North,Loaf Bread,28,3.5,20,online
+2026-02-05,East,Loaf Bread,39,3.5,10,Online
+2026-02-06,SOUTH,Bagel,1,2.5,0,app
+2026-02-06,SOUTH,Bagel,8,2.5,0,Store
+2026-02-06,North,Cinnamon Roll,1,3.75,0,Online
+2026-02-06,North,Bagel,7,2.5,0,app
+2026-13-05,West,Bagel,10,2.5,0,online
+2026-02-07,WEST,Croissant,1,4.25,20,app
+2026-02-07,east,Sourdough,8,6.0,0,store
+2026-02-07,South,Sourdough,16,6.0,20,store
+2026-02-07,NORTH,Loaf Bread,5,3.5,20,Online
+2026-02-07,North,Croissant,36,4.25,0,Online
+2026-02-08,WEST,Sourdough,28,6.0,0,app
+2026-02-08,South,Bagel,26,2.5,0,Store
+2026-02-08,WEST,Cinnamon Roll,8,3.75,0,Online
+2026-02-08,NORTH,Croissant,,4.25,20,Store
+2026-02-08,South,Bagel,15,2.5,0,app
+2026-02-09,north,Loaf Bread,5,3.5,0,online
+2026-02-09,NORTH,Sourdough,16,6.0,0,app
+2026-02-09,South,Cinnamon Roll,9,3.75,20,app
+2026-02-09,east,Bagel,31,2.5,10,online
+2026-02-09,NORTH,Croissant,28,4.25,0,store
+2026-02-10,East,Cinnamon Roll,4,3.75,0,Online
+2026-02-10,East,Loaf Bread,7,3.5,0,Store
+2026-02-10,South,Croissant,29,4.25,0,app
+2026-02-10,North,Cinnamon Roll,30,3.75,0,Store
+2026-02-10,east,Loaf Bread,7,3.5,0,app
+2026-02-11,north,Bagel,16,2.5,0,store
+2026-02-11,east,Cinnamon Roll,14,3.75,10,Online
+2026-02-11,North,Loaf Bread,1,3.5,10,Online
+2026-02-11,east,Sourdough,28,6.0,20,Store
+2026-02-11,North,Cinnamon Roll,19,3.75,0,online
+2026-02-12,West,Loaf Bread,4,3.5,0,app
+2026-02-12,north,Loaf Bread,31,3.5,20,app
+2026-02-12,North,Bagel,33,2.5,0,store
+2026-02-12,NORTH,Croissant,5,4.25,0,app
+2026-02-12,NORTH,Cinnamon Roll,16,3.75,20,app
+2026-02-13,north,Bagel,6,2.5,10,app
+2026-02-13,West,Bagel,21,2.5,0,app
+2026-02-13,south,Croissant,17,4.25,10,online
+2026-02-13,SOUTH,Croissant,21,4.25,0,Online
+2026-02-13,east,Loaf Bread,37,3.5,0,app
+2026-02-14,WEST,Loaf Bread,33,3.5,0,online
+2026-02-14,south,Croissant,16,4.25,0,store
+2026-02-14,North,Sourdough,35,6.0,0,Online
+2026-02-14,WEST,Bagel,36,2.5,0,store
+2026-02-14,North,Loaf Bread,8,3.5,0,Store
+2026-02-15,North,Bagel,19,2.5,20,Store
+2026-02-15,south,Croissant,17,4.25,20,online
+2026-02-15,SOUTH,Cinnamon Roll,6,3.75,10,store
+2026-02-15,north,Sourdough,22,6.0,0,store
+2026-02-15,North,Sourdough,36,6.0,10,Online
+2026-02-16,north,Bagel,5,2.5,0,store
+2026-02-16,north,Bagel,38,2.5,20,Store
+2026-02-16,East,Croissant,3,4.25,0,online
+2026-02-16,north,Sourdough,14,6.0,0,Store
+2026-02-16,south,Loaf Bread,27,3.5,20,app
+2026-02-17,South,Croissant,12,4.25,10,online
+2026-02-17,North,Loaf Bread,27,3.5,0,Store
+2026-02-17,North,Sourdough,,6.0,0,store
+2026-02-17,South,Cinnamon Roll,30,3.75,0,online
+2026-02-17,South,Sourdough,2,6.0,0,online
+2026-02-18,south,Cinnamon Roll,5,3.75,0,Store
+2026-02-18,WEST,Sourdough,35,6.0,0,Online
+2026-02-18,NORTH,Loaf Bread,12,3.5,20,Store
+2026-02-18,north,Sourdough,39,6.0,10,store
+2026-02-18,south,Sourdough,39,6.0,20,Online
+2026-02-19,East,Loaf Bread,13,3.5,0,app
+2026-02-19,East,Loaf Bread,34,3.5,20,store
+2026-02-19,south,Croissant,5,4.25,0,Online
+2026-02-19,south,Bagel,20,2.5,20,store
+2026-02-19,East,Sourdough,26,6.0,0,Store
+2026-02-20,North,Bagel,27,2.5,10,online
+2026-02-20,West,Croissant,20,4.25,10,app
+2026-02-20,north,Bagel,19,2.5,0,Store
+2026-02-20,West,Cinnamon Roll,21,3.75,10,app
+2026-02-20,east,Cinnamon Roll,33,3.75,10,online
+2026-02-21,NORTH,Croissant,33,4.25,20,Store
+2026-02-21,NORTH,Sourdough,,6.0,0,online
+2026-02-21,North,Croissant,3,4.25,0,store
+2026-02-21,West,Cinnamon Roll,30,3.75,10,store
+2026-02-21,South,Bagel,32,2.5,10,Online
+2026-02-22,North,Croissant,7,4.25,10,store
+2026-02-22,North,Croissant,30,4.25,0,app
+2026-02-22,South,Bagel,30,2.5,0,store
+2026-02-22,WEST,Cinnamon Roll,39,3.75,0,app
+2026-02-22,West,Cinnamon Roll,28,3.75,20,app
+2026-02-23,North,Cinnamon Roll,29,3.75,0,Online
+2026-02-23,SOUTH,Croissant,32,4.25,0,app
+2026-02-23,east,Sourdough,19,6.0,0,store
+2026-02-23,south,Sourdough,35,6.0,0,Store
+2026-02-23,North,Croissant,25,4.25,0,online
+2026-02-24,NORTH,Croissant,27,4.25,0,Online
+2026-02-24,east,Bagel,4,2.5,0,Online
+2026-02-24,East,Cinnamon Roll,2,3.75,20,app
+2026-02-24,east,Cinnamon Roll,23,3.75,0,store
+2026-02-24,East,Cinnamon Roll,35,3.75,20,app
+2026-02-25,east,Croissant,18,4.25,10,online
+2026-02-25,north,Cinnamon Roll,22,3.75,10,Online
+2026-02-25,east,Croissant,40,4.25,20,online
+2026-02-25,East,Loaf Bread,37,3.5,0,app
+2026-02-25,East,Loaf Bread,30,3.5,0,online
+2026-02-26,SOUTH,Loaf Bread,21,3.5,0,Online
+2026-02-26,south,Cinnamon Roll,25,3.75,0,Store
+2026-02-26,SOUTH,Cinnamon Roll,31,3.75,0,store
+2026-02-26,north,Bagel,15,2.5,0,Store
+2026-02-26,north,Loaf Bread,13,3.5,0,online
+2026-02-27,North,Bagel,9,2.5,10,online
+2026-02-27,West,Loaf Bread,30,3.5,0,online
+2026-02-27,North,Sourdough,39,6.0,0,app
+2026-02-27,SOUTH,Croissant,38,4.25,0,store
+2026-02-27,West,Sourdough,26,6.0,0,Online
+2026-02-28,West,Loaf Bread,7,3.5,0,online
+2026-02-28,NORTH,Bagel,3,2.5,0,app
+2026-02-28,East,Bagel,,2.5,20,Store
+2026-02-28,north,Sourdough,32,6.0,0,Online
+2026-02-28,south,Cinnamon Roll,10,3.75,10,Online
+2026-02-05,East,Loaf Bread,39,3.5,10,Online
+2026-02-19,south,Bagel,20,2.5,20,store
+2026-02-03,NORTH,Sourdough,11,6.0,20,app
+2026-02-26,north,Loaf Bread,13,3.5,0,online

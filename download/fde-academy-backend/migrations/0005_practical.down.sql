@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS lab_submissions;
+DROP TABLE IF EXISTS evaluation_results;
+DROP TABLE IF EXISTS project_submissions;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS exercise_solutions;
+DROP TABLE IF EXISTS exercise_hints;
+DROP TABLE IF EXISTS math_exercises;
+DROP TABLE IF EXISTS coding_exercises;
+DROP TYPE IF EXISTS submission_status;
+DROP TYPE IF EXISTS exercise_owner;

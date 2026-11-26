@@ -1,0 +1,6 @@
+MEMO 004 - Document Retention Schedule
+Matter documents are retained for seven years after matter closure, then
+reviewed. Documents flagged litigation-hold are excluded from destruction
+until the hold is released. Client original documents are returned on
+request; scanned copies remain in the archive. Destruction requires two
+authorised signatures and an entry in the destruction register.
