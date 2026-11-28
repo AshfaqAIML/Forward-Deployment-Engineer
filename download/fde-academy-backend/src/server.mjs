@@ -1,5 +1,11 @@
 import { buildApp } from "./server.js";
 
-const { server } = await buildApp();
+let app = null;
 
-export default server;
+export default async (req, res) => {
+  if (!app) {
+    const { server } = await buildApp();
+    app = server;
+  }
+  app.emit("request", req, res);
+};
